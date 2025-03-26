@@ -6,6 +6,8 @@ import Home from './components/Home';
 import About from './components/About';
 import Enquire from './components/Enquire';
 import Footer from './components/Footer';
+import NewsletterPopup from './components/NewsletterPopup'; // Import the NewsletterPopup
+import AIChatbot from './components/AIChatbot';
 
 // You'll need to create these additional components
 import Safaris from './components/Safaris';
@@ -22,6 +24,8 @@ function App() {
     <Router>
       <div className="App">
         <Navbar />
+        <NewsletterPopup /> {/* Add the NewsletterPopup here */}
+        <AIChatbot />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
