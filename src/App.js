@@ -8,6 +8,7 @@ import Enquire from './components/Enquire';
 import Footer from './components/Footer';
 import NewsletterPopup from './components/NewsletterPopup'; // Import the NewsletterPopup
 import AIChatbot from './components/AIChatbot';
+import PostDetails from './components/PostDetails';
 
 // You'll need to create these additional components
 import Safaris from './components/Safaris';
@@ -38,6 +39,7 @@ function App() {
           <Route path="/car-hire" element={<CarHire />} />
           <Route path="/hotel-booking" element={<HotelBooking />} />
           <Route path="/blog" element={<Blog />} />
+          <Route path="/blog/:id" element={<PostDetails />} />
         </Routes>
         <Footer />
       </div>
