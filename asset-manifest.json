@@ -1,0 +1,18 @@
+{
+  "files": {
+    "main.css": "/jambohouse/static/css/main.c139975d.css",
+    "main.js": "/jambohouse/static/js/main.cf232281.js",
+    "static/js/453.1325bb4c.chunk.js": "/jambohouse/static/js/453.1325bb4c.chunk.js",
+    "static/media/elephant.jpg": "/jambohouse/static/media/elephant.c9fac97d8b0f29f6170d.jpg",
+    "static/media/rhino.jpg": "/jambohouse/static/media/rhino.738e2903f6637dc7eba3.jpg",
+    "static/media/marasunset.jpg": "/jambohouse/static/media/marasunset.70ed7e24fd7cee98c158.jpg",
+    "index.html": "/jambohouse/index.html",
+    "main.c139975d.css.map": "/jambohouse/static/css/main.c139975d.css.map",
+    "main.cf232281.js.map": "/jambohouse/static/js/main.cf232281.js.map",
+    "453.1325bb4c.chunk.js.map": "/jambohouse/static/js/453.1325bb4c.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.c139975d.css",
+    "static/js/main.cf232281.js"
+  ]
+}
