@@ -809,78 +809,25 @@ const PriceList = () => {
   };
 
   const filteredPackages = pricingData[activeTab]
-    .filter(pkg => {
-      // Filter by search term
-      if (searchTerm && !pkg.name.toLowerCase().includes(searchTerm.toLowerCase())) {
-        return false;
-      }
-      
-      // Filter by price range
-      let minPrice, maxPrice;
-      if (activeTab === 'kilimanjaro') {
-        minPrice = Math.min(
-          pkg.seasonality.privateClimb.price['6day'],
-          pkg.seasonality.groupClimb.price['6day']['1person']
-        );
-        maxPrice = Math.max(
-          pkg.seasonality.privateClimb.price['9day'] || 0,
-          pkg.seasonality.groupClimb.price['9day']?.['6-10persons'] || 0
-        );
-      } else if (activeTab === 'rwanda') {
-        minPrice = Math.min(
-          pkg.seasonality.highSeason?.price || Infinity,
-          pkg.seasonality.lowSeason?.price || Infinity,
-          pkg.seasonality.allYear1?.price || Infinity,
-          pkg.seasonality.allYear2?.price || Infinity,
-          pkg.seasonality.option1?.price || Infinity,
-          pkg.seasonality.option2?.price || Infinity
-        );
-        maxPrice = Math.max(
-          pkg.seasonality.highSeason?.price || 0,
-          pkg.seasonality.lowSeason?.price || 0,
-          pkg.seasonality.allYear1?.price || 0,
-          pkg.seasonality.allYear2?.price || 0,
-          pkg.seasonality.option1?.price || 0,
-          pkg.seasonality.option2?.price || 0
-        );
-      } else {
-        minPrice = Math.min(
-          pkg.seasonality.highSeason.price,
-          pkg.seasonality.midSeason1.price,
-          pkg.seasonality.peakSeason.price,
-          pkg.seasonality.midSeason2.price
-        );
-        maxPrice = Math.max(
-          pkg.seasonality.highSeason.price,
-          pkg.seasonality.midSeason1.price,
-          pkg.seasonality.peakSeason.price,
-          pkg.seasonality.midSeason2.price
-        );
-      }
-      
-      return minPrice >= priceRange[0] && maxPrice <= priceRange[1];
-    })
-    .sort((a, b) => {
-      if (sortBy === 'price-asc') {
-        return getMinPrice(a) - getMinPrice(b);
-      } else if (sortBy === 'price-desc') {
-        return getMinPrice(b) - getMinPrice(a);
-      } else if (sortBy === 'rating') {
-        return b.rating - a.rating;
-      } else if (sortBy === 'name') {
-        return a.name.localeCompare(b.name);
-      }
-      return 0; // default sort
-    });
-
-  const getMinPrice = (pkg) => {
+  .filter(pkg => {
+    // Filter by search term
+    if (searchTerm && !pkg.name.toLowerCase().includes(searchTerm.toLowerCase())) {
+      return false;
+    }
+    
+    // Filter by price range
+    let minPrice, maxPrice;
     if (activeTab === 'kilimanjaro') {
-      return Math.min(
+      minPrice = Math.min(
         pkg.seasonality.privateClimb.price['6day'],
         pkg.seasonality.groupClimb.price['6day']['1person']
       );
+      maxPrice = Math.max(
+        pkg.seasonality.privateClimb.price['9day'] || 0,
+        pkg.seasonality.groupClimb.price['9day']?.['6-10persons'] || 0
+      );
     } else if (activeTab === 'rwanda') {
-      return Math.min(
+      minPrice = Math.min(
         pkg.seasonality.highSeason?.price || Infinity,
         pkg.seasonality.lowSeason?.price || Infinity,
         pkg.seasonality.allYear1?.price || Infinity,
@@ -888,15 +835,70 @@ const PriceList = () => {
         pkg.seasonality.option1?.price || Infinity,
         pkg.seasonality.option2?.price || Infinity
       );
+      maxPrice = Math.max(
+        pkg.seasonality.highSeason?.price || 0,
+        pkg.seasonality.lowSeason?.price || 0,
+        pkg.seasonality.allYear1?.price || 0,
+        pkg.seasonality.allYear2?.price || 0,
+        pkg.seasonality.option1?.price || 0,
+        pkg.seasonality.option2?.price || 0
+      );
     } else {
-      return Math.min(
-        pkg.seasonality.highSeason.price,
-        pkg.seasonality.midSeason1.price,
-        pkg.seasonality.peakSeason.price,
-        pkg.seasonality.midSeason2.price
+      // Handle cases where some seasons might be missing
+      minPrice = Math.min(
+        pkg.seasonality.highSeason?.price || Infinity,
+        pkg.seasonality.midSeason1?.price || Infinity,
+        pkg.seasonality.peakSeason?.price || Infinity,
+        pkg.seasonality.midSeason2?.price || Infinity
+      );
+      maxPrice = Math.max(
+        pkg.seasonality.highSeason?.price || 0,
+        pkg.seasonality.midSeason1?.price || 0,
+        pkg.seasonality.peakSeason?.price || 0,
+        pkg.seasonality.midSeason2?.price || 0
       );
     }
-  };
+    
+    return minPrice >= priceRange[0] && maxPrice <= priceRange[1];
+  })
+  .sort((a, b) => {
+    if (sortBy === 'price-asc') {
+      return getMinPrice(a) - getMinPrice(b);
+    } else if (sortBy === 'price-desc') {
+      return getMinPrice(b) - getMinPrice(a);
+    } else if (sortBy === 'rating') {
+      return b.rating - a.rating;
+    } else if (sortBy === 'name') {
+      return a.name.localeCompare(b.name);
+    }
+    return 0; // default sort
+  });
+
+const getMinPrice = (pkg) => {
+  if (activeTab === 'kilimanjaro') {
+    return Math.min(
+      pkg.seasonality.privateClimb.price['6day'],
+      pkg.seasonality.groupClimb.price['6day']['1person']
+    );
+  } else if (activeTab === 'rwanda') {
+    return Math.min(
+      pkg.seasonality.highSeason?.price || Infinity,
+      pkg.seasonality.lowSeason?.price || Infinity,
+      pkg.seasonality.allYear1?.price || Infinity,
+      pkg.seasonality.allYear2?.price || Infinity,
+      pkg.seasonality.option1?.price || Infinity,
+      pkg.seasonality.option2?.price || Infinity
+    );
+  } else {
+    // Handle cases where some seasons might be missing
+    return Math.min(
+      pkg.seasonality.highSeason?.price || Infinity,
+      pkg.seasonality.midSeason1?.price || Infinity,
+      pkg.seasonality.peakSeason?.price || Infinity,
+      pkg.seasonality.midSeason2?.price || Infinity
+    );
+  }
+};
 
   const renderSeasonality = (pkg) => {
     if (activeTab === 'kilimanjaro') {

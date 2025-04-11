@@ -5,15 +5,16 @@ import Navbar from './components/Navbar';
 import Home from './components/Home';
 import About from './components/About';
 import Enquire from './components/Enquire';
+import Contact from './components/Contact'; // Import the Contact component
 import Footer from './components/Footer';
-import NewsletterPopup from './components/NewsletterPopup'; // Import the NewsletterPopup
+import NewsletterPopup from './components/NewsletterPopup';
 import AIChatbot from './components/AIChatbot';
 import PostDetails from './components/PostDetails';
 
-// You'll need to create these additional components
+// Safari pages
 import Safaris from './components/Safaris';
-import KenyaSafaris from './components/KenyaSafari';
-import TanzaniaSafaris from './components/TanzaniaSafari';
+import KenyaSafari from './components/KenyaSafari';
+import TanzaniaSafari from './components/TanzaniaSafari';
 import RwandaSafaris from './components/RwandaSafari';
 import Pricelist from './components/Pricelist';
 import CarHire from './components/CarHire';
@@ -25,15 +26,16 @@ function App() {
     <Router>
       <div className="App">
         <Navbar />
-        <NewsletterPopup /> {/* Add the NewsletterPopup here */}
+        <NewsletterPopup />
         <AIChatbot />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
           <Route path="/enquire" element={<Enquire />} />
+          <Route path="/contact" element={<Contact />} />
           <Route path="/safaris" element={<Safaris />} />
-          <Route path="/safaris/kenya" element={<KenyaSafaris />} />
-          <Route path="/safaris/tanzania" element={<TanzaniaSafaris />} />
+          <Route path="/safaris/kenya" element={<KenyaSafari />} />
+          <Route path="/safaris/tanzania" element={<TanzaniaSafari />} />
           <Route path="/safaris/rwanda" element={<RwandaSafaris />} />
           <Route path="/pricelist" element={<Pricelist />} />
           <Route path="/car-hire" element={<CarHire />} />
