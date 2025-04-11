@@ -1,18 +1,19 @@
 {
   "files": {
-    "main.css": "/jambohouse/static/css/main.c139975d.css",
-    "main.js": "/jambohouse/static/js/main.cf232281.js",
+    "main.css": "/jambohouse/static/css/main.c517a2f8.css",
+    "main.js": "/jambohouse/static/js/main.5d339b30.js",
     "static/js/453.1325bb4c.chunk.js": "/jambohouse/static/js/453.1325bb4c.chunk.js",
     "static/media/elephant.jpg": "/jambohouse/static/media/elephant.c9fac97d8b0f29f6170d.jpg",
     "static/media/rhino.jpg": "/jambohouse/static/media/rhino.738e2903f6637dc7eba3.jpg",
     "static/media/marasunset.jpg": "/jambohouse/static/media/marasunset.70ed7e24fd7cee98c158.jpg",
+    "static/media/tanzania.jpg": "/jambohouse/static/media/tanzania.662f6d184c007c3837da.jpg",
     "index.html": "/jambohouse/index.html",
-    "main.c139975d.css.map": "/jambohouse/static/css/main.c139975d.css.map",
-    "main.cf232281.js.map": "/jambohouse/static/js/main.cf232281.js.map",
+    "main.c517a2f8.css.map": "/jambohouse/static/css/main.c517a2f8.css.map",
+    "main.5d339b30.js.map": "/jambohouse/static/js/main.5d339b30.js.map",
     "453.1325bb4c.chunk.js.map": "/jambohouse/static/js/453.1325bb4c.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.c139975d.css",
-    "static/js/main.cf232281.js"
+    "static/css/main.c517a2f8.css",
+    "static/js/main.5d339b30.js"
   ]
 }
