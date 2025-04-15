@@ -1,14 +1,19 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, lazy, Suspense } from 'react';
 import { ChevronRight, Calendar, MapPin, ArrowRight, ChevronDown } from 'lucide-react';
-import KenyaSafaris from './KenyaSafari';
-import TanzaniaSafaris from './TanzaniaSafari';
-import RwandaSafaris from './RwandaSafari';
+import KenyaSafari, { safariPackages as kenyaPackages } from './KenyaSafari';
+import TanzaniaSafari, { allPackages as tanzaniaPackages } from './TanzaniaSafari';
+import RwandaSafari, { rwandaSafaris as rwandaPackages } from './RwandaSafari';
+
+// Lazy load the Map component to avoid SSR issues
+const Map = lazy(() => import('./Map'));
 
 const Safaris = () => {
   const [activeDestination, setActiveDestination] = useState('kenya');
   const [isScrolled, setIsScrolled] = useState(false);
   const [showInfo, setShowInfo] = useState(false);
   const [expandedPackage, setExpandedPackage] = useState(null);
+  const [mapCenter, setMapCenter] = useState([-1.2921, 36.8219]); // Default to Kenya
+  const [mapMarkers, setMapMarkers] = useState([]);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -19,6 +24,41 @@ const Safaris = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  // Update map when destination changes
+  useEffect(() => {
+    switch(activeDestination) {
+      case 'kenya':
+        setMapCenter([-1.2921, 36.8219]);
+        setMapMarkers([
+          { position: [-1.4096, 35.1116], name: "Masai Mara" },
+          { position: [-2.6531, 37.2597], name: "Amboseli" },
+          { position: [-0.3667, 36.0833], name: "Lake Nakuru" },
+          { position: [-2.7876, 37.6852], name: "Tsavo" }
+        ]);
+        break;
+      case 'tanzania':
+        setMapCenter([-6.3690, 34.8888]);
+        setMapMarkers([
+          { position: [-2.3333, 34.8333], name: "Serengeti" },
+          { position: [-3.1667, 35.5833], name: "Ngorongoro Crater" },
+          { position: [-3.0674, 37.3556], name: "Mount Kilimanjaro" },
+          { position: [-6.1659, 39.2026], name: "Zanzibar" }
+        ]);
+        break;
+      case 'rwanda':
+        setMapCenter([-1.9403, 29.8739]);
+        setMapMarkers([
+          { position: [-1.4433, 29.5622], name: "Volcanoes National Park" },
+          { position: [-2.4878, 29.1855], name: "Nyungwe Forest" },
+          { position: [-1.5833, 30.7667], name: "Akagera" },
+          { position: [-2.0000, 29.2500], name: "Lake Kivu" }
+        ]);
+        break;
+      default:
+        break;
+    }
+  }, [activeDestination]);
+
   const destinations = [
     {
       id: 'kenya',
@@ -26,32 +66,18 @@ const Safaris = () => {
       description: 'Home of the Great Wildebeest Migration and iconic national parks',
       backgroundImage: '/images/kenya-safari-bg.jpg',
       flagIcon: '🇰🇪',
-      highlights: ['Maasai Mara', 'Amboseli', 'Lake Nakuru', 'Tsavo'],
+      highlights: ['Masai Mara', 'Amboseli', 'Lake Nakuru', 'Tsavo'],
       bestTime: 'June to October',
       signature: 'The Great Migration',
-      packages: [
-        { 
-          title: "Masai Mara Discovery", 
-          duration: "5 days", 
-          price: "$2,400",
-          image: "/images/masai-mara.jpg",
-          description: "Experience the world-famous Masai Mara with its abundant wildlife and breathtaking landscapes."
-        },
-        { 
-          title: "Kenya Highlights Safari", 
-          duration: "8 days", 
-          price: "$3,600",
-          image: "/images/kenya-highlights.jpg",
-          description: "Visit Kenya's most iconic parks including Amboseli with views of Mt. Kilimanjaro."
-        },
-        { 
-          title: "Kenya & Beach Getaway", 
-          duration: "10 days", 
-          price: "$4,200",
-          image: "/images/kenya-beach.jpg",
-          description: "Combine wildlife safari adventures with relaxing beach time on Kenya's beautiful coast."
-        }
-      ]
+      packages: kenyaPackages.slice(0, 3).map(pkg => ({
+        title: pkg.name,
+        duration: pkg.duration,
+        price: pkg.seasons ? `$${pkg.seasons[2]?.sharedPrice?.toFixed(2) ?? 'N/A'}` : 'Contact for pricing',
+        image: pkg.coverImage,
+        description: pkg.description,
+        highlights: pkg.highlights,
+        destinations: pkg.destinations
+      }))
     },
     {
       id: 'tanzania',
@@ -62,29 +88,15 @@ const Safaris = () => {
       highlights: ['Serengeti', 'Ngorongoro Crater', 'Mount Kilimanjaro', 'Zanzibar'],
       bestTime: 'July to October',
       signature: 'Ngorongoro Crater',
-      packages: [
-        { 
-          title: "Serengeti Migration Safari", 
-          duration: "6 days", 
-          price: "$2,800",
-          image: "/images/serengeti.jpg",
-          description: "Follow the great wildebeest migration across the endless plains of the Serengeti."
-        },
-        { 
-          title: "Tanzania Northern Circuit", 
-          duration: "9 days", 
-          price: "$3,900",
-          image: "/images/northern-circuit.jpg",
-          description: "Experience the Serengeti, Ngorongoro Crater, Lake Manyara and Tarangire."
-        },
-        { 
-          title: "Kilimanjaro & Safari Adventure", 
-          duration: "12 days", 
-          price: "$5,100",
-          image: "/images/kilimanjaro.jpg",
-          description: "Climb Africa's highest peak and then relax with wildlife viewing in Tanzania's best parks."
-        }
-      ]
+      packages: tanzaniaPackages.slice(0, 3).map(pkg => ({
+        title: pkg.name,
+        duration: pkg.duration,
+        price: `$${pkg.pricing["Jul-Oct"].shared.toFixed(2)}`,
+        image: pkg.coverImage,
+        description: pkg.description,
+        highlights: pkg.highlights,
+        destinations: pkg.destinations
+      }))
     },
     {
       id: 'rwanda',
@@ -95,29 +107,15 @@ const Safaris = () => {
       highlights: ['Volcanoes National Park', 'Nyungwe Forest', 'Akagera', 'Lake Kivu'],
       bestTime: 'June to September',
       signature: 'Mountain Gorilla Trekking',
-      packages: [
-        { 
-          title: "Gorilla Trekking Experience", 
-          duration: "4 days", 
-          price: "$3,900",
-          image: "/images/gorilla-trek.jpg",
-          description: "Trek through misty forests to encounter magnificent mountain gorillas in their natural habitat."
-        },
-        { 
-          title: "Rwanda Complete", 
-          duration: "8 days", 
-          price: "$4,800",
-          image: "/images/rwanda-complete.jpg",
-          description: "Explore Rwanda's three national parks: Volcanoes, Nyungwe Forest and Akagera."
-        },
-        { 
-          title: "Rwanda & Uganda Primate Safari", 
-          duration: "10 days", 
-          price: "$5,300",
-          image: "/images/rwanda-uganda.jpg",
-          description: "The ultimate primate adventure across Rwanda and Uganda's diverse ecosystems."
-        }
-      ]
+      packages: rwandaPackages.filter(pkg => pkg.type !== 'addon').slice(0, 3).map(pkg => ({
+        title: pkg.name,
+        duration: pkg.duration,
+        price: `$${pkg.pricing.high.shared.toFixed(2)}`,
+        image: "/images/gorilla-trek.jpg",
+        description: pkg.description,
+        highlights: pkg.highlights,
+        destinations: pkg.destinations
+      }))
     }
   ];
 
@@ -130,6 +128,17 @@ const Safaris = () => {
   };
 
   const currentDestination = destinations.find(d => d.id === activeDestination);
+
+  // MapComponent with Suspense fallback
+  const MapComponent = () => (
+    <Suspense fallback={
+      <div className="aspect-video bg-french-gray rounded-lg flex items-center justify-center">
+        Loading map...
+      </div>
+    }>
+      <Map center={mapCenter} markers={mapMarkers} />
+    </Suspense>
+  );
 
   return (
     <div className="min-h-screen bg-eggshell font-sans">
@@ -289,14 +298,12 @@ const Safaris = () => {
                     <div className="mt-4 pt-4 border-t border-gray-100">
                       <p className="text-cafe-noir/80 mb-4">{pkg.description}</p>
                       <ul className="space-y-2 mb-4">
-                        <li className="flex items-start">
-                          <MapPin className="w-4 h-4 text-moss-green mr-2 mt-1" />
-                          <span className="text-cafe-noir/80">Visit {currentDestination.highlights.slice(0, 2).join(' and ')} with expert guides</span>
-                        </li>
-                        <li className="flex items-start">
-                          <MapPin className="w-4 h-4 text-moss-green mr-2 mt-1" />
-                          <span className="text-cafe-noir/80">All-inclusive luxury accommodations and transport</span>
-                        </li>
+                        {pkg.highlights.slice(0, 3).map((highlight, idx) => (
+                          <li key={idx} className="flex items-start">
+                            <MapPin className="w-4 h-4 text-moss-green mr-2 mt-1" />
+                            <span className="text-cafe-noir/80">{highlight}</span>
+                          </li>
+                        ))}
                       </ul>
                       <button className="w-full bg-moss-green hover:bg-asparagus text-white py-2 rounded-lg font-medium transition-all duration-300 flex items-center justify-center">
                         View Full Itinerary <ArrowRight className="w-4 h-4 ml-1" />
@@ -322,14 +329,8 @@ const Safaris = () => {
             <p className="text-white/80">Explore the diverse areas that make {currentDestination.name} a premier safari destination</p>
           </div>
           <div className="p-6">
-            <div className="aspect-video bg-french-gray rounded-lg flex items-center justify-center">
-              <div className="text-center p-8">
-                <MapPin className="w-12 h-12 text-moss-green mx-auto mb-4" />
-                <p className="text-cafe-noir font-medium mb-2">Interactive Map Would Display Here</p>
-                <p className="text-cafe-noir/70 max-w-md mx-auto">
-                  Explore {currentDestination.name}'s national parks, reserves, and key wildlife viewing areas with our interactive map.
-                </p>
-              </div>
+            <div className="aspect-video rounded-lg overflow-hidden">
+              <MapComponent />
             </div>
             
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mt-6">

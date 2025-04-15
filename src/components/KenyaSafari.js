@@ -1,197 +1,208 @@
 import React, { useState } from 'react';
+import kenyahero from '../assets/kenyahero.jpg';
+import grand from '../assets/grandkenya.jpg'
+import karibu from '../assets/karibukenya.jpg'
+import twiga from '../assets/twiga.jpg'
+import amboseli from '../assets/amboseli.jpg'
+import naivasha from '../assets/naivasha.jpg'
+import mara from '../assets/mara.jpg'
+import zebra from '../assets/zebra.jpg'
+import marasun from '../assets/marasun.jpg'
+import easymara from '../assets/easymara.jpg'
+export const safariPackages = [
+  {
+    id: "JT001",
+    name: "Grand Kenya (Classic)",
+    duration: "9 Days / 8 Nights",
+    description: "Experience the ultimate Kenya adventure with our most comprehensive safari package, covering the best national parks and reserves across the country.",
+    highlights: [
+      "Big Five wildlife viewing",
+      "Visit to multiple national parks",
+      "Cultural experiences with local tribes",
+      "Luxury accommodations throughout"
+    ],
+    difficulty: "Moderate",
+    featured: true,
+    destinations: ["Masai Mara", "Amboseli", "Lake Nakuru", "Samburu"],
+    coverImage: grand,
+  },
+  {
+    id: "JT002",
+    name: "Karibu Kenya (Classic)",
+    duration: "7 Days / 6 Nights",
+    description: "A warm welcome to Kenya with this classic safari experience that showcases the country's incredible biodiversity and landscapes.",
+    highlights: [
+      "Game drives in premier wildlife reserves", 
+      "Professional safari guides",
+      "Comfortable lodge accommodations",
+      "Cultural interactions"
+    ],
+    seasons: [
+      { period: "02.01-30.03.2025", sharedPrice: 2952.05, singleSupplement: 553.15 },
+      { period: "01.04-30.06.2025", sharedPrice: 2715.15, singleSupplement: 155.25 },
+      { period: "01.07-31.10.2025", sharedPrice: 3193.55, singleSupplement: 631.35 },
+      { period: "01.11-15.12.2025", sharedPrice: 2938.25, singleSupplement: 545.10 }
+    ],
+    difficulty: "Easy to Moderate",
+    featured: true,
+    destinations: ["Masai Mara", "Lake Nakuru", "Aberdares"],
+    coverImage: karibu,
+  },
+  {
+    id: "JT003",
+    name: "Twiga Safari (Classic)",
+    duration: "8 Days / 7 Nights",
+    description: "Named after the Swahili word for giraffe, this safari offers towering views of Kenya's most magnificent landscapes and wildlife.",
+    highlights: [
+      "Premium wildlife viewing opportunities",
+      "Comfortable accommodations in the heart of the wilderness",
+      "Expert naturalist guides",
+      "Multiple national parks exploration"
+    ],
+    seasons: [
+      { period: "02.01-30.03.2025", sharedPrice: 3251.05, singleSupplement: 1024.65 },
+      { period: "01.04-30.06.2025", sharedPrice: 3093.50, singleSupplement: 474.95 },
+      { period: "01.07-31.10.2025", sharedPrice: 3806.50, singleSupplement: 1276.50 },
+      { period: "01.11-15.12.2025", sharedPrice: 3174.00, singleSupplement: 834.90 }
+    ],
+    difficulty: "Moderate",
+    destinations: ["Masai Mara", "Samburu", "Amboseli", "Lake Naivasha"],
+    coverImage: twiga,
+  },
+  {
+    id: "JT004",
+    name: "Kenya Horizons (Classic)",
+    duration: "6 Days / 5 Nights",
+    description: "Discover the breathtaking horizons of Kenya's diverse landscapes, from savannah plains to mountain vistas.",
+    highlights: [
+      "Scenic panoramic views",
+      "Diverse ecosystems exploration",
+      "Big Five wildlife sightings",
+      "Comfortable safari lodges"
+    ],
+    seasons: [
+      { period: "02.01-30.03.2025", sharedPrice: 2608.20, singleSupplement: 767.05 },
+      { period: "01.04-30.06.2025", sharedPrice: 2410.40, singleSupplement: 353.05 },
+      { period: "01.07-31.10.2025", sharedPrice: 3022.20, singleSupplement: 861.35 },
+      { period: "01.11-15.12.2025", sharedPrice: 2439.15, singleSupplement: 591.10 }
+    ],
+    difficulty: "Easy",
+    destinations: ["Masai Mara", "Lake Nakuru", "Amboseli"],
+    coverImage: amboseli,
+  },
+  {
+    id: "JT005",
+    name: "Kenya Footsteps (Classic)",
+    duration: "5 Days / 4 Nights",
+    description: "Follow in the footsteps of Kenya's amazing wildlife with this compact but comprehensive safari experience.",
+    highlights: [
+      "Concentrated wildlife viewing",
+      "Premium safari vehicles",
+      "Expert tracking guides",
+      "Conservation insights"
+    ],
+    seasons: [
+      { period: "02.01-30.03.2025", sharedPrice: 2362.10, singleSupplement: 448.50 },
+      { period: "01.04-30.06.2025", sharedPrice: 2165.45, singleSupplement: 156.40 },
+      { period: "01.07-31.10.2025", sharedPrice: 2556.45, singleSupplement: 512.90 },
+      { period: "01.11-15.12.2025", sharedPrice: 2349.45, singleSupplement: 441.60 }
+    ],
+    difficulty: "Easy",
+    destinations: ["Masai Mara", "Lake Naivasha"],
+    coverImage: naivasha,
+  },
+  {
+    id: "JT006",
+    name: "Classic Kenya Safari",
+    duration: "7 Days / 6 Nights",
+    description: "The quintessential Kenyan safari experience featuring the most iconic wildlife destinations and comfortable accommodations.",
+    highlights: [
+      "Big Five game viewing",
+      "Scenic drives through diverse landscapes",
+      "Bird watching opportunities",
+      "Comfortable safari lodges"
+    ],
+    seasons: [
+      { period: "02.01-30.03.2025", sharedPrice: 2503.55, singleSupplement: 661.25 },
+      { period: "01.04-30.06.2025", sharedPrice: 2375.90, singleSupplement: 474.95 },
+      { period: "01.07-31.10.2025", sharedPrice: 2945.15, singleSupplement: 969.45 },
+      { period: "01.11-15.12.2025", sharedPrice: 2426.50, singleSupplement: 474.95 }
+    ],
+    difficulty: "Moderate",
+    destinations: ["Masai Mara", "Lake Nakuru", "Amboseli"],
+    coverImage: mara,
+  },
+  {
+    id: "JT007",
+    name: "Kenya Highlights Safari (Classic)",
+    duration: "5 Days / 4 Nights",
+    description: "A condensed safari focusing on Kenya's highlight destinations and most remarkable wildlife experiences.",
+    highlights: [
+      "Key wildlife viewing areas",
+      "Efficient itinerary",
+      "Quality accommodations",
+      "Professional guiding"
+    ],
+    seasons: [
+      { period: "02.01-30.03.2025", sharedPrice: 1743.40, singleSupplement: 343.85 },
+      { period: "01.04-30.06.2025", sharedPrice: 1584.70, singleSupplement: 154.10 },
+      { period: "01.07-31.10.2025", sharedPrice: 1890.60, singleSupplement: 393.30 },
+      { period: "01.11-15.12.2025", sharedPrice: 1730.75, singleSupplement: 335.80 }
+    ],
+    difficulty: "Easy",
+    destinations: ["Masai Mara", "Lake Nakuru"],
+    coverImage: zebra,
+  },
+  {
+    id: "JT017",
+    name: "Masai Safari Classic",
+    duration: "4 Days / 3 Nights",
+    description: "Immerse yourself in the iconic Masai Mara ecosystem with this focused safari experience in Kenya's most famous reserve.",
+    highlights: [
+      "Concentrated Masai Mara game drives",
+      "Great Migration viewing (seasonal)",
+      "Big cat territory exploration",
+      "Optional cultural visits"
+    ],
+    seasons: [
+      { period: "02.01-30.03.2025", sharedPrice: 1414.50, singleSupplement: 257.60 },
+      { period: "01.04-30.06.2025", sharedPrice: 1269.60, singleSupplement: 193.20 },
+      { period: "01.07-31.10.2025", sharedPrice: 1549.05, singleSupplement: 302.45 },
+      { period: "01.11-15.12.2025", sharedPrice: 1414.50, singleSupplement: 257.60 }
+    ],
+    difficulty: "Easy",
+    featured: true,
+    destinations: ["Masai Mara"],
+    coverImage: marasun, 
+  },
+  {
+    id: "JT020",
+    name: "Mara Classic Experience (Classic)",
+    duration: "3 Days / 2 Nights",
+    description: "A compact but comprehensive Masai Mara experience, perfect for those with limited time but who want to witness the magic of Kenya's premier wildlife reserve.",
+    highlights: [
+      "Focused game drives in the Mara",
+      "Big cat sightings",
+      "Comfortable tented camps",
+      "Professional safari guides"
+    ],
+    seasons: [
+      { period: "02.01-30.03.2025", sharedPrice: 894.70, singleSupplement: 117.30 },
+      { period: "01.04-30.06.2025", sharedPrice: 795.80, singleSupplement: 80.50 },
+      { period: "01.07-31.10.2025", sharedPrice: 990.15, singleSupplement: 149.50 },
+      { period: "01.11-15.12.2025", sharedPrice: 894.70, singleSupplement: 117.30 }
+    ],
+    difficulty: "Easy",
+    featured: true,
+    bestValue: true,
+    destinations: ["Masai Mara"],
+    coverImage: easymara,
+  }
+];
 
 const KenyaSafari = () => {
   // Parse the season price data from the file
-  const safariPackages = [
-    {
-      id: "JT001",
-      name: "Grand Kenya (Classic)",
-      duration: "9 Days / 8 Nights",
-      description: "Experience the ultimate Kenya adventure with our most comprehensive safari package, covering the best national parks and reserves across the country.",
-      highlights: [
-        "Big Five wildlife viewing",
-        "Visit to multiple national parks",
-        "Cultural experiences with local tribes",
-        "Luxury accommodations throughout"
-      ],
-      difficulty: "Moderate",
-      featured: true,
-      destinations: ["Masai Mara", "Amboseli", "Lake Nakuru", "Samburu"],
-      coverImage: "/api/placeholder/500/300"
-    },
-    {
-      id: "JT002",
-      name: "Karibu Kenya (Classic)",
-      duration: "7 Days / 6 Nights",
-      description: "A warm welcome to Kenya with this classic safari experience that showcases the country's incredible biodiversity and landscapes.",
-      highlights: [
-        "Game drives in premier wildlife reserves", 
-        "Professional safari guides",
-        "Comfortable lodge accommodations",
-        "Cultural interactions"
-      ],
-      seasons: [
-        { period: "02.01-30.03.2025", sharedPrice: 2952.05, singleSupplement: 553.15 },
-        { period: "01.04-30.06.2025", sharedPrice: 2715.15, singleSupplement: 155.25 },
-        { period: "01.07-31.10.2025", sharedPrice: 3193.55, singleSupplement: 631.35 },
-        { period: "01.11-15.12.2025", sharedPrice: 2938.25, singleSupplement: 545.10 }
-      ],
-      difficulty: "Easy to Moderate",
-      featured: true,
-      destinations: ["Masai Mara", "Lake Nakuru", "Aberdares"],
-      coverImage: "/api/placeholder/500/300"
-    },
-    {
-      id: "JT003",
-      name: "Twiga Safari (Classic)",
-      duration: "8 Days / 7 Nights",
-      description: "Named after the Swahili word for giraffe, this safari offers towering views of Kenya's most magnificent landscapes and wildlife.",
-      highlights: [
-        "Premium wildlife viewing opportunities",
-        "Comfortable accommodations in the heart of the wilderness",
-        "Expert naturalist guides",
-        "Multiple national parks exploration"
-      ],
-      seasons: [
-        { period: "02.01-30.03.2025", sharedPrice: 3251.05, singleSupplement: 1024.65 },
-        { period: "01.04-30.06.2025", sharedPrice: 3093.50, singleSupplement: 474.95 },
-        { period: "01.07-31.10.2025", sharedPrice: 3806.50, singleSupplement: 1276.50 },
-        { period: "01.11-15.12.2025", sharedPrice: 3174.00, singleSupplement: 834.90 }
-      ],
-      difficulty: "Moderate",
-      destinations: ["Masai Mara", "Samburu", "Amboseli", "Lake Naivasha"],
-      coverImage: "/api/placeholder/500/300"
-    },
-    {
-      id: "JT004",
-      name: "Kenya Horizons (Classic)",
-      duration: "6 Days / 5 Nights",
-      description: "Discover the breathtaking horizons of Kenya's diverse landscapes, from savannah plains to mountain vistas.",
-      highlights: [
-        "Scenic panoramic views",
-        "Diverse ecosystems exploration",
-        "Big Five wildlife sightings",
-        "Comfortable safari lodges"
-      ],
-      seasons: [
-        { period: "02.01-30.03.2025", sharedPrice: 2608.20, singleSupplement: 767.05 },
-        { period: "01.04-30.06.2025", sharedPrice: 2410.40, singleSupplement: 353.05 },
-        { period: "01.07-31.10.2025", sharedPrice: 3022.20, singleSupplement: 861.35 },
-        { period: "01.11-15.12.2025", sharedPrice: 2439.15, singleSupplement: 591.10 }
-      ],
-      difficulty: "Easy",
-      destinations: ["Masai Mara", "Lake Nakuru", "Amboseli"],
-      coverImage: "/api/placeholder/500/300"
-    },
-    {
-      id: "JT005",
-      name: "Kenya Footsteps (Classic)",
-      duration: "5 Days / 4 Nights",
-      description: "Follow in the footsteps of Kenya's amazing wildlife with this compact but comprehensive safari experience.",
-      highlights: [
-        "Concentrated wildlife viewing",
-        "Premium safari vehicles",
-        "Expert tracking guides",
-        "Conservation insights"
-      ],
-      seasons: [
-        { period: "02.01-30.03.2025", sharedPrice: 2362.10, singleSupplement: 448.50 },
-        { period: "01.04-30.06.2025", sharedPrice: 2165.45, singleSupplement: 156.40 },
-        { period: "01.07-31.10.2025", sharedPrice: 2556.45, singleSupplement: 512.90 },
-        { period: "01.11-15.12.2025", sharedPrice: 2349.45, singleSupplement: 441.60 }
-      ],
-      difficulty: "Easy",
-      destinations: ["Masai Mara", "Lake Naivasha"],
-      coverImage: "/api/placeholder/500/300"
-    },
-    {
-      id: "JT006",
-      name: "Classic Kenya Safari",
-      duration: "7 Days / 6 Nights",
-      description: "The quintessential Kenyan safari experience featuring the most iconic wildlife destinations and comfortable accommodations.",
-      highlights: [
-        "Big Five game viewing",
-        "Scenic drives through diverse landscapes",
-        "Bird watching opportunities",
-        "Comfortable safari lodges"
-      ],
-      seasons: [
-        { period: "02.01-30.03.2025", sharedPrice: 2503.55, singleSupplement: 661.25 },
-        { period: "01.04-30.06.2025", sharedPrice: 2375.90, singleSupplement: 474.95 },
-        { period: "01.07-31.10.2025", sharedPrice: 2945.15, singleSupplement: 969.45 },
-        { period: "01.11-15.12.2025", sharedPrice: 2426.50, singleSupplement: 474.95 }
-      ],
-      difficulty: "Moderate",
-      destinations: ["Masai Mara", "Lake Nakuru", "Amboseli"],
-      coverImage: "/api/placeholder/500/300"
-    },
-    {
-      id: "JT007",
-      name: "Kenya Highlights Safari (Classic)",
-      duration: "5 Days / 4 Nights",
-      description: "A condensed safari focusing on Kenya's highlight destinations and most remarkable wildlife experiences.",
-      highlights: [
-        "Key wildlife viewing areas",
-        "Efficient itinerary",
-        "Quality accommodations",
-        "Professional guiding"
-      ],
-      seasons: [
-        { period: "02.01-30.03.2025", sharedPrice: 1743.40, singleSupplement: 343.85 },
-        { period: "01.04-30.06.2025", sharedPrice: 1584.70, singleSupplement: 154.10 },
-        { period: "01.07-31.10.2025", sharedPrice: 1890.60, singleSupplement: 393.30 },
-        { period: "01.11-15.12.2025", sharedPrice: 1730.75, singleSupplement: 335.80 }
-      ],
-      difficulty: "Easy",
-      destinations: ["Masai Mara", "Lake Nakuru"],
-      coverImage: "/api/placeholder/500/300"
-    },
-    {
-      id: "JT017",
-      name: "Masai Safari Classic",
-      duration: "4 Days / 3 Nights",
-      description: "Immerse yourself in the iconic Masai Mara ecosystem with this focused safari experience in Kenya's most famous reserve.",
-      highlights: [
-        "Concentrated Masai Mara game drives",
-        "Great Migration viewing (seasonal)",
-        "Big cat territory exploration",
-        "Optional cultural visits"
-      ],
-      seasons: [
-        { period: "02.01-30.03.2025", sharedPrice: 1414.50, singleSupplement: 257.60 },
-        { period: "01.04-30.06.2025", sharedPrice: 1269.60, singleSupplement: 193.20 },
-        { period: "01.07-31.10.2025", sharedPrice: 1549.05, singleSupplement: 302.45 },
-        { period: "01.11-15.12.2025", sharedPrice: 1414.50, singleSupplement: 257.60 }
-      ],
-      difficulty: "Easy",
-      featured: true,
-      destinations: ["Masai Mara"],
-      coverImage: "/api/placeholder/500/300"
-    },
-    {
-      id: "JT020",
-      name: "Mara Classic Experience (Classic)",
-      duration: "3 Days / 2 Nights",
-      description: "A compact but comprehensive Masai Mara experience, perfect for those with limited time but who want to witness the magic of Kenya's premier wildlife reserve.",
-      highlights: [
-        "Focused game drives in the Mara",
-        "Big cat sightings",
-        "Comfortable tented camps",
-        "Professional safari guides"
-      ],
-      seasons: [
-        { period: "02.01-30.03.2025", sharedPrice: 894.70, singleSupplement: 117.30 },
-        { period: "01.04-30.06.2025", sharedPrice: 795.80, singleSupplement: 80.50 },
-        { period: "01.07-31.10.2025", sharedPrice: 990.15, singleSupplement: 149.50 },
-        { period: "01.11-15.12.2025", sharedPrice: 894.70, singleSupplement: 117.30 }
-      ],
-      difficulty: "Easy",
-      featured: true,
-      bestValue: true,
-      destinations: ["Masai Mara"],
-      coverImage: "/api/placeholder/500/300"
-    }
-  ];
+  
 
   const [selectedSeason, setSelectedSeason] = useState("01.07-31.10.2025"); // Peak season by default
   const [displayCount, setDisplayCount] = useState(6);
@@ -215,14 +226,17 @@ const KenyaSafari = () => {
 
   return (
     <div className="bg-eggshell min-h-screen">
-      <div className="container mx-auto px-4 py-12">
-        <header className="mb-16 text-center">
-          <h1 className="text-4xl md:text-5xl font-bold mb-4 text-cafe-noir">Kenya Safaris</h1>
-          <p className="text-xl text-brown-sugar max-w-3xl mx-auto">
-            Experience the beauty and majesty of Kenya's wildlife and landscapes with our premium safari packages.
-          </p>
-        </header>
-
+      
+      <header className="relative w-full h-[100vh] bg-cover bg-center" style={{ backgroundImage: `url(${kenyahero})` }}>
+    <div className="absolute inset-0 bg-black bg-opacity-40"></div>
+    <div className="relative z-10 text-center flex flex-col items-center justify-center h-full">
+      <h1 className="text-4xl md:text-5xl font-bold mb-4 text-white">Kenya Safaris</h1>
+      <p className="text-xl text-white max-w-3xl mx-auto">
+        Experience the beauty and majesty of Kenya's wildlife and landscapes with our premium safari packages.
+      </p>
+    </div>
+  </header>
+<div className="container mx-auto px-4 py-12">
         {/* Season Selector */}
         <div className="mb-10 max-w-xl mx-auto">
           <h2 className="text-xl font-semibold mb-3 text-cafe-noir">Select Travel Season:</h2>
@@ -305,7 +319,7 @@ const KenyaSafari = () => {
                 key={safari.id} 
                 className="bg-white rounded-xl overflow-hidden shadow-lg transition-all hover:shadow-2xl transform hover:-translate-y-1"
               >
-                <div className="relative h-60">
+                <div className="relative h-100">
                   <img 
                     src={safari.coverImage} 
                     alt={safari.name} 

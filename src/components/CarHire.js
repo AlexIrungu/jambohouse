@@ -11,15 +11,23 @@ import {
   Shield,
   Zap,
   Clock,
-  Phone
+  Phone,
+  Fuel,
+  DollarSign,
+  Route,
+  PlaneLanding
 } from 'lucide-react';
+import { Link } from 'react-router-dom'
 
-const CarHireCard = ({ image, name, speed, price, seats, type }) => {
+
+const CarHireCard = ({ id, image, name, type, seating, price, transferPrice, fullDayPrice, halfDayPrice, notes, safariPrice }) => {
+  const [showDetails, setShowDetails] = useState(false);
+  
   return (
     <div className="group bg-white rounded-xl overflow-hidden transition-all duration-300 hover:shadow-xl hover:-translate-y-1 border border-french-gray/30">
       <div className="relative h-48 overflow-hidden">
         <img 
-          src={image || "https://placehold.co/400x320/eee/ccc?text=Vehicle+Image"} 
+          src={image || "/api/placeholder/400/320"} 
           alt={name} 
           className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
         />
@@ -32,25 +40,74 @@ const CarHireCard = ({ image, name, speed, price, seats, type }) => {
       <div className="p-5">
         <div className="flex justify-between items-start">
           <h3 className="text-xl font-bold text-cafe-noir">{name}</h3>
-          <div className="text-lg font-bold text-claret">${price}<span className="text-sm font-normal text-french-gray">/day</span></div>
+          <div className="text-lg font-bold text-claret">KES {fullDayPrice}<span className="text-sm font-normal text-french-gray">/day</span></div>
         </div>
         
         <div className="flex items-center mt-3 text-french-gray">
           <Users className="mr-2 text-asparagus" size={16} />
-          <span className="text-sm">{speed}</span>
+          <span className="text-sm">{seating}</span>
         </div>
         
-        {seats && (
+        {notes && (
           <div className="mt-2 flex items-center text-sm text-french-gray">
             <Shield className="mr-2 text-moss-green" size={16} />
-            <span>{seats}</span>
+            <span>{notes}</span>
           </div>
         )}
 
-        <button className="w-full mt-4 px-4 py-2 bg-hunyadi-yellow text-cafe-noir font-medium rounded-lg hover:bg-gold-metallic transition-colors flex items-center justify-center">
-          <Car className="mr-2" size={16} />
-          Book Now
-        </button>
+        <div className="mt-4 flex flex-col space-y-2">
+          <button 
+            className="w-full px-4 py-2 bg-hunyadi-yellow text-cafe-noir font-medium rounded-lg hover:bg-gold-metallic transition-colors flex items-center justify-center"
+            onClick={() => setShowDetails(!showDetails)}
+          >
+            {showDetails ? "Hide Details" : "View Details"}
+          </button>
+          
+          <Link
+  to={`/booking-form/${id}`}
+  className="w-full px-4 py-2 bg-cafe-noir text-white font-medium rounded-lg hover:bg-brown-sugar transition-colors flex items-center justify-center"
+>
+  Book Now
+</Link>
+        </div>
+        
+        {showDetails && (
+          <div className="mt-4 p-4 bg-eggshell rounded-lg">
+            <h4 className="font-medium text-cafe-noir mb-2">Price Details</h4>
+            <div className="space-y-2 text-sm">
+              <div className="flex justify-between">
+                <div className="flex items-center">
+                  <PlaneLanding size={14} className="mr-1 text-brown-sugar" />
+                  <span>Airport Transfer:</span>
+                </div>
+                <span className="font-medium">KES {transferPrice}</span>
+              </div>
+              <div className="flex justify-between">
+                <div className="flex items-center">
+                  <Clock size={14} className="mr-1 text-brown-sugar" />
+                  <span>Half-Day (5 hrs):</span>
+                </div>
+                <span className="font-medium">KES {halfDayPrice}</span>
+              </div>
+              <div className="flex justify-between">
+                <div className="flex items-center">
+                  <Calendar size={14} className="mr-1 text-brown-sugar" />
+                  <span>Full-Day (10 hrs):</span>
+                </div>
+                <span className="font-medium">KES {fullDayPrice}</span>
+              </div>
+              {safariPrice && (
+                <div className="flex justify-between">
+                  <div className="flex items-center">
+                    <Route size={14} className="mr-1 text-brown-sugar" />
+                    <span>Safari Use (Per Day):</span>
+                  </div>
+                  <span className="font-medium">KES {safariPrice}</span>
+                </div>
+              )}
+            </div>
+          </div>
+        )}
       </div>
     </div>
   );
@@ -60,38 +117,79 @@ const CarHire = () => {
   const [filter, setFilter] = useState('');
   const [selectedType, setSelectedType] = useState('All');
 
+  // Updated fleet information from the PDF
   const cars = [
     {
-      name: "Saloon Car",
-      type: "Sedan",
+      id: '1',
+      name: "Toyota Alphard",
+      type: "Luxury",
       image: "",
-      speed: "5 Seater",
-      price: 100,
-      seats: "Inclusive of Fuel and Driver"
+      seating: "Max 5 pax",
+      transferPrice: 5000,
+      halfDayPrice: 10500,
+      fullDayPrice: 16000,
+      safariPrice: null,
+      notes: "Ideal for airport transfers"
     },
     {
-      name: "Minivan",
-      type: "Van",
-      image: "",
-      speed: "8 Seater",
-      price: 150,
-      seats: "Inclusive of Fuel and Driver"
+      id: '2',
+      name: "Safari Van",
+      type: "Safari",
+      image: "https://www.jambotravelhouseholidays.com/wp-content/uploads/2022/11/Kenya-29.sept_.-05-Arve-Ofsteras-0891665817669.png.webp",
+      seating: "Max 7 pax",
+      transferPrice: 7000,
+      halfDayPrice: 15000,
+      fullDayPrice: 20000,
+      safariPrice: 23000,
+      notes: "Pop-up roof for game viewing"
     },
     {
+      id: '3',
+      name: "4x4 Land Cruiser",
+      type: "Safari",
+      image: "https://www.jambotravelhouseholidays.com/wp-content/uploads/2022/09/car1.jpg.webp",
+      seating: "Max 7 pax",
+      transferPrice: 8000,
+      halfDayPrice: 18000,
+      fullDayPrice: 26000,
+      safariPrice: 28500,
+      notes: "Pop-up roof, ideal for off-road"
+    },
+    {
+      id: '4',
       name: "Coaster Bus",
       type: "Bus",
-      image: "",
-      speed: "25 Seater",
-      price: 200,
-      seats: "Inclusive of Fuel and Driver"
+      image: "https://www.jambotravelhouseholidays.com/wp-content/uploads/2022/11/1548686311.png.webp",
+      seating: "22-26 pax",
+      transferPrice: 10000,
+      halfDayPrice: 15000,
+      fullDayPrice: 25000,
+      safariPrice: "On Request",
+      notes: "Great for group travel"
     },
     {
+      id: '5',
       name: "Overland Truck",
       type: "Truck",
-      image: "",
-      speed: "30 Seater",
-      price: 400,
-      seats: null
+      image: "https://www.jambotravelhouseholidays.com/wp-content/uploads/2022/11/Overland-truck-for-hire-Nairobi.jpg",
+      seating: "24+ pax",
+      transferPrice: "On Request",
+      halfDayPrice: "On Request",
+      fullDayPrice: "On Request",
+      safariPrice: "On Request",
+      notes: "Long distance travel only"
+    },
+    {
+      id: '6',
+      name: "Saloon Car",
+      type: "Sedan",
+      image: "https://www.jambotravelhouseholidays.com/wp-content/uploads/2022/11/1548690936.png.webp",
+      seating: "Max 3 pax",
+      transferPrice: 3900,
+      halfDayPrice: 6500,
+      fullDayPrice: 10400,
+      safariPrice: null,
+      notes: "Comfortable for city transfers"
     }
   ];
 
@@ -117,9 +215,9 @@ const CarHire = () => {
         <div className="mb-12">
           <div className="flex flex-col md:flex-row md:items-center md:justify-between">
             <div>
-              <h2 className="text-3xl md:text-4xl font-bold text-cafe-noir">Vehicle Hire</h2>
+              <h2 className="text-3xl md:text-4xl font-bold text-cafe-noir">Jambo Travel Fleet</h2>
               <p className="mt-2 text-lg text-brown-sugar">
-                Find the perfect transport for your East African adventure
+                Professional drivers and quality vehicles for all your East African transport needs
               </p>
             </div>
             <div className="mt-4 md:mt-0 flex items-center bg-white px-4 py-2 rounded-full shadow-sm border border-french-gray/20">
@@ -136,8 +234,8 @@ const CarHire = () => {
               <Shield className="text-asparagus" size={24} />
             </div>
             <div>
-              <h3 className="font-semibold text-lg text-cafe-noir">Safe & Reliable</h3>
-              <p className="text-brown-sugar text-sm mt-1">All vehicles maintained to the highest standards</p>
+              <h3 className="font-semibold text-lg text-cafe-noir">Professional Drivers</h3>
+              <p className="text-brown-sugar text-sm mt-1">All vehicles come with our experienced drivers</p>
             </div>
           </div>
           
@@ -146,8 +244,8 @@ const CarHire = () => {
               <Zap className="text-hunyadi-yellow" size={24} />
             </div>
             <div>
-              <h3 className="font-semibold text-lg text-cafe-noir">Quick Booking</h3>
-              <p className="text-brown-sugar text-sm mt-1">Simple process with instant confirmation</p>
+              <h3 className="font-semibold text-lg text-cafe-noir">Diverse Fleet</h3>
+              <p className="text-brown-sugar text-sm mt-1">From luxury transfers to safari adventures</p>
             </div>
           </div>
           
@@ -156,8 +254,8 @@ const CarHire = () => {
               <MapPin className="text-atomic-tangerine" size={24} />
             </div>
             <div>
-              <h3 className="font-semibold text-lg text-cafe-noir">Local Expertise</h3>
-              <p className="text-brown-sugar text-sm mt-1">Professional drivers with in-depth knowledge</p>
+              <h3 className="font-semibold text-lg text-cafe-noir">Flexible Options</h3>
+              <p className="text-brown-sugar text-sm mt-1">Half-day, full-day, and safari packages available</p>
             </div>
           </div>
         </div>
@@ -200,10 +298,13 @@ const CarHire = () => {
               key={index}
               name={car.name}
               image={car.image}
-              speed={car.speed}
-              price={car.price}
-              seats={car.seats}
               type={car.type}
+              seating={car.seating}
+              transferPrice={car.transferPrice}
+              halfDayPrice={car.halfDayPrice}
+              fullDayPrice={car.fullDayPrice}
+              safariPrice={car.safariPrice}
+              notes={car.notes}
             />
           ))}
         </div>
@@ -218,16 +319,79 @@ const CarHire = () => {
             <p className="text-brown-sugar mt-2">Try adjusting your search or filters</p>
           </div>
         )}
+
+        
+        {/* Rental Terms */}
+        <div className="mt-16 p-6 bg-white rounded-2xl shadow-sm border border-french-gray/20">
+          <h3 className="text-xl font-bold mb-4 text-cafe-noir">General Terms & Conditions</h3>
+          <div className="grid md:grid-cols-2 gap-6">
+            <div>
+              <div className="mb-4">
+                <h4 className="font-medium text-cafe-noir flex items-center">
+                  <Shield className="mr-2 text-asparagus" size={16} />
+                  Driver-Only Hire
+                </h4>
+                <p className="text-brown-sugar text-sm mt-1 ml-6">All vehicles are hired strictly with our professional drivers. Self-drive is not permitted.</p>
+              </div>
+              
+              <div className="mb-4">
+                <h4 className="font-medium text-cafe-noir flex items-center">
+                  <Clock className="mr-2 text-hunyadi-yellow" size={16} />
+                  Operating Hours
+                </h4>
+                <p className="text-brown-sugar text-sm mt-1 ml-6">Half-Day: Up to 5 consecutive hours</p>
+                <p className="text-brown-sugar text-sm mt-1 ml-6">Full-Day: Up to 10 consecutive hours</p>
+              </div>
+              
+              <div className="mb-4">
+                <h4 className="font-medium text-cafe-noir flex items-center">
+                  <DollarSign className="mr-2 text-claret" size={16} />
+                  Booking & Confirmation
+                </h4>
+                <p className="text-brown-sugar text-sm mt-1 ml-6">A 50% deposit is required to confirm the booking. The balance must be cleared before the start of the service.</p>
+              </div>
+            </div>
+            
+            <div>
+              <div className="mb-4">
+                <h4 className="font-medium text-cafe-noir flex items-center">
+                  <Car className="mr-2 text-princeton-orange" size={16} />
+                  Vehicle Substitution
+                </h4>
+                <p className="text-brown-sugar text-sm mt-1 ml-6">In the event of unforeseen circumstances, a similar or upgraded vehicle may be provided at no extra cost.</p>
+              </div>
+              
+              <div className="mb-4">
+                <h4 className="font-medium text-cafe-noir flex items-center">
+                  <Shield className="mr-2 text-moss-green" size={16} />
+                  Insurance
+                </h4>
+                <p className="text-brown-sugar text-sm mt-1 ml-6">All vehicles are fully insured. However, passengers are encouraged to have personal travel insurance.</p>
+              </div>
+              
+              <div className="mb-4">
+                <h4 className="font-medium text-cafe-noir flex items-center">
+                  <Fuel className="mr-2 text-atomic-tangerine" size={16} />
+                  Fuel Policy
+                </h4>
+                <p className="text-brown-sugar text-sm mt-1 ml-6">Fuel costs may or may not be included—please confirm at the time of booking.</p>
+              </div>
+            </div>
+          </div>
+        </div>
         
         {/* Call to Action */}
         <div className="mt-16 bg-gradient-to-r from-cafe-noir to-brown-sugar rounded-2xl p-8 text-center text-white relative overflow-hidden shadow-lg">
           <div className="absolute inset-0 opacity-10 mix-blend-overlay bg-pattern"></div>
           <h3 className="text-2xl font-bold mb-2 relative z-10">Need a custom transport solution?</h3>
           <p className="mb-6 relative z-10 max-w-lg mx-auto">Contact our team for personalized options for larger groups or special requirements</p>
+          <Link to='/contact'>
           <button className="bg-hunyadi-yellow text-cafe-noir px-6 py-3 rounded-lg font-medium hover:bg-gold-metallic transition-colors flex items-center mx-auto relative z-10">
             <Phone size={18} className="mr-2" />
             Contact Us
           </button>
+          </Link>
+          
         </div>
       </div>
     </div>

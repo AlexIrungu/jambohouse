@@ -1,226 +1,237 @@
 import React, { useState, useEffect } from 'react';
 import tanz from '../assets/tanzania.jpg'
+import kilimanjaro from '../assets/kilimanjaro.avif'
+import lake from '../assets/Lake Manyara.avif'
+import serengeti from '../assets/serengeti.avif'
+import tarangire from '../assets/tarangire.avif'
+import ngorongoro from '../assets/ngorongoro.avif'
+import hot from '../assets/hotairbalooon.avif'
+import serengetinp from '../assets/serengetinp.avif'
+import luzury from '../assets/luzury.jpg'
+import grand from '../assets/grandkenya.jpg'
+
+export const allPackages = [
+  {
+    id: "JT022",
+    name: "Kilimanjaro Safari",
+    type: "Classic",
+    duration: "5 Days / 4 Nights",
+    destinations: ["Kilimanjaro", "Arusha"],
+    description: "Experience the majesty of Kilimanjaro and its surroundings with this classic safari package.",
+    highlights: [
+      "Views of Mount Kilimanjaro",
+      "Wildlife viewing in Arusha National Park",
+      "Cultural visits to local villages",
+      "Guided nature walks"
+    ],
+    difficulty: "Moderate",
+    featured: false,
+    bestValue: true,
+    pricing: {
+      "Jan-Mar": { shared: 870.55, single: 192.05 },
+      "Apr-Jun": { shared: 765.90, single: 115.00 },
+      "Jul-Oct": { shared: 941.85, single: 2043.55 },
+      "Nov-Dec": { shared: 786.60, single: 126.50 }
+    },
+    coverImage: kilimanjaro,
+  },
+  {
+    id: "JT023",
+    name: "Treasure of East Africa",
+    type: "Classic",
+    duration: "10 Days / 9 Nights",
+    destinations: ["Serengeti", "Ngorongoro", "Lake Manyara"],
+    description: "Comprehensive safari covering the best wildlife viewing spots in East Africa for an unforgettable experience.",
+    highlights: [
+      "Full day in the Serengeti",
+      "Ngorongoro Crater expedition",
+      "Lake Manyara's tree-climbing lions",
+      "Great Migration viewing (seasonal)"
+    ],
+    difficulty: "Moderate",
+    featured: true,
+    bestValue: false,
+    pricing: {
+      "Jan-Mar": { shared: 5033.55, single: 715.30 },
+      "Apr-Jun": { shared: 3758.20, single: 173.65 },
+      "Jul-Oct": { shared: 5104.85, single: 726.80 },
+      "Nov-Dec": { shared: 4174.50, single: 607.20 }
+    },
+    coverImage: serengeti,
+  },
+  {
+    id: "JT026",
+    name: "Splendours of Tanzania",
+    type: "Classic",
+    duration: "7 Days / 6 Nights",
+    destinations: ["Tarangire", "Serengeti", "Ngorongoro"],
+    description: "Discover the magnificent wildlife and landscapes of Tanzania's most famous parks and conservation areas.",
+    highlights: [
+      "Big five game viewing",
+      "Spectacular landscapes",
+      "Maasai cultural interactions",
+      "Exclusive game drives"
+    ],
+    difficulty: "Easy",
+    featured: false,
+    bestValue: false,
+    pricing: {
+      "Jan-Mar": { shared: 4376.90, single: 466.90 },
+      "Apr-Jun": { shared: 3149.85, single: 462.30 },
+      "Jul-Oct": { shared: 4376.90, single: 466.90 },
+      "Nov-Dec": { shared: 3520.15, single: 425.50 }
+    },
+    coverImage: tarangire,
+  },
+  {
+    id: "JT027",
+    name: "Tanzania Migration Safari",
+    type: "Classic",
+    duration: "6 Days / 5 Nights",
+    destinations: ["Serengeti", "Ngorongoro"],
+    description: "Follow the Great Migration with this specially timed safari to witness one of nature's greatest spectacles.",
+    highlights: [
+      "Great Migration viewing",
+      "Wildebeest river crossings (seasonal)",
+      "Predator-prey interactions",
+      "Unmatched wildlife photography"
+    ],
+    difficulty: "Moderate",
+    featured: true,
+    bestValue: false,
+    pricing: {
+      "Jan-Mar": { shared: 1083.30, single: 278.30 },
+      "Apr-Jun": { shared: 0, single: 0 },
+      "Jul-Oct": { shared: 969.45, single: 335.80 },
+      "Nov-Dec": { shared: 0, single: 0 }
+    },
+    coverImage: ngorongoro,
+  },
+  {
+    id: "JT028",
+    name: "East Africa Odyssey",
+    type: "Classic",
+    duration: "12 Days / 11 Nights",
+    destinations: ["Serengeti", "Ngorongoro", "Tarangire", "Lake Manyara"],
+    description: "The ultimate East African adventure covering multiple parks and reserves across Tanzania.",
+    highlights: [
+      "Extended Serengeti stay",
+      "Full day at Ngorongoro Crater",
+      "Four different ecosystems",
+      "Optional hot air balloon safari"
+    ],
+    difficulty: "Challenging",
+    featured: false,
+    bestValue: true,
+    pricing: {
+      "Jan-Mar": { shared: 5384.30, single: 594.55 },
+      "Apr-Jun": { shared: 4861.05, single: 438.15 },
+      "Jul-Oct": { shared: 5434.90, single: 609.50 },
+      "Nov-Dec": { shared: 4896.70, single: 542.80 }
+    },
+    coverImage: hot,
+  },
+  {
+    id: "JT029",
+    name: "Tanzania Photography Safari",
+    type: "Classic",
+    duration: "8 Days / 7 Nights",
+    destinations: ["Serengeti", "Ngorongoro", "Lake Manyara"],
+    description: "Specially designed for photography enthusiasts with optimal viewing positions and timing for wildlife photography.",
+    highlights: [
+      "Photography-focused game drives",
+      "Golden hour sessions",
+      "Professional photography tips",
+      "Special vehicles with camera mounts"
+    ],
+    difficulty: "Moderate",
+    featured: true,
+    bestValue: false,
+    pricing: {
+      "Jan-Mar": { shared: 4245.80, single: 410.55 },
+      "Apr-Jun": { shared: 3050.95, single: 67.85 },
+      "Jul-Oct": { shared: 4245.80, single: 410.55 },
+      "Nov-Dec": { shared: 3816.85, single: 366.85 }
+    },
+    coverImage: lake,
+  },
+  {
+    id: "JT030",
+    name: "Tanzania Highlight Classic",
+    type: "Classic",
+    duration: "7 Days / 6 Nights",
+    destinations: ["Tarangire", "Serengeti", "Ngorongoro"],
+    description: "The essential Tanzania experience covering the most popular parks and wildlife viewing opportunities.",
+    highlights: [
+      "Elephant herds in Tarangire",
+      "Serengeti plains game viewing",
+      "Ngorongoro Crater descent",
+      "Professional naturalist guides"
+    ],
+    difficulty: "Easy",
+    featured: false,
+    bestValue: false,
+    pricing: {
+      "Jan-Mar": { shared: 3984.75, single: 336.95 },
+      "Apr-Jun": { shared: 2791.05, single: 115.00 },
+      "Jul-Oct": { shared: 3984.75, single: 336.95 },
+      "Nov-Dec": { shared: 3588.00, single: 299.00 }
+    },
+    coverImage: serengetinp
+  },
+  {
+    id: "JT041",
+    name: "The Ultimate Tanzania Safari",
+    type: "Luxury",
+    duration: "10 Days / 9 Nights",
+    destinations: ["Serengeti", "Ngorongoro", "Tarangire", "Lake Manyara"],
+    description: "Premium luxury safari experience with exclusive lodges, private guides, and exceptional service throughout.",
+    highlights: [
+      "Luxury accommodations",
+      "Private safari vehicles",
+      "Gourmet dining experiences",
+      "Champagne sundowners"
+    ],
+    difficulty: "Easy",
+    featured: true,
+    bestValue: false,
+    pricing: {
+      "Jan-Mar": { shared: 7732.60, single: 2250.55 },
+      "Apr-Jun": { shared: 7732.60, single: 2250.55 },
+      "Jul-Oct": { shared: 8192.60, single: 2486.30 },
+      "Nov-Dec": { shared: 7732.60, single: 2250.55 }
+    },
+    coverImage: luzury,
+  },
+  {
+    id: "JT042",
+    name: "Wings Over Kenya & Tanzania Safari",
+    type: "Luxury",
+    duration: "14 Days / 13 Nights",
+    destinations: ["Maasai Mara", "Serengeti", "Ngorongoro", "Amboseli"],
+    description: "The ultimate East African luxury experience with private flights between destinations for maximum comfort and efficiency.",
+    highlights: [
+      "Private air transfers",
+      "Five-star accommodations",
+      "Exclusive wildlife viewing",
+      "Professional photography guide"
+    ],
+    difficulty: "Easy",
+    featured: true,
+    bestValue: false,
+    pricing: {
+      "Jan-Mar": { shared: 12973.15, single: 3960.60 },
+      "Apr-Jun": { shared: 11399.95, single: 3243.00 },
+      "Jul-Oct": { shared: 13031.80, single: 4073.30 },
+      "Nov-Dec": { shared: 9911.85, single: 853.30 }
+    },
+    coverImage: grand
+  }
+];
 
 const TanzaniaSafari = () => {
   // Safari package data with full details including seasonal pricing
-  const allPackages = [
-    {
-      id: "JT022",
-      name: "Kilimanjaro Safari",
-      type: "Classic",
-      duration: "5 Days / 4 Nights",
-      destinations: ["Kilimanjaro", "Arusha"],
-      description: "Experience the majesty of Kilimanjaro and its surroundings with this classic safari package.",
-      highlights: [
-        "Views of Mount Kilimanjaro",
-        "Wildlife viewing in Arusha National Park",
-        "Cultural visits to local villages",
-        "Guided nature walks"
-      ],
-      difficulty: "Moderate",
-      featured: false,
-      bestValue: true,
-      pricing: {
-        "Jan-Mar": { shared: 870.55, single: 192.05 },
-        "Apr-Jun": { shared: 765.90, single: 115.00 },
-        "Jul-Oct": { shared: 941.85, single: 2043.55 },
-        "Nov-Dec": { shared: 786.60, single: 126.50 }
-      },
-      coverImage: "/images/safari/kilimanjaro.jpg"
-    },
-    {
-      id: "JT023",
-      name: "Treasure of East Africa",
-      type: "Classic",
-      duration: "10 Days / 9 Nights",
-      destinations: ["Serengeti", "Ngorongoro", "Lake Manyara"],
-      description: "Comprehensive safari covering the best wildlife viewing spots in East Africa for an unforgettable experience.",
-      highlights: [
-        "Full day in the Serengeti",
-        "Ngorongoro Crater expedition",
-        "Lake Manyara's tree-climbing lions",
-        "Great Migration viewing (seasonal)"
-      ],
-      difficulty: "Moderate",
-      featured: true,
-      bestValue: false,
-      pricing: {
-        "Jan-Mar": { shared: 5033.55, single: 715.30 },
-        "Apr-Jun": { shared: 3758.20, single: 173.65 },
-        "Jul-Oct": { shared: 5104.85, single: 726.80 },
-        "Nov-Dec": { shared: 4174.50, single: 607.20 }
-      },
-      coverImage: "/images/safari/east-africa.jpg"
-    },
-    {
-      id: "JT026",
-      name: "Splendours of Tanzania",
-      type: "Classic",
-      duration: "7 Days / 6 Nights",
-      destinations: ["Tarangire", "Serengeti", "Ngorongoro"],
-      description: "Discover the magnificent wildlife and landscapes of Tanzania's most famous parks and conservation areas.",
-      highlights: [
-        "Big five game viewing",
-        "Spectacular landscapes",
-        "Maasai cultural interactions",
-        "Exclusive game drives"
-      ],
-      difficulty: "Easy",
-      featured: false,
-      bestValue: false,
-      pricing: {
-        "Jan-Mar": { shared: 4376.90, single: 466.90 },
-        "Apr-Jun": { shared: 3149.85, single: 462.30 },
-        "Jul-Oct": { shared: 4376.90, single: 466.90 },
-        "Nov-Dec": { shared: 3520.15, single: 425.50 }
-      },
-      coverImage: "/images/safari/tanzania-splendours.jpg"
-    },
-    {
-      id: "JT027",
-      name: "Tanzania Migration Safari",
-      type: "Classic",
-      duration: "6 Days / 5 Nights",
-      destinations: ["Serengeti", "Ngorongoro"],
-      description: "Follow the Great Migration with this specially timed safari to witness one of nature's greatest spectacles.",
-      highlights: [
-        "Great Migration viewing",
-        "Wildebeest river crossings (seasonal)",
-        "Predator-prey interactions",
-        "Unmatched wildlife photography"
-      ],
-      difficulty: "Moderate",
-      featured: true,
-      bestValue: false,
-      pricing: {
-        "Jan-Mar": { shared: 1083.30, single: 278.30 },
-        "Apr-Jun": { shared: 0, single: 0 },
-        "Jul-Oct": { shared: 969.45, single: 335.80 },
-        "Nov-Dec": { shared: 0, single: 0 }
-      },
-      coverImage: "/images/safari/migration.jpg"
-    },
-    {
-      id: "JT028",
-      name: "East Africa Odyssey",
-      type: "Classic",
-      duration: "12 Days / 11 Nights",
-      destinations: ["Serengeti", "Ngorongoro", "Tarangire", "Lake Manyara"],
-      description: "The ultimate East African adventure covering multiple parks and reserves across Tanzania.",
-      highlights: [
-        "Extended Serengeti stay",
-        "Full day at Ngorongoro Crater",
-        "Four different ecosystems",
-        "Optional hot air balloon safari"
-      ],
-      difficulty: "Challenging",
-      featured: false,
-      bestValue: true,
-      pricing: {
-        "Jan-Mar": { shared: 5384.30, single: 594.55 },
-        "Apr-Jun": { shared: 4861.05, single: 438.15 },
-        "Jul-Oct": { shared: 5434.90, single: 609.50 },
-        "Nov-Dec": { shared: 4896.70, single: 542.80 }
-      },
-      coverImage: "/images/safari/odyssey.jpg"
-    },
-    {
-      id: "JT029",
-      name: "Tanzania Photography Safari",
-      type: "Classic",
-      duration: "8 Days / 7 Nights",
-      destinations: ["Serengeti", "Ngorongoro", "Lake Manyara"],
-      description: "Specially designed for photography enthusiasts with optimal viewing positions and timing for wildlife photography.",
-      highlights: [
-        "Photography-focused game drives",
-        "Golden hour sessions",
-        "Professional photography tips",
-        "Special vehicles with camera mounts"
-      ],
-      difficulty: "Moderate",
-      featured: true,
-      bestValue: false,
-      pricing: {
-        "Jan-Mar": { shared: 4245.80, single: 410.55 },
-        "Apr-Jun": { shared: 3050.95, single: 67.85 },
-        "Jul-Oct": { shared: 4245.80, single: 410.55 },
-        "Nov-Dec": { shared: 3816.85, single: 366.85 }
-      },
-      coverImage: "/images/safari/photography.jpg"
-    },
-    {
-      id: "JT030",
-      name: "Tanzania Highlight Classic",
-      type: "Classic",
-      duration: "7 Days / 6 Nights",
-      destinations: ["Tarangire", "Serengeti", "Ngorongoro"],
-      description: "The essential Tanzania experience covering the most popular parks and wildlife viewing opportunities.",
-      highlights: [
-        "Elephant herds in Tarangire",
-        "Serengeti plains game viewing",
-        "Ngorongoro Crater descent",
-        "Professional naturalist guides"
-      ],
-      difficulty: "Easy",
-      featured: false,
-      bestValue: false,
-      pricing: {
-        "Jan-Mar": { shared: 3984.75, single: 336.95 },
-        "Apr-Jun": { shared: 2791.05, single: 115.00 },
-        "Jul-Oct": { shared: 3984.75, single: 336.95 },
-        "Nov-Dec": { shared: 3588.00, single: 299.00 }
-      },
-      coverImage: "/images/safari/highlight.jpg"
-    },
-    {
-      id: "JT041",
-      name: "The Ultimate Tanzania Safari",
-      type: "Luxury",
-      duration: "10 Days / 9 Nights",
-      destinations: ["Serengeti", "Ngorongoro", "Tarangire", "Lake Manyara"],
-      description: "Premium luxury safari experience with exclusive lodges, private guides, and exceptional service throughout.",
-      highlights: [
-        "Luxury accommodations",
-        "Private safari vehicles",
-        "Gourmet dining experiences",
-        "Champagne sundowners"
-      ],
-      difficulty: "Easy",
-      featured: true,
-      bestValue: false,
-      pricing: {
-        "Jan-Mar": { shared: 7732.60, single: 2250.55 },
-        "Apr-Jun": { shared: 7732.60, single: 2250.55 },
-        "Jul-Oct": { shared: 8192.60, single: 2486.30 },
-        "Nov-Dec": { shared: 7732.60, single: 2250.55 }
-      },
-      coverImage: "/images/safari/ultimate.jpg"
-    },
-    {
-      id: "JT042",
-      name: "Wings Over Kenya & Tanzania Safari",
-      type: "Luxury",
-      duration: "14 Days / 13 Nights",
-      destinations: ["Maasai Mara", "Serengeti", "Ngorongoro", "Amboseli"],
-      description: "The ultimate East African luxury experience with private flights between destinations for maximum comfort and efficiency.",
-      highlights: [
-        "Private air transfers",
-        "Five-star accommodations",
-        "Exclusive wildlife viewing",
-        "Professional photography guide"
-      ],
-      difficulty: "Easy",
-      featured: true,
-      bestValue: false,
-      pricing: {
-        "Jan-Mar": { shared: 12973.15, single: 3960.60 },
-        "Apr-Jun": { shared: 11399.95, single: 3243.00 },
-        "Jul-Oct": { shared: 13031.80, single: 4073.30 },
-        "Nov-Dec": { shared: 9911.85, single: 853.30 }
-      },
-      coverImage: "/images/safari/wings.jpg"
-    }
-  ];
+  
 
   // State variables
   const [displayedPackages, setDisplayedPackages] = useState([]);
@@ -289,28 +300,28 @@ const TanzaniaSafari = () => {
   return (
     <div className="bg-eggshell min-h-screen">
       {/* Hero Section */}
-      <div className="relative h-96 bg-cafe-noir overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-r from-cafe-noir to-transparent z-10"></div>
-        <img 
-          src={tanz}
-          alt="Tanzania Safari"
-          className="absolute inset-0 w-full h-[100vh] object-cover object-center"
-        />
-        <div className="container mx-auto px-4 h-full flex items-center relative z-20">
-          <div className="max-w-2xl">
-            <h1 className="text-5xl font-bold text-cornsilk mb-4">Tanzania Safaris</h1>
-            <p className="text-xl text-eggshell mb-8">Experience the majesty of East Africa with our classic and luxury safari packages</p>
-            <div className="flex space-x-4">
-              <button className="bg-hunyadi-yellow hover:bg-princeton-orange text-cafe-noir font-bold py-3 px-6 rounded-lg transition duration-300">
-                Explore Packages
-              </button>
-              <button className="bg-transparent border-2 border-eggshell text-eggshell hover:bg-eggshell hover:text-cafe-noir font-bold py-3 px-6 rounded-lg transition duration-300">
-                Contact Our Experts
-              </button>
-            </div>
-          </div>
-        </div>
+<div className="relative w-full h-[100vh] overflow-hidden">
+  <div className="absolute inset-0 bg-gradient-to-r from-cafe-noir to-transparent z-10"></div>
+  <img 
+    src={tanz}
+    alt="Tanzania Safari"
+    className="absolute inset-0 w-full h-full object-cover object-center"
+  />
+  <div className="container mx-auto px-4 h-full flex items-center relative z-20">
+    <div className="max-w-2xl">
+      <h1 className="text-5xl font-bold text-cornsilk mb-4">Tanzania Safaris</h1>
+      <p className="text-xl text-eggshell mb-8">Experience the majesty of East Africa with our classic and luxury safari packages</p>
+      <div className="flex space-x-4">
+        <button className="bg-hunyadi-yellow hover:bg-princeton-orange text-cafe-noir font-bold py-3 px-6 rounded-lg transition duration-300">
+          Explore Packages
+        </button>
+        <button className="bg-transparent border-2 border-eggshell text-eggshell hover:bg-eggshell hover:text-cafe-noir font-bold py-3 px-6 rounded-lg transition duration-300">
+          Contact Our Experts
+        </button>
       </div>
+    </div>
+  </div>
+</div>
 
       <div className="container mx-auto px-4 py-12">
         {/* Season Selector */}

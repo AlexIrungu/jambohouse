@@ -1,264 +1,266 @@
 import React, { useState } from 'react';
 
+export const rwandaSafaris = [
+  {
+    id: "JT045-1",
+    code: "JT045",
+    name: "Classic Rwanda Safari - Premium",
+    type: "luxury",
+    featured: true,
+    duration: "7 Days / 6 Nights",
+    destinations: ["Kigali", "Volcanoes National Park", "Lake Kivu", "Nyungwe"],
+    description: "Experience the best of Rwanda with premium accommodations and exclusive wildlife encounters. This top mid-range safari offers the perfect blend of comfort and adventure.",
+    highlights: [
+      "Gorilla tracking with expert guides",
+      "Luxury accommodations throughout",
+      "Private transportation and dedicated guide",
+      "Cultural immersion experiences"
+    ],
+    pricing: {
+      high: {
+        shared: 4582.18,
+        single: 814.78
+      },
+      low: {
+        shared: 4088.83,
+        single: 732.55
+      }
+    },
+    difficulty: "Moderate",
+    bestValue: true
+  },
+  {
+    id: "JT045-2",
+    code: "JT045",
+    name: "Classic Rwanda Safari - Mid-range",
+    type: "midrange",
+    featured: false,
+    duration: "7 Days / 6 Nights",
+    destinations: ["Kigali", "Volcanoes National Park", "Nyungwe"],
+    description: "Discover Rwanda's beauty with comfortable mid-range accommodations. This safari provides excellent value while still offering exceptional wildlife experiences.",
+    highlights: [
+      "Gorilla trekking adventure",
+      "Comfortable accommodations",
+      "Guided nature walks",
+      "Cultural village visits"
+    ],
+    pricing: {
+      high: {
+        shared: 2145.33,
+        single: 478.40
+      },
+      low: {
+        shared: 2145.33,
+        single: 478.40
+      }
+    },
+    difficulty: "Moderate",
+    bestValue: false
+  },
+  {
+    id: "JT045-3",
+    code: "JT045",
+    name: "Classic Rwanda Safari - Standard",
+    type: "budget",
+    featured: false,
+    duration: "7 Days / 6 Nights",
+    destinations: ["Kigali", "Volcanoes National Park"],
+    description: "Experience Rwanda on a budget without compromising on wildlife encounters. This standard safari offers great value for conscious travelers.",
+    highlights: [
+      "Gorilla trekking experience",
+      "Comfortable standard accommodations",
+      "Group transportation with English-speaking guide",
+      "Local cuisine experiences"
+    ],
+    pricing: {
+      high: {
+        shared: 1891.18,
+        single: 321.43
+      },
+      low: {
+        shared: 1891.18,
+        single: 321.43
+      }
+    },
+    difficulty: "Moderate-Challenging",
+    bestValue: false
+  },
+  {
+    id: "JT046-1",
+    code: "JT046",
+    name: "Two Nights / Three Days Gorilla in the Mist - Premium",
+    type: "luxury",
+    featured: true,
+    duration: "3 Days / 2 Nights",
+    destinations: ["Kigali", "Volcanoes National Park"],
+    description: "A quick but profound gorilla trekking experience with premium accommodations at the Kigali Serena Hotel. Perfect for travelers with limited time.",
+    highlights: [
+      "Gorilla trek permit included ($2,242.50)",
+      "Premium accommodation at Kigali Serena Hotel",
+      "Private transportation",
+      "Expert local guides"
+    ],
+    pricing: {
+      high: {
+        shared: 1188.53 + 2242.50,
+        single: 396.18 + 2242.50
+      },
+      low: {
+        shared: 1188.53 + 2242.50,
+        single: 396.18 + 2242.50
+      }
+    },
+    difficulty: "Challenging",
+    bestValue: false
+  },
+  {
+    id: "JT046-2",
+    code: "JT046",
+    name: "Two Nights / Three Days Gorilla in the Mist - Standard",
+    type: "midrange",
+    featured: false,
+    duration: "3 Days / 2 Nights",
+    destinations: ["Kigali", "Volcanoes National Park"],
+    description: "An essential gorilla trekking adventure with comfortable accommodations at Umutomo Hotel. Experience the magnificence of mountain gorillas on this compact safari.",
+    highlights: [
+      "Gorilla trek permit included ($2,242.50)",
+      "Comfortable accommodation at Umutomo Hotel",
+      "Shared transportation",
+      "Professional guides"
+    ],
+    pricing: {
+      high: {
+        shared: 889.53 + 2242.50,
+        single: 1719.25 + 2242.50
+      },
+      low: {
+        shared: 889.53 + 2242.50,
+        single: 1719.25 + 2242.50
+      }
+    },
+    difficulty: "Challenging",
+    bestValue: true
+  },
+  {
+    id: "JT047-1",
+    code: "JT047",
+    name: "Three Nights / Four Days Gorilla in the Mist - Premium",
+    type: "luxury",
+    featured: true,
+    duration: "4 Days / 3 Nights",
+    destinations: ["Kigali", "Volcanoes National Park"],
+    description: "A more immersive gorilla trekking experience with luxury stays at Kigali Serena Hotel and Mountain Gorilla View Lodge. Perfect for wildlife enthusiasts.",
+    highlights: [
+      "Gorilla trek permit included ($2,242.50)",
+      "Premium accommodations at Kigali Serena & Mountain Gorilla View Lodge",
+      "Private transportation throughout",
+      "Additional wildlife activities available"
+    ],
+    pricing: {
+      high: {
+        shared: 1450.15 + 2242.50,
+        single: 530.72 + 2242.50
+      },
+      low: {
+        shared: 1450.15 + 2242.50,
+        single: 530.72 + 2242.50
+      }
+    },
+    difficulty: "Challenging",
+    bestValue: false
+  },
+  {
+    id: "JT047-2",
+    code: "JT047",
+    name: "Three Nights / Four Days Gorilla in the Mist - Standard",
+    type: "midrange",
+    featured: false,
+    duration: "4 Days / 3 Nights",
+    destinations: ["Kigali", "Volcanoes National Park"],
+    description: "A comprehensive gorilla trekking adventure with comfortable stays at Umutomo Hotel and Mountain Gorilla View Lodge. Excellent value for your Rwanda experience.",
+    highlights: [
+      "Gorilla trek permit included ($2,242.50)",
+      "Comfortable accommodations at Umutomo Hotel & Mountain Gorilla View Lodge",
+      "Shared transportation",
+      "Expert gorilla tracking guides"
+    ],
+    pricing: {
+      high: {
+        shared: 1143.67 + 2242.50,
+        single: 306.47 + 2242.50
+      },
+      low: {
+        shared: 1143.67 + 2242.50,
+        single: 306.47 + 2242.50
+      }
+    },
+    difficulty: "Challenging",
+    bestValue: true
+  },
+  {
+    id: "ADDON-1",
+    code: "ADDON",
+    name: "Chimp Trek Experience",
+    type: "addon",
+    featured: false,
+    duration: "1 Day Activity",
+    destinations: ["Nyungwe Forest"],
+    description: "Add a memorable chimpanzee tracking experience to any of our Rwanda safari packages. Encounter these fascinating primates in their natural habitat.",
+    highlights: [
+      "Professional chimp tracking guides",
+      "Small group experience",
+      "Transportation from lodge",
+      "Safety briefing and equipment"
+    ],
+    pricing: {
+      high: {
+        shared: 134.55,
+        single: 134.55
+      },
+      low: {
+        shared: 134.55,
+        single: 134.55
+      }
+    },
+    difficulty: "Moderate",
+    bestValue: false
+  },
+  {
+    id: "ADDON-2",
+    code: "ADDON",
+    name: "Rwanda Nature Package",
+    type: "addon",
+    featured: false,
+    duration: "1-2 Days Activities",
+    destinations: ["Nyungwe Forest", "Volcanoes National Park"],
+    description: "Enhance your Rwanda safari with our nature package including canopy walks, waterfall hikes, and colobus monkey trekking.",
+    highlights: [
+      "Canopy Hike ($89.70)",
+      "Waterfall Hike ($74.75)",
+      "Colobus Monkeys Trek ($89.70)",
+      "Expert local naturalist guides"
+    ],
+    pricing: {
+      high: {
+        shared: 89.70 + 89.70 + 74.75,
+        single: 89.70 + 89.70 + 74.75
+      },
+      low: {
+        shared: 89.70 + 89.70 + 74.75,
+        single: 89.70 + 89.70 + 74.75
+      }
+    },
+    difficulty: "Easy to Moderate",
+    bestValue: false
+  }
+];
+
 const RwandaSafari = () => {
   const [visiblePackages, setVisiblePackages] = useState(6);
   const [selectedSeason, setSelectedSeason] = useState('high');
   const [selectedFilter, setSelectedFilter] = useState('all');
   
-  const rwandaSafaris = [
-    {
-      id: "JT045-1",
-      code: "JT045",
-      name: "Classic Rwanda Safari - Premium",
-      type: "luxury",
-      featured: true,
-      duration: "7 Days / 6 Nights",
-      destinations: ["Kigali", "Volcanoes National Park", "Lake Kivu", "Nyungwe"],
-      description: "Experience the best of Rwanda with premium accommodations and exclusive wildlife encounters. This top mid-range safari offers the perfect blend of comfort and adventure.",
-      highlights: [
-        "Gorilla tracking with expert guides",
-        "Luxury accommodations throughout",
-        "Private transportation and dedicated guide",
-        "Cultural immersion experiences"
-      ],
-      pricing: {
-        high: {
-          shared: 4582.18,
-          single: 814.78
-        },
-        low: {
-          shared: 4088.83,
-          single: 732.55
-        }
-      },
-      difficulty: "Moderate",
-      bestValue: true
-    },
-    {
-      id: "JT045-2",
-      code: "JT045",
-      name: "Classic Rwanda Safari - Mid-range",
-      type: "midrange",
-      featured: false,
-      duration: "7 Days / 6 Nights",
-      destinations: ["Kigali", "Volcanoes National Park", "Nyungwe"],
-      description: "Discover Rwanda's beauty with comfortable mid-range accommodations. This safari provides excellent value while still offering exceptional wildlife experiences.",
-      highlights: [
-        "Gorilla trekking adventure",
-        "Comfortable accommodations",
-        "Guided nature walks",
-        "Cultural village visits"
-      ],
-      pricing: {
-        high: {
-          shared: 2145.33,
-          single: 478.40
-        },
-        low: {
-          shared: 2145.33,
-          single: 478.40
-        }
-      },
-      difficulty: "Moderate",
-      bestValue: false
-    },
-    {
-      id: "JT045-3",
-      code: "JT045",
-      name: "Classic Rwanda Safari - Standard",
-      type: "budget",
-      featured: false,
-      duration: "7 Days / 6 Nights",
-      destinations: ["Kigali", "Volcanoes National Park"],
-      description: "Experience Rwanda on a budget without compromising on wildlife encounters. This standard safari offers great value for conscious travelers.",
-      highlights: [
-        "Gorilla trekking experience",
-        "Comfortable standard accommodations",
-        "Group transportation with English-speaking guide",
-        "Local cuisine experiences"
-      ],
-      pricing: {
-        high: {
-          shared: 1891.18,
-          single: 321.43
-        },
-        low: {
-          shared: 1891.18,
-          single: 321.43
-        }
-      },
-      difficulty: "Moderate-Challenging",
-      bestValue: false
-    },
-    {
-      id: "JT046-1",
-      code: "JT046",
-      name: "Two Nights / Three Days Gorilla in the Mist - Premium",
-      type: "luxury",
-      featured: true,
-      duration: "3 Days / 2 Nights",
-      destinations: ["Kigali", "Volcanoes National Park"],
-      description: "A quick but profound gorilla trekking experience with premium accommodations at the Kigali Serena Hotel. Perfect for travelers with limited time.",
-      highlights: [
-        "Gorilla trek permit included ($2,242.50)",
-        "Premium accommodation at Kigali Serena Hotel",
-        "Private transportation",
-        "Expert local guides"
-      ],
-      pricing: {
-        high: {
-          shared: 1188.53 + 2242.50,
-          single: 396.18 + 2242.50
-        },
-        low: {
-          shared: 1188.53 + 2242.50,
-          single: 396.18 + 2242.50
-        }
-      },
-      difficulty: "Challenging",
-      bestValue: false
-    },
-    {
-      id: "JT046-2",
-      code: "JT046",
-      name: "Two Nights / Three Days Gorilla in the Mist - Standard",
-      type: "midrange",
-      featured: false,
-      duration: "3 Days / 2 Nights",
-      destinations: ["Kigali", "Volcanoes National Park"],
-      description: "An essential gorilla trekking adventure with comfortable accommodations at Umutomo Hotel. Experience the magnificence of mountain gorillas on this compact safari.",
-      highlights: [
-        "Gorilla trek permit included ($2,242.50)",
-        "Comfortable accommodation at Umutomo Hotel",
-        "Shared transportation",
-        "Professional guides"
-      ],
-      pricing: {
-        high: {
-          shared: 889.53 + 2242.50,
-          single: 1719.25 + 2242.50
-        },
-        low: {
-          shared: 889.53 + 2242.50,
-          single: 1719.25 + 2242.50
-        }
-      },
-      difficulty: "Challenging",
-      bestValue: true
-    },
-    {
-      id: "JT047-1",
-      code: "JT047",
-      name: "Three Nights / Four Days Gorilla in the Mist - Premium",
-      type: "luxury",
-      featured: true,
-      duration: "4 Days / 3 Nights",
-      destinations: ["Kigali", "Volcanoes National Park"],
-      description: "A more immersive gorilla trekking experience with luxury stays at Kigali Serena Hotel and Mountain Gorilla View Lodge. Perfect for wildlife enthusiasts.",
-      highlights: [
-        "Gorilla trek permit included ($2,242.50)",
-        "Premium accommodations at Kigali Serena & Mountain Gorilla View Lodge",
-        "Private transportation throughout",
-        "Additional wildlife activities available"
-      ],
-      pricing: {
-        high: {
-          shared: 1450.15 + 2242.50,
-          single: 530.72 + 2242.50
-        },
-        low: {
-          shared: 1450.15 + 2242.50,
-          single: 530.72 + 2242.50
-        }
-      },
-      difficulty: "Challenging",
-      bestValue: false
-    },
-    {
-      id: "JT047-2",
-      code: "JT047",
-      name: "Three Nights / Four Days Gorilla in the Mist - Standard",
-      type: "midrange",
-      featured: false,
-      duration: "4 Days / 3 Nights",
-      destinations: ["Kigali", "Volcanoes National Park"],
-      description: "A comprehensive gorilla trekking adventure with comfortable stays at Umutomo Hotel and Mountain Gorilla View Lodge. Excellent value for your Rwanda experience.",
-      highlights: [
-        "Gorilla trek permit included ($2,242.50)",
-        "Comfortable accommodations at Umutomo Hotel & Mountain Gorilla View Lodge",
-        "Shared transportation",
-        "Expert gorilla tracking guides"
-      ],
-      pricing: {
-        high: {
-          shared: 1143.67 + 2242.50,
-          single: 306.47 + 2242.50
-        },
-        low: {
-          shared: 1143.67 + 2242.50,
-          single: 306.47 + 2242.50
-        }
-      },
-      difficulty: "Challenging",
-      bestValue: true
-    },
-    {
-      id: "ADDON-1",
-      code: "ADDON",
-      name: "Chimp Trek Experience",
-      type: "addon",
-      featured: false,
-      duration: "1 Day Activity",
-      destinations: ["Nyungwe Forest"],
-      description: "Add a memorable chimpanzee tracking experience to any of our Rwanda safari packages. Encounter these fascinating primates in their natural habitat.",
-      highlights: [
-        "Professional chimp tracking guides",
-        "Small group experience",
-        "Transportation from lodge",
-        "Safety briefing and equipment"
-      ],
-      pricing: {
-        high: {
-          shared: 134.55,
-          single: 134.55
-        },
-        low: {
-          shared: 134.55,
-          single: 134.55
-        }
-      },
-      difficulty: "Moderate",
-      bestValue: false
-    },
-    {
-      id: "ADDON-2",
-      code: "ADDON",
-      name: "Rwanda Nature Package",
-      type: "addon",
-      featured: false,
-      duration: "1-2 Days Activities",
-      destinations: ["Nyungwe Forest", "Volcanoes National Park"],
-      description: "Enhance your Rwanda safari with our nature package including canopy walks, waterfall hikes, and colobus monkey trekking.",
-      highlights: [
-        "Canopy Hike ($89.70)",
-        "Waterfall Hike ($74.75)",
-        "Colobus Monkeys Trek ($89.70)",
-        "Expert local naturalist guides"
-      ],
-      pricing: {
-        high: {
-          shared: 89.70 + 89.70 + 74.75,
-          single: 89.70 + 89.70 + 74.75
-        },
-        low: {
-          shared: 89.70 + 89.70 + 74.75,
-          single: 89.70 + 89.70 + 74.75
-        }
-      },
-      difficulty: "Easy to Moderate",
-      bestValue: false
-    }
-  ];
+  
 
   const seasons = [
     { id: 'high', name: 'High Season (Jul-Oct)', description: 'Peak wildlife viewing with optimal weather conditions. Perfect for gorilla trekking with clearer trails.' },
@@ -293,17 +295,23 @@ const RwandaSafari = () => {
   return (
     <div className="bg-eggshell min-h-screen">
       {/* Hero Section */}
-      <div className="relative bg-cafe-noir h-96">
-        <div className="absolute inset-0 bg-black opacity-50"></div>
-        <div className="relative container mx-auto px-4 h-full flex flex-col justify-center items-center text-center">
-          <h1 className="text-4xl md:text-5xl font-bold text-eggshell mb-4">Discover Rwanda's Natural Wonders</h1>
-          <p className="text-xl text-alice-blue mb-8 max-w-2xl">Experience unforgettable gorilla trekking, breathtaking landscapes, and vibrant culture in the Land of a Thousand Hills</p>
-          <div className="flex flex-wrap justify-center gap-4">
-            <button className="bg-hunyadi-yellow hover:bg-gold-metallic text-cafe-noir px-6 py-3 rounded-full font-semibold transition">Plan Your Safari</button>
-            <button className="bg-transparent border-2 border-alice-blue text-alice-blue px-6 py-3 rounded-full font-semibold hover:bg-alice-blue hover:text-cafe-noir transition">View Travel Guide</button>
-          </div>
-        </div>
-      </div>
+<div className="relative w-full h-[50vh] bg-cafe-noir">
+   {/* Add background image here */}
+   <img 
+    src=""
+    alt="Rwanda Landscape"
+    className="absolute inset-0 w-full h-full object-cover object-center"
+  />
+  <div className="absolute inset-0 bg-black opacity-50"></div>
+  <div className="relative container mx-auto px-4 h-full flex flex-col justify-center items-center text-center z-10">
+    <h1 className="text-4xl md:text-5xl font-bold text-eggshell mb-4">Discover Rwanda's Natural Wonders</h1>
+    <p className="text-xl text-alice-blue mb-8 max-w-2xl">Experience unforgettable gorilla trekking, breathtaking landscapes, and vibrant culture in the Land of a Thousand Hills</p>
+    <div className="flex flex-wrap justify-center gap-4">
+      <button className="bg-hunyadi-yellow hover:bg-gold-metallic text-cafe-noir px-6 py-3 rounded-full font-semibold transition">Plan Your Safari</button>
+      <button className="bg-transparent border-2 border-alice-blue text-alice-blue px-6 py-3 rounded-full font-semibold hover:bg-alice-blue hover:text-cafe-noir transition">View Travel Guide</button>
+    </div>
+  </div>
+</div>
 
       <div className="container mx-auto px-4 py-12">
         {/* Season Selection */}

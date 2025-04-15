@@ -10,6 +10,7 @@ import Footer from './components/Footer';
 import NewsletterPopup from './components/NewsletterPopup';
 import AIChatbot from './components/AIChatbot';
 import PostDetails from './components/PostDetails';
+import BookingForm from './components/BookingForm';
 
 // Safari pages
 import Safaris from './components/Safaris';
@@ -42,6 +43,7 @@ function App() {
           <Route path="/hotel-booking" element={<HotelBooking />} />
           <Route path="/blog" element={<Blog />} />
           <Route path="/blog/:id" element={<PostDetails />} />
+          <Route path="/booking-form/:carId" element={<BookingForm />} />
         </Routes>
         <Footer />
       </div>

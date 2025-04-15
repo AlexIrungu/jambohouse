@@ -394,12 +394,12 @@ const NationalParksSection = () => {
       description: "The northern extension of the Serengeti, famous for its exceptional populations of big cats.",
       image: "https://images.unsplash.com/photo-1607324772302-715d6ac303f0?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8bWFzYWklMjBtYXJhfGVufDB8fDB8fHww"
     },
-    {
-      name: "Kruger National Park",
-      country: "South Africa",
-      description: "One of Africa's largest game reserves with an unparalleled diversity of wildlife.",
-      image: "https://images.unsplash.com/photo-1521651201144-634f700b36ef?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8a3J1Z2VyfGVufDB8fDB8fHww"
-    },
+    // {
+    //   name: "Kruger National Park",
+    //   country: "South Africa",
+    //   description: "One of Africa's largest game reserves with an unparalleled diversity of wildlife.",
+    //   image: "https://images.unsplash.com/photo-1521651201144-634f700b36ef?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8a3J1Z2VyfGVufDB8fDB8fHww"
+    // },
     {
       name: "Volcanoes National Park",
       country: "Rwanda",
@@ -412,12 +412,12 @@ const NationalParksSection = () => {
       description: "A UNESCO World Heritage Site featuring a massive volcanic caldera.",
       image: "https://images.unsplash.com/photo-1615964201064-6ff9a1bf1c76?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fG5nb3Jvbmdvcm8lMjBjcmF0ZXJ8ZW58MHx8MHx8fDA%3D"
     },
-    {
-      name: "Chobe National Park",
-      country: "Botswana",
-      description: "Famous for its massive elephant herds and spectacular river safaris.",
-      image: "https://images.unsplash.com/photo-1548625361-1adcab316530?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8Y2hvYmUlMjBuYXRpb25hbCUyMHBhcmt8ZW58MHx8MHx8fDA%3D"
-    }
+    // {
+    //   name: "Chobe National Park",
+    //   country: "Botswana",
+    //   description: "Famous for its massive elephant herds and spectacular river safaris.",
+    //   image: "https://images.unsplash.com/photo-1548625361-1adcab316530?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8Y2hvYmUlMjBuYXRpb25hbCUyMHBhcmt8ZW58MHx8MHx8fDA%3D"
+    // }
   ];
 
   return (
@@ -465,28 +465,28 @@ const NationalParksSection = () => {
 const PopularPackages = () => {
   const packages = [
     {
-      destination: 'Tanzania',
-      title: '7 Days Serengeti & Ngorongoro',
-      description: 'Witness the incredible wildlife of Northern Tanzania',
-      difficulty: 'Moderate',
-      price: '$2,800',
-      image: 'https://images.unsplash.com/photo-1516426122078-c23e76319801?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTR8fHNlcmVuZ2V0aXxlbnwwfHwwfHx8MA%3D%3D'
+      destination: "Kenya",
+      title: "Masai Safari Classic",
+      description: "Immerse yourself in the iconic Masai Mara ecosystem with this focused safari experience in Kenya's most famous reserve.",
+      difficulty: "Easy",
+      price: "$1,549",
+      image: "/api/placeholder/500/300"
     },
     {
-      destination: 'Kenya',
-      title: '10 Days Kenya Wildlife Circuit',
-      description: 'Explore Masai Mara, Amboseli, and Lake Nakuru',
-      difficulty: 'Challenging',
-      price: '$3,200',
-      image: 'https://images.unsplash.com/photo-1592670130915-d3dcd94675a9?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8bWFzYWklMjBtYXJhJTJDJTIwYW1ib3NlbGl8ZW58MHx8MHx8fDA%3D'
+      destination: "Tanzania",
+      title: "Tanzania Migration Safari",
+      description: "Follow the Great Migration with this specially timed safari to witness one of nature's greatest spectacles.",
+      difficulty: "Moderate",
+      price: "$1,083",
+      image: "/api/placeholder/500/300"
     },
     {
-      destination: 'South Africa',
-      title: '5 Days Kruger National Park',
-      description: 'Classic safari experience in world-renowned park',
-      difficulty: 'Easy',
-      price: '$1,950',
-      image: 'https://images.unsplash.com/photo-1506356033580-9c0c4d2ea0e3?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fGtydWdlcnxlbnwwfHwwfHx8MA%3D%3D'
+      destination: "Rwanda",
+      title: "Gorilla in the Mist",
+      description: "An essential gorilla trekking adventure with comfortable accommodations. Experience the magnificence of mountain gorillas on this compact safari.",
+      difficulty: "Challenging",
+      price: "$3,132",
+      image: "/api/placeholder/500/300"
     }
   ];
 
@@ -561,31 +561,31 @@ const PackagesSection = () => (
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
         {[
           {
-            title: "Luxury Wilderness Escape",
-            duration: "10 Days",
-            price: "$4,500",
-            highlights: ["Private game drives", "Luxury eco-lodges", "Gourmet dining"],
+            title: "Classic Rwanda Safari",
+            duration: "7 Days / 6 Nights",
+            price: "$4,582",
+            highlights: ["Gorilla tracking with expert guides", "Luxury accommodations throughout", "Private transportation", "Cultural immersion experiences"],
             rating: 5,
             style: "border-t-asparagus",
-            bgImage: "https://images.unsplash.com/photo-1510525009512-ad7fc13eefab?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8bHV4dXJ5JTIwc2FmYXJpfGVufDB8fDB8fHww"
+            bgImage: "/api/placeholder/500/300"
           },
           {
-            title: "Family Wildlife Adventure",
-            duration: "7 Days",
-            price: "$2,800",
-            highlights: ["Kid-friendly activities", "Educational programs", "Safe & comfortable"],
+            title: "Karibu Kenya",
+            duration: "7 Days / 6 Nights",
+            price: "$3,193",
+            highlights: ["Game drives in premier wildlife reserves", "Professional safari guides", "Comfortable lodge accommodations", "Cultural interactions"],
             rating: 4,
             style: "border-t-hunyadi-yellow",
-            bgImage: "https://images.unsplash.com/photo-1551706872-300f019d89f7?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8ZmFtaWx5JTIwc2FmYXJpfGVufDB8fDB8fHww"
+            bgImage: "/api/placeholder/500/300"
           },
           {
-            title: "Photography Safari Expedition",
-            duration: "8 Days",
-            price: "$3,200",
-            highlights: ["Professional guides", "Prime wildlife locations", "Camera workshops"],
+            title: "Tanzania Photography Safari",
+            duration: "8 Days / 7 Nights",
+            price: "$4,245",
+            highlights: ["Photography-focused game drives", "Golden hour sessions", "Professional photography tips", "Special vehicles with camera mounts"],
             rating: 5,
             style: "border-t-brown-sugar",
-            bgImage: "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8cGhvdG9ncmFwaHklMjBzYWZhcml8ZW58MHx8MHx8fDA%3D"
+            bgImage: "/api/placeholder/500/300"
           }
         ].map((pkg, index) => (
           <div 
