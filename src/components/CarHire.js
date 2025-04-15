@@ -292,22 +292,27 @@ const CarHire = () => {
         </div>
 
         {/* Results Section */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {filteredCars.map((car, index) => (
-            <CarHireCard 
-              key={index}
-              name={car.name}
-              image={car.image}
-              type={car.type}
-              seating={car.seating}
-              transferPrice={car.transferPrice}
-              halfDayPrice={car.halfDayPrice}
-              fullDayPrice={car.fullDayPrice}
-              safariPrice={car.safariPrice}
-              notes={car.notes}
-            />
-          ))}
-        </div>
+<div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+  {filteredCars.map((car) => {
+    console.log(`Rendering car with ID: ${car.id}, Name: ${car.name}`);
+    
+    return (
+      <CarHireCard 
+        key={car.id}
+        id={car.id}  // This was missing before - now properly passing the ID
+        name={car.name}
+        image={car.image}
+        type={car.type}
+        seating={car.seating}
+        transferPrice={car.transferPrice}
+        halfDayPrice={car.halfDayPrice}
+        fullDayPrice={car.fullDayPrice}
+        safariPrice={car.safariPrice}
+        notes={car.notes}
+      />
+    );
+  })}
+</div>
         
         {/* Empty State */}
         {filteredCars.length === 0 && (

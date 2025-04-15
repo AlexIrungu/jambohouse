@@ -47,6 +47,7 @@ const BookingForm = () => {
     // Mock API call - in a real application, this would be an actual API call
     const fetchCarById = () => {
       setLoading(true);
+      console.log('Car ID from URL:', carId);
       
       // This should be the same car data from your CarHire component
       const cars = [
