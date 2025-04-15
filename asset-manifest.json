@@ -1,19 +1,43 @@
 {
   "files": {
-    "main.css": "/jambohouse/static/css/main.c517a2f8.css",
-    "main.js": "/jambohouse/static/js/main.5d339b30.js",
+    "main.css": "/jambohouse/static/css/main.d21b4b88.css",
+    "main.js": "/jambohouse/static/js/main.1fecf6f3.js",
+    "static/css/632.51e94746.chunk.css": "/jambohouse/static/css/632.51e94746.chunk.css",
+    "static/js/632.add46806.chunk.js": "/jambohouse/static/js/632.add46806.chunk.js",
     "static/js/453.1325bb4c.chunk.js": "/jambohouse/static/js/453.1325bb4c.chunk.js",
+    "static/js/937.d771d3a1.chunk.js": "/jambohouse/static/js/937.d771d3a1.chunk.js",
+    "static/media/karibukenya.jpg": "/jambohouse/static/media/karibukenya.bb44fdd45c268e50483a.jpg",
+    "static/media/twiga.jpg": "/jambohouse/static/media/twiga.9790ce91c34deaafff4c.jpg",
+    "static/media/kenyahero.jpg": "/jambohouse/static/media/kenyahero.5a250af2b8a458a7aa6c.jpg",
+    "static/media/zebra.jpg": "/jambohouse/static/media/zebra.dec577df32f697eb46e6.jpg",
+    "static/media/amboseli.jpg": "/jambohouse/static/media/amboseli.f3f0ddd8785b1b80639f.jpg",
     "static/media/elephant.jpg": "/jambohouse/static/media/elephant.c9fac97d8b0f29f6170d.jpg",
+    "static/media/easymara.jpg": "/jambohouse/static/media/easymara.ac9f8b12696842203c69.jpg",
+    "static/media/naivasha.jpg": "/jambohouse/static/media/naivasha.49ec30064abaa930f236.jpg",
     "static/media/rhino.jpg": "/jambohouse/static/media/rhino.738e2903f6637dc7eba3.jpg",
+    "static/media/luzury.jpg": "/jambohouse/static/media/luzury.360f2d8c44bf4a2f0a82.jpg",
+    "static/media/grandkenya.jpg": "/jambohouse/static/media/grandkenya.8f28d381fd6d1299abab.jpg",
     "static/media/marasunset.jpg": "/jambohouse/static/media/marasunset.70ed7e24fd7cee98c158.jpg",
+    "static/media/mara.jpg": "/jambohouse/static/media/mara.f5ba37964a6782a69c24.jpg",
+    "static/media/tarangire.avif": "/jambohouse/static/media/tarangire.5652a4b06f12e0fb9294.avif",
+    "static/media/marasun.jpg": "/jambohouse/static/media/marasun.63d02d219196cc89a357.jpg",
     "static/media/tanzania.jpg": "/jambohouse/static/media/tanzania.662f6d184c007c3837da.jpg",
+    "static/media/serengetinp.avif": "/jambohouse/static/media/serengetinp.d45ae3a5580d267b21d0.avif",
+    "static/media/serengeti.avif": "/jambohouse/static/media/serengeti.5d9efaa7e814216aa37a.avif",
+    "static/media/kilimanjaro.avif": "/jambohouse/static/media/kilimanjaro.832db5dc305e29275789.avif",
+    "static/media/ngorongoro.avif": "/jambohouse/static/media/ngorongoro.dd73497d241b509fb23f.avif",
+    "static/media/hotairbalooon.avif": "/jambohouse/static/media/hotairbalooon.e8ac3c8166f414307e59.avif",
+    "static/media/Lake Manyara.avif": "/jambohouse/static/media/Lake Manyara.b9f1193f8f98e1fc30cd.avif",
     "index.html": "/jambohouse/index.html",
-    "main.c517a2f8.css.map": "/jambohouse/static/css/main.c517a2f8.css.map",
-    "main.5d339b30.js.map": "/jambohouse/static/js/main.5d339b30.js.map",
-    "453.1325bb4c.chunk.js.map": "/jambohouse/static/js/453.1325bb4c.chunk.js.map"
+    "main.d21b4b88.css.map": "/jambohouse/static/css/main.d21b4b88.css.map",
+    "main.1fecf6f3.js.map": "/jambohouse/static/js/main.1fecf6f3.js.map",
+    "632.51e94746.chunk.css.map": "/jambohouse/static/css/632.51e94746.chunk.css.map",
+    "632.add46806.chunk.js.map": "/jambohouse/static/js/632.add46806.chunk.js.map",
+    "453.1325bb4c.chunk.js.map": "/jambohouse/static/js/453.1325bb4c.chunk.js.map",
+    "937.d771d3a1.chunk.js.map": "/jambohouse/static/js/937.d771d3a1.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.c517a2f8.css",
-    "static/js/main.5d339b30.js"
+    "static/css/main.d21b4b88.css",
+    "static/js/main.1fecf6f3.js"
   ]
 }
