@@ -2,7 +2,7 @@ import React, { useState, useEffect, lazy, Suspense } from 'react';
 import { ChevronRight, Calendar, MapPin, ArrowRight, ChevronDown } from 'lucide-react';
 import KenyaSafari, { safariPackages as kenyaPackages } from './KenyaSafari';
 import TanzaniaSafari, { allPackages as tanzaniaPackages } from './TanzaniaSafari';
-import RwandaSafari, { rwandaSafaris as rwandaPackages } from './RwandaSafari';
+import RwandaSafari from './RwandaSafari';
 
 // Lazy load the Map component to avoid SSR issues
 const Map = lazy(() => import('./Map'));
@@ -79,44 +79,44 @@ const Safaris = () => {
         destinations: pkg.destinations
       }))
     },
-    {
-      id: 'tanzania',
-      name: 'Tanzania',
-      description: 'Serengeti, Ngorongoro, and unparalleled wildlife experiences',
-      backgroundImage: '/images/tanzania-safari-bg.jpg',
-      flagIcon: '🇹🇿',
-      highlights: ['Serengeti', 'Ngorongoro Crater', 'Mount Kilimanjaro', 'Zanzibar'],
-      bestTime: 'July to October',
-      signature: 'Ngorongoro Crater',
-      packages: tanzaniaPackages.slice(0, 3).map(pkg => ({
-        title: pkg.name,
-        duration: pkg.duration,
-        price: `$${pkg.pricing["Jul-Oct"].shared.toFixed(2)}`,
-        image: pkg.coverImage,
-        description: pkg.description,
-        highlights: pkg.highlights,
-        destinations: pkg.destinations
-      }))
-    },
-    {
-      id: 'rwanda',
-      name: 'Rwanda',
-      description: 'Mountain gorillas, lush landscapes, and unique wildlife encounters',
-      backgroundImage: '/images/rwanda-safari-bg.jpg',
-      flagIcon: '🇷🇼',
-      highlights: ['Volcanoes National Park', 'Nyungwe Forest', 'Akagera', 'Lake Kivu'],
-      bestTime: 'June to September',
-      signature: 'Mountain Gorilla Trekking',
-      packages: rwandaPackages.filter(pkg => pkg.type !== 'addon').slice(0, 3).map(pkg => ({
-        title: pkg.name,
-        duration: pkg.duration,
-        price: `$${pkg.pricing.high.shared.toFixed(2)}`,
-        image: "/images/gorilla-trek.jpg",
-        description: pkg.description,
-        highlights: pkg.highlights,
-        destinations: pkg.destinations
-      }))
-    }
+    // {
+    //   id: 'tanzania',
+    //   name: 'Tanzania',
+    //   description: 'Serengeti, Ngorongoro, and unparalleled wildlife experiences',
+    //   backgroundImage: '/images/tanzania-safari-bg.jpg',
+    //   flagIcon: '🇹🇿',
+    //   highlights: ['Serengeti', 'Ngorongoro Crater', 'Mount Kilimanjaro', 'Zanzibar'],
+    //   bestTime: 'July to October',
+    //   signature: 'Ngorongoro Crater',
+    //   packages: tanzaniaPackages.slice(0, 3).map(pkg => ({
+    //     title: pkg.name,
+    //     duration: pkg.duration,
+    //     price: `$${pkg.pricing["Jul-Oct"].shared.toFixed(2)}`,
+    //     image: pkg.coverImage,
+    //     description: pkg.description,
+    //     highlights: pkg.highlights,
+    //     destinations: pkg.destinations
+    //   }))
+    // },
+    // {
+    //   id: 'rwanda',
+    //   name: 'Rwanda',
+    //   description: 'Mountain gorillas, lush landscapes, and unique wildlife encounters',
+    //   backgroundImage: '/images/rwanda-safari-bg.jpg',
+    //   flagIcon: '🇷🇼',
+    //   highlights: ['Volcanoes National Park', 'Nyungwe Forest', 'Akagera', 'Lake Kivu'],
+    //   bestTime: 'June to September',
+    //   signature: 'Mountain Gorilla Trekking',
+    //   packages: rwandaPackages.filter(pkg => pkg.type !== 'addon').slice(0, 3).map(pkg => ({
+    //     title: pkg.name,
+    //     duration: pkg.duration,
+    //     price: `$${pkg.pricing.high.shared.toFixed(2)}`,
+    //     image: "/images/gorilla-trek.jpg",
+    //     description: pkg.description,
+    //     highlights: pkg.highlights,
+    //     destinations: pkg.destinations
+    //   }))
+    // }
   ];
 
   const togglePackageDetails = (index) => {

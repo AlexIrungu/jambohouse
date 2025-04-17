@@ -146,6 +146,7 @@
 // export default Home;
 
 import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 import { 
@@ -168,11 +169,16 @@ import {
   Leaf,
   Shield,
   Phone,
-  Mail
+  Mail,
+  ThumbsUp,
+  Share2,
+  Map,
+  Info
 } from 'lucide-react';
 import marasunset from '../assets/marasunset.jpg';
 import elephant from '../assets/elephant.jpg';
 import FeaturesBar from './FeaturesBar'
+import { PopularDestinations } from './Destinations';
 
 const HeroBanner = () => (
   <div 
@@ -381,81 +387,317 @@ const DestinationsSection = () => {
 };
 
 const NationalParksSection = () => {
+  const [activeTab, setActiveTab] = useState('all');
+  const [expandedParkId, setExpandedParkId] = useState(null);
+  
   const parks = [
+    // Tanzania Parks
     {
+      id: 1,
       name: "Serengeti National Park",
       country: "Tanzania",
-      description: "Home to the Great Migration, with endless plains and abundant wildlife.",
-      image: "https://images.unsplash.com/photo-1547970964-2642397ef116?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8c2VyZW5nZXRpfGVufDB8fDB8fHww"
+      region: "Northern Tanzania",
+      description: "Home to the Great Migration, with endless plains and abundant wildlife including lions, elephants, and zebras.",
+      fullDescription: "The Serengeti is Tanzania's oldest and most popular national park. Its name means 'endless plains' in the Maasai language. The park is famous for its annual migration of over 1.5 million wildebeest and 250,000 zebra. The ecosystem is also home to the 'Big Five' (elephant, lion, leopard, buffalo, rhino) and offers spectacular viewing opportunities year-round.",
+      bestTimeToVisit: "June to October for the Great Migration river crossings",
+      activities: ["Game drives", "Hot air balloon safaris", "Walking safaris", "Bird watching"],
+      accomodation: ["Luxury lodges", "Tented camps", "Public campsites"],
+      rating: 4.9,
+      reviews: 1250,
+      category: "tanzania"
     },
     {
-      name: "Masai Mara National Reserve",
-      country: "Kenya",
-      description: "The northern extension of the Serengeti, famous for its exceptional populations of big cats.",
-      image: "https://images.unsplash.com/photo-1607324772302-715d6ac303f0?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8bWFzYWklMjBtYXJhfGVufDB8fDB8fHww"
-    },
-    // {
-    //   name: "Kruger National Park",
-    //   country: "South Africa",
-    //   description: "One of Africa's largest game reserves with an unparalleled diversity of wildlife.",
-    //   image: "https://images.unsplash.com/photo-1521651201144-634f700b36ef?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8a3J1Z2VyfGVufDB8fDB8fHww"
-    // },
-    {
-      name: "Volcanoes National Park",
-      country: "Rwanda",
-      description: "Misty forests home to endangered mountain gorillas and golden monkeys.",
-      image: "https://images.unsplash.com/photo-1568668392383-58c369615742?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTR8fHJ3YW5kYSUyMGdvcmlsbGF8ZW58MHx8MHx8fDA%3D"
-    },
-    {
+      id: 2,
       name: "Ngorongoro Conservation Area",
       country: "Tanzania",
-      description: "A UNESCO World Heritage Site featuring a massive volcanic caldera.",
-      image: "https://images.unsplash.com/photo-1615964201064-6ff9a1bf1c76?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fG5nb3Jvbmdvcm8lMjBjcmF0ZXJ8ZW58MHx8MHx8fDA%3D"
+      region: "Northern Tanzania",
+      description: "A UNESCO World Heritage Site featuring a massive volcanic caldera with incredible wildlife density.",
+      fullDescription: "The Ngorongoro Crater is often called 'Africa's Eden' and the '8th Natural Wonder of the World.' It's a deep volcanic crater and the largest unflooded and unbroken caldera in the world. The crater floor is home to approximately 25,000 large animals including black rhinos, hippos, and the densest known population of lions. The conservation area is also home to traditional Maasai pastoralists.",
+      bestTimeToVisit: "June to September for clear skies and dry weather",
+      activities: ["Game drives", "Cultural visits to Maasai villages", "Hiking", "Photography"],
+      accomodation: ["Crater rim lodges", "Coffee farm stays", "Luxury tented camps"],
+      rating: 4.8,
+      reviews: 980,
+      category: "tanzania"
     },
-    // {
-    //   name: "Chobe National Park",
-    //   country: "Botswana",
-    //   description: "Famous for its massive elephant herds and spectacular river safaris.",
-    //   image: "https://images.unsplash.com/photo-1548625361-1adcab316530?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8Y2hvYmUlMjBuYXRpb25hbCUyMHBhcmt8ZW58MHx8MHx8fDA%3D"
-    // }
+    {
+      id: 3,
+      name: "Tarangire National Park",
+      country: "Tanzania",
+      region: "Northern Tanzania",
+      description: "Famous for its massive elephant herds, ancient baobab trees, and seasonal marshes.",
+      fullDescription: "Tarangire National Park is the sixth largest national park in Tanzania and is known for its elephant migration, diverse wildlife, and giant baobab trees. The park is named after the Tarangire River which crosses through the park and is the primary source of water for wild animals during the dry season. During this time, the concentration of animals around the river is almost unparalleled in Africa.",
+      bestTimeToVisit: "July to October for best wildlife viewing",
+      activities: ["Game drives", "Walking safaris", "Bird watching", "Night safaris"],
+      accomodation: ["Tree house lodges", "Safari camps", "Luxury tents"],
+      rating: 4.6,
+      reviews: 780,
+      category: "tanzania"
+    },
+    
+    // Kenya Parks
+    {
+      id: 4,
+      name: "Masai Mara National Reserve",
+      country: "Kenya",
+      region: "Southwestern Kenya",
+      description: "The northern extension of the Serengeti, famous for its exceptional populations of big cats and the Great Migration.",
+      fullDescription: "The Masai Mara is one of Africa's most magnificent game reserves. The reserve is famous for its exceptional population of game and the annual Great Migration of wildebeest, zebra, and Thomson's gazelle from the Serengeti every year from July to October. The Mara has one of the highest lion densities in the world and is where over two million wildebeest, zebra, and antelope migrate annually.",
+      bestTimeToVisit: "July to October for the Great Migration",
+      activities: ["Game drives", "Hot air balloon safaris", "Masai village visits", "Photographic safaris"],
+      accomodation: ["Luxury tented camps", "Safari lodges", "Bush camps"],
+      rating: 4.9,
+      reviews: 1150,
+      category: "kenya"
+    },
+    {
+      id: 5,
+      name: "Amboseli National Park",
+      country: "Kenya",
+      region: "Southern Kenya",
+      description: "Known for large elephant herds and spectacular views of Mount Kilimanjaro across the border in Tanzania.",
+      fullDescription: "Amboseli National Park offers some of the best wildlife viewing in Kenya with the backdrop of Africa's highest mountain, Mount Kilimanjaro. The park is famous for being the best place in Africa to get close to free-ranging elephants, with over 1,500 elephants in the park's ecosystem. The park also features five different habitats including the dried-up bed of Lake Amboseli, wetlands, savannah, and woodlands.",
+      bestTimeToVisit: "June to October and January to February",
+      activities: ["Game drives", "Elephant research visits", "Bird watching", "Photography"],
+      accomodation: ["Luxury lodges", "Tented camps", "Budget accommodations"],
+      rating: 4.7,
+      reviews: 870,
+      category: "kenya"
+    },
+    {
+      id: 6,
+      name: "Tsavo National Parks",
+      country: "Kenya",
+      region: "Southern Kenya",
+      description: "Kenya's largest protected area comprising Tsavo East and Tsavo West, with diverse landscapes and wildlife.",
+      fullDescription: "Tsavo East and Tsavo West National Parks together form one of the largest wildlife conservation areas in the world. Tsavo East is known for its herds of dust-red elephants, rhino, buffalo, lion, leopard, and crocodiles. Tsavo West is more mountainous and wetter, with palm-lined rivers, lush plains, and the famous Mzima Springs where hippos and crocodiles can be observed from an underwater viewing chamber.",
+      bestTimeToVisit: "June to October and January to February",
+      activities: ["Game drives", "Walking safaris", "Underwater viewing at Mzima Springs", "Rock climbing"],
+      accomodation: ["Safari lodges", "Tented camps", "Public campsites"],
+      rating: 4.6,
+      reviews: 760,
+      category: "kenya"
+    },
+    
+    // Rwanda Parks
+    {
+      id: 7,
+      name: "Volcanoes National Park",
+      country: "Rwanda",
+      region: "Northwestern Rwanda",
+      description: "Misty forests home to endangered mountain gorillas and golden monkeys.",
+      fullDescription: "Volcanoes National Park lies along the Virunga Mountains and is home to the endangered mountain gorilla. Made famous by the work of Dian Fossey, the park offers a unique opportunity to observe these gentle giants in their natural habitat. The park protects about 340 mountain gorillas – approximately half of the world's remaining population. The park also harbors golden monkeys, spotted hyenas, buffaloes, and over 200 bird species.",
+      bestTimeToVisit: "June to September and December to February",
+      activities: ["Gorilla trekking", "Golden monkey tracking", "Hiking", "Cultural experiences"],
+      accomodation: ["Luxury lodges", "Mid-range hotels", "Budget guesthouses"],
+      rating: 4.9,
+      reviews: 890,
+      category: "rwanda"
+    },
+    {
+      id: 8,
+      name: "Akagera National Park",
+      country: "Rwanda",
+      region: "Eastern Rwanda",
+      description: "Rwanda's only savannah park featuring lakes, marshes, and diverse wildlife including the Big Five.",
+      fullDescription: "Akagera National Park is Central Africa's largest protected wetland and the last remaining refuge for savannah-adapted species in Rwanda. The park has undergone a remarkable transformation since 2010, with the reintroduction of lions in 2015 and rhinos in 2017, making it a Big Five destination once again. The park features scenic savannah plains, woodlands, lakes, swamps, and rolling hills.",
+      bestTimeToVisit: "June to September (dry season)",
+      activities: ["Game drives", "Boat safaris", "Bird watching", "Behind-the-scenes conservation tours"],
+      accomodation: ["Luxury safari lodge", "Mid-range accommodations", "Public campsite"],
+      rating: 4.7,
+      reviews: 560,
+      category: "rwanda"
+    },
+    {
+      id: 9,
+      name: "Nyungwe Forest National Park",
+      country: "Rwanda",
+      region: "Southwestern Rwanda",
+      description: "One of Africa's oldest rainforests, home to chimpanzees, colobus monkeys, and a remarkable canopy walkway.",
+      fullDescription: "Nyungwe Forest National Park is one of Africa's best preserved montane rainforests and one of the oldest on the continent. The forest is home to 13 primate species including chimpanzees and the Rwenzori colobus monkeys that can move in troops of up to 400 individuals. The park features East Africa's only canopy walkway, suspended 70 meters above the forest floor, offering an exhilarating perspective of the rainforest canopy.",
+      bestTimeToVisit: "May to September (drier months)",
+      activities: ["Chimpanzee trekking", "Canopy walkway", "Waterfall hikes", "Bird watching"],
+      accomodation: ["Luxury forest lodge", "Mid-range accommodations"],
+      rating: 4.8,
+      reviews: 650,
+      category: "rwanda"
+    }
   ];
 
+  const filteredParks = activeTab === 'all' ? parks : parks.filter(park => park.category === activeTab);
+
+  const toggleParkExpansion = (id) => {
+    if (expandedParkId === id) {
+      setExpandedParkId(null);
+    } else {
+      setExpandedParkId(id);
+    }
+  };
+
   return (
-    <section className="py-20 bg-white">
+    <section className="py-16 bg-cornsilk bg-opacity-50">
       <div className="container mx-auto px-4">
-        <div className="max-w-xl mx-auto text-center mb-16">
+        <div className="max-w-2xl mx-auto text-center mb-16">
           <div className="flex items-center justify-center mb-4">
-            <div className="h-1 w-12 bg-brown-sugar mr-4"></div>
-            <p className="text-brown-sugar font-medium uppercase tracking-wider">Wildlife Encounters</p>
-            <div className="h-1 w-12 bg-brown-sugar ml-4"></div>
+            <div className="h-1 w-16 bg-brown-sugar mr-4"></div>
+            <p className="text-brown-sugar font-medium uppercase tracking-wider">Discover East Africa</p>
+            <div className="h-1 w-16 bg-brown-sugar ml-4"></div>
           </div>
-          <h2 className="text-3xl md:text-4xl font-bold mb-6 text-cafe-noir">Featured National Parks</h2>
-          <p className="text-cafe-noir text-lg">Explore Africa's most iconic wildlife sanctuaries, each offering unique ecosystems and unforgettable experiences.</p>
+          <h2 className="text-4xl md:text-5xl font-bold mb-6 text-cafe-noir">Iconic National Parks</h2>
+          <p className="text-cafe-noir text-lg mb-8">Explore the breathtaking wildlife sanctuaries across Kenya, Tanzania, and Rwanda, each offering unique ecosystems and unforgettable safari experiences.</p>
+          
+          {/* Country Tabs */}
+          <div className="flex flex-wrap justify-center gap-2 md:gap-4 mb-8">
+            <button
+              className={`px-6 py-2 rounded-full font-medium transition-all ${
+                activeTab === 'all' ? 'bg-moss-green text-white' : 'bg-white text-cafe-noir hover:bg-moss-green hover:bg-opacity-20'
+              }`}
+              onClick={() => setActiveTab('all')}
+            >
+              All Parks
+            </button>
+            <button
+              className={`px-6 py-2 rounded-full font-medium transition-all ${
+                activeTab === 'kenya' ? 'bg-moss-green text-white' : 'bg-white text-cafe-noir hover:bg-moss-green hover:bg-opacity-20'
+              }`}
+              onClick={() => setActiveTab('kenya')}
+            >
+              Kenya
+            </button>
+            <button
+              className={`px-6 py-2 rounded-full font-medium transition-all ${
+                activeTab === 'tanzania' ? 'bg-moss-green text-white' : 'bg-white text-cafe-noir hover:bg-moss-green hover:bg-opacity-20'
+              }`}
+              onClick={() => setActiveTab('tanzania')}
+            >
+              Tanzania
+            </button>
+            <button
+              className={`px-6 py-2 rounded-full font-medium transition-all ${
+                activeTab === 'rwanda' ? 'bg-moss-green text-white' : 'bg-white text-cafe-noir hover:bg-moss-green hover:bg-opacity-20'
+              }`}
+              onClick={() => setActiveTab('rwanda')}
+            >
+              Rwanda
+            </button>
+          </div>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {parks.map((park, index) => (
-            <div key={index} className="group bg-cornsilk rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
+          {filteredParks.map((park) => (
+            <div key={park.id} className="group bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300">
               <div className="relative h-64 overflow-hidden">
+                {/* Using placeholder image with dimensions based on park ID for variety */}
                 <img 
-                  src={park.image} 
+                  src={`/api/placeholder/${600 + park.id * 10}/${400 + park.id * 5}`} 
                   alt={park.name}
-                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                 />
-                <div className="absolute top-4 right-4 bg-white/80 text-cafe-noir px-3 py-1 rounded-full text-sm font-medium">
+                <div className="absolute top-4 right-4 bg-white px-3 py-1 rounded-full text-sm font-medium text-cafe-noir shadow-md">
                   {park.country}
                 </div>
+                <div className="absolute bottom-4 left-4 flex items-center">
+                  <div className="bg-hunyadi-yellow text-white px-3 py-1 rounded-full text-sm font-bold flex items-center">
+                    <ThumbsUp size={14} className="mr-1" />
+                    <span>{park.rating}</span>
+                  </div>
+                  <div className="bg-white text-cafe-noir px-3 py-1 rounded-full text-sm ml-2">
+                    {park.reviews} reviews
+                  </div>
+                </div>
               </div>
+              
               <div className="p-6">
-                <h3 className="text-xl font-bold mb-2 text-cafe-noir">{park.name}</h3>
+                <div className="flex justify-between items-start mb-2">
+                  <h3 className="text-xl font-bold text-cafe-noir">{park.name}</h3>
+                  <div className="flex space-x-2">
+                    <button className="text-asparagus hover:text-moss-green">
+                      <Heart size={18} />
+                    </button>
+                    <button className="text-asparagus hover:text-moss-green">
+                      <Share2 size={18} />
+                    </button>
+                  </div>
+                </div>
+                
+                <div className="flex items-center text-french-gray mb-4 text-sm">
+                  <Map size={14} className="mr-1" />
+                  <span>{park.region}</span>
+                </div>
+                
                 <p className="text-cafe-noir mb-4">{park.description}</p>
-                <button className="text-asparagus hover:text-moss-green font-medium inline-flex items-center group">
-                  Explore Park
-                  <ArrowRight className="ml-2 transform group-hover:translate-x-1 transition-transform" size={16} />
-                </button>
+                
+                {expandedParkId === park.id && (
+                  <div className="mt-4 pt-4 border-t border-eggshell animate-fadeIn">
+                    <p className="text-cafe-noir mb-4">{park.fullDescription}</p>
+                    
+                    <div className="mb-4">
+                      <div className="flex items-center text-asparagus font-medium mb-2">
+                        <Calendar size={16} className="mr-2" />
+                        <span>Best Time to Visit</span>
+                      </div>
+                      <p className="text-sm text-cafe-noir">{park.bestTimeToVisit}</p>
+                    </div>
+                    
+                    <div className="mb-4">
+                      <div className="flex items-center text-asparagus font-medium mb-2">
+                        <Award size={16} className="mr-2" />
+                        <span>Activities</span>
+                      </div>
+                      <div className="flex flex-wrap gap-2">
+                        {park.activities.map((activity, idx) => (
+                          <span key={idx} className="text-xs bg-eggshell text-cafe-noir px-3 py-1 rounded-full">
+                            {activity}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+                    
+                    <div className="mb-4">
+                      <div className="flex items-center text-asparagus font-medium mb-2">
+                        <Info size={16} className="mr-2" />
+                        <span>Accommodation Options</span>
+                      </div>
+                      <div className="flex flex-wrap gap-2">
+                        {park.accomodation.map((option, idx) => (
+                          <span key={idx} className="text-xs bg-eggshell text-cafe-noir px-3 py-1 rounded-full">
+                            {option}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                )}
+                
+                <div className="flex justify-between items-center mt-6">
+                  <button 
+                    className="text-asparagus hover:text-moss-green font-medium inline-flex items-center group"
+                    onClick={() => toggleParkExpansion(park.id)}
+                  >
+                    {expandedParkId === park.id ? 'See Less' : 'Explore Details'}
+                    <ArrowRight 
+                      className={`ml-2 transition-transform ${
+                        expandedParkId === park.id ? 'rotate-90' : 'group-hover:translate-x-1'
+                      }`} 
+                      size={16} 
+                    />
+                  </button>
+                  
+                  <button className="bg-moss-green hover:bg-asparagus text-white px-4 py-2 rounded-lg font-medium text-sm transition-colors flex items-center">
+                    <Camera size={16} className="mr-2" />
+                    Plan Safari
+                  </button>
+                </div>
               </div>
             </div>
           ))}
+        </div>
+        
+        <div className="mt-16 text-center">
+          <button className="inline-flex items-center bg-brown-sugar hover:bg-opacity-90 text-white px-8 py-3 rounded-lg font-medium transition-all">
+            View All Parks
+            <ArrowRight className="ml-2" size={18} />
+          </button>
         </div>
       </div>
     </section>
@@ -649,6 +891,8 @@ const PackagesSection = () => (
 </section>
 );
 
+
+
 const TestimonialsSection = () => {
 const [currentIndex, setCurrentIndex] = useState(0);
 const testimonials = [
@@ -768,30 +1012,112 @@ const CallToActionSection = () => (
 </section>
 );
 
+
+
+
+// This component is meant to be integrated into your existing Home page
 const BlogSection = () => {
-  const posts = [
+  const [posts, setPosts] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    const fetchPosts = async () => {
+      try {
+        setIsLoading(true);
+        // Try to get from localStorage first for better performance
+        const cachedPosts = localStorage.getItem('homepageBlogPosts');
+        
+        if (cachedPosts) {
+          setPosts(JSON.parse(cachedPosts));
+          setIsLoading(false);
+        }
+        
+        // Fetch latest posts from API
+        const response = await axios.get(
+          'https://jambotravelhouseholidays.com/wp-json/wp/v2/posts', 
+          { 
+            params: {
+              _embed: true,
+              per_page: 3 // Only fetch 3 latest posts
+            }
+          }
+        );
+        
+        // Format posts
+        const formattedPosts = response.data.map(post => ({
+          title: post.title.rendered,
+          excerpt: post.excerpt.rendered.replace(/<\/?[^>]+(>|$)/g, '').substring(0, 120) + '...',
+          date: new Date(post.date).toLocaleDateString(),
+          category: post._embedded?.['wp:term']?.[0]?.[0]?.name || 'Safari',
+          image: post._embedded?.['wp:featuredmedia']?.[0]?.source_url || '/api/placeholder/600/400',
+          slug: post.slug
+        }));
+
+        setPosts(formattedPosts);
+        setIsLoading(false);
+        
+        // Cache the result
+        localStorage.setItem('homepageBlogPosts', JSON.stringify(formattedPosts));
+        // Set expiry for cache (24 hours)
+        localStorage.setItem('homepageBlogPostsExpiry', Date.now() + (24 * 60 * 60 * 1000));
+        
+      } catch (err) {
+        console.error("Error fetching posts:", err);
+        setError(err.message);
+        setIsLoading(false);
+      }
+    };
+
+    // Check if cache is expired
+    const cacheExpiry = localStorage.getItem('homepageBlogPostsExpiry');
+    if (!cacheExpiry || Date.now() > parseInt(cacheExpiry)) {
+      fetchPosts();
+    } else {
+      const cachedPosts = localStorage.getItem('homepageBlogPosts');
+      if (cachedPosts) {
+        setPosts(JSON.parse(cachedPosts));
+      } else {
+        fetchPosts();
+      }
+      setIsLoading(false);
+    }
+  }, []);
+
+  // Fallback data if API fails and no cache exists
+  const fallbackPosts = [
     {
       title: "Top 10 Wildlife Photography Tips for Your Safari",
       excerpt: "Capture breathtaking moments with these expert tips from professional wildlife photographers.",
       date: "Mar 15, 2025",
       category: "Photography",
-      image: "https://images.unsplash.com/photo-1520692814158-3ea6e21dfa54?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8d2lsZGxpZmUlMjBwaG90b2dyYXBoeXxlbnwwfHwwfHx8MA%3D%3D"
+      image: "/api/placeholder/500/300"
     },
     {
       title: "What to Pack for Your First African Safari Adventure",
       excerpt: "Essential items and expert recommendations for a comfortable and memorable safari experience.",
       date: "Feb 28, 2025",
       category: "Travel Tips",
-      image: "https://images.unsplash.com/photo-1623830551066-43658be9005b?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8c2FmYXJpJTIwYmFnfGVufDB8fDB8fHww"
+      image: "/api/placeholder/500/300"
     },
     {
       title: "Conservation Success: Rhino Population Growing in Kenya",
       excerpt: "Learn about the positive impact of conservation efforts and how travelers can contribute.",
       date: "Jan 20, 2025",
       category: "Conservation",
-      image: "https://images.unsplash.com/photo-1556760544-74068565f05c?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8cmhpbm98ZW58MHx8MHx8fDA%3D"
+      image: "/api/placeholder/500/300"
     }
   ];
+
+  // Use fallback posts if loading failed or no posts were returned
+  const displayPosts = posts.length > 0 ? posts : fallbackPosts;
+
+  const navigate = useNavigate();
+
+  // Handle navigation to blog page
+  const handleBlogNavigation = () => {
+    navigate('/blog');
+  };
 
   return (
     <section className="py-20 bg-eggshell">
@@ -805,40 +1131,33 @@ const BlogSection = () => {
           <h2 className="text-3xl md:text-4xl font-bold mb-6 text-cafe-noir">From Our Blog</h2>
           <p className="text-brown-sugar text-lg">Expert advice, travel tips, and inspiring stories from the African wilderness.</p>
         </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {posts.map((post, index) => (
-            <div key={index} className="bg-cornsilk rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
-              <div className="h-60 overflow-hidden">
-                <img 
-                  src={post.image} 
-                  alt={post.title}
-                  className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
-                />
-              </div>
-              <div className="p-6">
-                <div className="flex justify-between items-center mb-4">
-                  <span className="bg-mindaro text-cafe-noir px-3 py-1 rounded-full text-sm font-medium">
-                    {post.category}
-                  </span>
-                  <span className="text-cafe-noir text-opacity-70 text-sm flex items-center">
-                    <Calendar size={14} className="mr-1" />
-                    {post.date}
-                  </span>
-                </div>
-                <h3 className="text-xl font-bold mb-2 text-cafe-noir">{post.title}</h3>
-                <p className="text-brown-sugar mb-4">{post.excerpt}</p>
-                <button className="text-princeton-orange hover:text-gold-metallic font-medium inline-flex items-center group">
-                  Read More
-                  <ArrowRight className="ml-2 transform group-hover:translate-x-1 transition-transform" size={16} />
-                </button>
-              </div>
+        
+        {isLoading ? (
+          <div className="flex justify-center items-center py-12">
+            <div className="animate-spin rounded-full h-16 w-16 border-t-2 border-b-2 border-moss-green"></div>
+          </div>
+        ) : error ? (
+          <div className="text-center py-6">
+            <p className="text-red-600 mb-4">Unable to load latest blog posts.</p>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              {fallbackPosts.map((post, index) => (
+                <BlogPostCard key={index} post={post} />
+              ))}
             </div>
-          ))}
-        </div>
+          </div>
+        ) : (
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {displayPosts.map((post, index) => (
+              <BlogPostCard key={index} post={post} />
+            ))}
+          </div>
+        )}
         
         <div className="text-center mt-12">
-          <button className="bg-alice-blue hover:bg-columbia-blue text-cafe-noir px-8 py-4 rounded-full font-medium transition-all hover:scale-105 inline-flex items-center">
+          <button 
+            onClick={handleBlogNavigation}
+            className="bg-alice-blue hover:bg-columbia-blue text-cafe-noir px-8 py-4 rounded-full font-medium transition-all hover:scale-105 inline-flex items-center"
+          >
             Visit Our Blog
             <ArrowRight className="ml-2" size={18} />
           </button>
@@ -847,6 +1166,49 @@ const BlogSection = () => {
     </section>
   );
 };
+
+// Separated blog post card component for cleaner code
+const BlogPostCard = ({ post }) => {
+  const navigate = useNavigate();
+  
+  // Handle navigation to individual blog post
+  const handlePostClick = () => {
+    navigate(`/blog/${post.slug}`);
+  };
+
+  return (
+    <div className="bg-cornsilk rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
+      <div className="h-60 overflow-hidden">
+        <img 
+          src={post.image} 
+          alt={post.title}
+          className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
+        />
+      </div>
+      <div className="p-6">
+        <div className="flex justify-between items-center mb-4">
+          <span className="bg-mindaro text-cafe-noir px-3 py-1 rounded-full text-sm font-medium">
+            {post.category}
+          </span>
+          <span className="text-cafe-noir text-opacity-70 text-sm flex items-center">
+            <Calendar size={14} className="mr-1" />
+            {post.date}
+          </span>
+        </div>
+        <h3 className="text-xl font-bold mb-2 text-cafe-noir">{post.title}</h3>
+        <p className="text-brown-sugar mb-4">{post.excerpt}</p>
+        <button 
+          onClick={handlePostClick}
+          className="text-princeton-orange hover:text-gold-metallic font-medium inline-flex items-center group"
+        >
+          Read More
+          <ArrowRight className="ml-2 transform group-hover:translate-x-1 transition-transform" size={16} />
+        </button>
+      </div>
+    </div>
+  );
+};
+
 
 const ContactSection = () => (
 <section className="py-20 bg-eggshell">
@@ -1057,6 +1419,65 @@ const ContactSection = () => (
 // );
 
 const Home = () => {
+
+//   const [blogPosts, setBlogPosts] = useState([]);
+// const [isLoadingPosts, setIsLoadingPosts] = useState(true);
+// const [postsError, setPostsError] = useState(null);
+
+// useEffect(() => {
+//   const fetchPosts = async () => {
+//     try {
+//       setIsLoadingPosts(true);
+      
+//       // Try to get from localStorage first for better performance
+//       const cachedPosts = localStorage.getItem('homepageBlogPosts');
+//       const cacheExpiry = localStorage.getItem('homepageBlogPostsExpiry');
+      
+//       if (cachedPosts && cacheExpiry && Date.now() < parseInt(cacheExpiry)) {
+//         setBlogPosts(JSON.parse(cachedPosts));
+//         setIsLoadingPosts(false);
+//         return;
+//       }
+      
+//       // Fetch latest posts from API
+//       const response = await axios.get(
+//         'https://jambotravelhouseholidays.com/wp-json/wp/v2/posts', 
+//         { 
+//           params: {
+//             _embed: true,
+//             per_page: 3 // Only fetch 3 latest posts
+//           }
+//         }
+//       );
+      
+//       // Format posts
+//       const formattedPosts = response.data.map(post => ({
+//         title: post.title.rendered,
+//         excerpt: post.excerpt.rendered.replace(/<\/?[^>]+(>|$)/g, '').substring(0, 120) + '...',
+//         date: new Date(post.date).toLocaleDateString(),
+//         category: post._embedded?.['wp:term']?.[0]?.[0]?.name || 'Safari',
+//         image: post._embedded?.['wp:featuredmedia']?.[0]?.source_url || '/api/placeholder/600/400',
+//         slug: post.slug
+//       }));
+
+//       setBlogPosts(formattedPosts);
+//       setIsLoadingPosts(false);
+      
+//       // Cache the result
+//       localStorage.setItem('homepageBlogPosts', JSON.stringify(formattedPosts));
+//       // Set expiry for cache (24 hours)
+//       localStorage.setItem('homepageBlogPostsExpiry', Date.now() + (24 * 60 * 60 * 1000));
+      
+//     } catch (err) {
+//       console.error("Error fetching posts:", err);
+//       setPostsError(err.message);
+//       setIsLoadingPosts(false);
+//     }
+//   };
+
+//   fetchPosts();
+// }, []);
+
 useEffect(() => {
   window.scrollTo(0, 0);
 }, []);
@@ -1068,8 +1489,9 @@ return (
     <AboutUsSection />
     <DestinationsSection />
     <NationalParksSection />
-    <PopularPackages />
-    <PackagesSection />
+    {/* <PopularPackages />
+    <PackagesSection /> */}
+    <PopularDestinations />
     <TestimonialsSection />
     <CallToActionSection />
     <BlogSection />

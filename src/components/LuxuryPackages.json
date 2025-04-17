@@ -1,0 +1,323 @@
+{
+    "tourOperator": "Jambo Travel House Holidays",
+    "website": "www.jambotravelhouseholidays.com",
+    "safariPackages": [
+      {
+        "tourCode": "JT042",
+        "title": "Wings Over Kenya & Tanzania Safari (Luxury)",
+        "duration": "12 days",
+        "destinations": ["Kenya", "Tanzania"],
+        "locations": [
+          "Nairobi", "Samburu", "Masai Mara", "Serengeti", "Ngorongoro Crater"
+        ],
+        "accommodations": [
+          {"day": 1, "location": "Nairobi", "lodge": "Nairobi Serena Hotel", "board": "BB"},
+          {"day": 2, "location": "Samburu", "lodge": "Larsens Luxury Camp", "board": "LDBB"},
+          {"day": 3, "location": "Samburu", "lodge": "Larsens Luxury Camp", "board": "LDBB"},
+          {"day": 4, "location": "Masai Mara", "lodge": "Olonana Luxury Camp", "board": "LDBB"},
+          {"day": 5, "location": "Masai Mara", "lodge": "Olonana Luxury Camp", "board": "LDBB"},
+          {"day": 6, "location": "Masai Mara", "lodge": "Olonana Luxury Camp", "board": "LDBB"},
+          {"day": 7, "location": "Serengeti N. P", "lodge": "Kusini Luxury Camp", "board": "LDBB"},
+          {"day": 8, "location": "Serengeti N. P", "lodge": "Kusini Luxury Camp", "board": "LDBB"},
+          {"day": 9, "location": "Serengeti N. P", "lodge": "Kusini Luxury Camp", "board": "LDBB"},
+          {"day": 10, "location": "Ngorongoro Crater", "lodge": "Ngorongoro Serena Lodge", "board": "LDBB"},
+          {"day": 11, "location": "Ngorongoro Crater", "lodge": "Ngorongoro Serena Lodge", "board": "LDBB"},
+          {"day": 12, "location": "Departure", "lodge": "Day room Nairobi Serena Hotel", "board": "L"}
+        ],
+        "activities": {
+          "gameViewing": true,
+          "morningGameDrives": true,
+          "afternoonGameDrives": true,
+          "craterTour": true,
+          "optionalBalloonSafari": false
+        },
+        "highlights": [
+          "Samburu National Reserve",
+          "Masai Mara with wildebeest migration",
+          "Serengeti National Park",
+          "Ngorongoro Crater",
+          "Olduvai Gorge archaeological site"
+        ],
+        "flightTransfers": true
+      },
+      {
+        "tourCode": "JT041",
+        "title": "The Ultimate Tanzania Safari (Luxury)",
+        "duration": "8 days",
+        "destinations": ["Tanzania"],
+        "locations": [
+          "Arusha", "Tarangire National Park", "Ngorongoro Conservation Area", "Serengeti National Park"
+        ],
+        "accommodations": [
+          {"day": 1, "location": "Arusha", "lodge": "Arusha Coffee Lodge", "board": "BB"},
+          {"day": 2, "location": "Tarangire N.P", "lodge": "Tarangire Treetops", "board": "LDBB"},
+          {"day": 3, "location": "Tarangire N.P", "lodge": "Tarangire Treetops", "board": "LDBB"},
+          {"day": 4, "location": "Ngorongoro", "lodge": "The Manor at Ngorongoro", "board": "LDBB"},
+          {"day": 5, "location": "Ngorongoro Crater", "lodge": "The Manor at Ngorongoro", "board": "LDBB"},
+          {"day": 6, "location": "Serengeti N.P", "lodge": "Serengeti Migration Camp", "board": "LDBB"},
+          {"day": 7, "location": "Serengeti N.P", "lodge": "Serengeti Migration Camp", "board": "LDBB"},
+          {"day": 8, "location": "Departure", "lodge": "", "board": ""}
+        ],
+        "activities": {
+          "gameViewing": true,
+          "morningGameDrives": true,
+          "afternoonGameDrives": true,
+          "craterTour": true,
+          "archaeologicalVisit": true
+        },
+        "highlights": [
+          "Tarangire River wildlife congregations",
+          "Ngorongoro Crater floor tour",
+          "Olduvai Gorge archaeological site",
+          "Serengeti plains wildlife viewing"
+        ],
+        "flightTransfers": true
+      },
+      {
+        "tourCode": "JT039",
+        "title": "Wings Over Kenya (Luxury)",
+        "duration": "9 days",
+        "destinations": ["Kenya"],
+        "locations": [
+          "Nairobi", "Amboseli National Park", "Samburu", "Masai Mara"
+        ],
+        "accommodations": [
+          {"day": 1, "location": "Nairobi", "lodge": "Ngong House", "board": "BB"},
+          {"day": 2, "location": "Amboseli N. Park", "lodge": "Tortilis Luxury Camp", "board": "LDBB"},
+          {"day": 3, "location": "Amboseli N. Park", "lodge": "Tortilis Luxury Camp", "board": "LDBB"},
+          {"day": 4, "location": "Samburu", "lodge": "Larsens Luxury Camp", "board": "LDBB"},
+          {"day": 5, "location": "Samburu", "lodge": "Larsens Luxury Camp", "board": "LDBB"},
+          {"day": 6, "location": "Masai Mara", "lodge": "Olonana Luxury Camp", "board": "LDBB"},
+          {"day": 7, "location": "Masai Mara", "lodge": "Olonana Luxury Camp", "board": "LDBB"},
+          {"day": 8, "location": "Masai Mara", "lodge": "Olonana Luxury Camp", "board": "LDBB"},
+          {"day": 9, "location": "Departure", "lodge": "Day room Norfolk Hotel", "board": "L"}
+        ],
+        "activities": {
+          "gameViewing": true,
+          "morningGameDrives": true,
+          "afternoonGameDrives": true,
+          "optionalBalloonSafari": true
+        },
+        "highlights": [
+          "Amboseli with views of Mt. Kilimanjaro",
+          "Samburu's unique wildlife including Grevy zebra",
+          "Ewaso Nyiro river ecosystem",
+          "Masai Mara's abundant wildlife",
+          "Optional balloon safari over Masai Mara"
+        ],
+        "flightTransfers": true
+      },
+      {
+        "tourCode": "JT040",
+        "title": "Memories of Kenya (Luxury)",
+        "duration": "9 days",
+        "destinations": ["Kenya"],
+        "locations": [
+          "Nairobi", "Laikipia", "Samburu", "Masai Mara"
+        ],
+        "accommodations": [
+          {"day": 1, "location": "Nairobi", "lodge": "The Fairmont Norfolk", "board": "BB"},
+          {"day": 2, "location": "Laikipia", "lodge": "Loisaba Lodge/Ol Malo", "board": "LDBB"},
+          {"day": 3, "location": "Laikipia", "lodge": "Loisaba Lodge/Ol Malo", "board": "LDBB"},
+          {"day": 4, "location": "Samburu", "lodge": "Larsens Luxury Camp", "board": "LDBB"},
+          {"day": 5, "location": "Samburu", "lodge": "Larsens Luxury Camp", "board": "LDBB"},
+          {"day": 6, "location": "Masai Mara", "lodge": "The Fairmont Mara Safari Club", "board": "LDBB"},
+          {"day": 7, "location": "Masai Mara", "lodge": "The Fairmont Mara Safari Club", "board": "LDBB"},
+          {"day": 8, "location": "Masai Mara", "lodge": "The Fairmont Mara Safari Club", "board": "LDBB"},
+          {"day": 9, "location": "Departure", "lodge": "Day room Norfolk Hotel", "board": "L"}
+        ],
+        "activities": {
+          "gameViewing": true,
+          "morningGameDrives": true,
+          "afternoonGameDrives": true,
+          "optionalBalloonSafari": true
+        },
+        "highlights": [
+          "Laikipia wilderness",
+          "Samburu National Reserve",
+          "Ewaso Nyiro river ecosystem",
+          "Masai Mara wildlife viewing",
+          "Optional balloon safari"
+        ],
+        "flightTransfers": true
+      },
+      {
+        "tourCode": "JT038",
+        "title": "Splendours of Kenya 4 X 4 (Luxury)",
+        "duration": "8 days",
+        "destinations": ["Kenya"],
+        "locations": [
+          "Nairobi", "Samburu", "Aberdares", "Lake Nakuru/Naivasha", "Masai Mara"
+        ],
+        "accommodations": [
+          {"day": 1, "location": "Nairobi", "lodge": "Southern Sun Mayfair Hotel", "board": "BB"},
+          {"day": 2, "location": "Samburu", "lodge": "Samburu Intrepids Camp", "board": "LDBB"},
+          {"day": 3, "location": "Samburu", "lodge": "Samburu Intrepids Camp", "board": "LDBB"},
+          {"day": 4, "location": "Aberdares", "lodge": "The Fairmont Ark Lodge", "board": "LDBB"},
+          {"day": 5, "location": "Nakuru/Naivasha", "lodge": "Great Rift Valley Lodge", "board": "LDBB"},
+          {"day": 6, "location": "Masai Mara", "lodge": "Siana Springs Tented Camp", "board": "LDBB"},
+          {"day": 7, "location": "Masai Mara", "lodge": "Siana Springs Tented Camp", "board": "LDBB"},
+          {"day": 8, "location": "Departure", "lodge": "", "board": ""}
+        ],
+        "activities": {
+          "gameViewing": true,
+          "morningGameDrives": true,
+          "afternoonGameDrives": true,
+          "balloonSafari": true
+        },
+        "highlights": [
+          "Samburu National Reserve",
+          "Aberdare National Park",
+          "Lake Nakuru National Park",
+          "Great Rift Valley",
+          "Masai Mara National Reserve",
+          "Early morning optional balloon ride"
+        ],
+        "transportType": "4x4 vehicles"
+      },
+      {
+        "tourCode": "JT037",
+        "title": "Classic East Africa 4 X 4 (Luxury)",
+        "duration": "9 days",
+        "destinations": ["Kenya", "Tanzania"],
+        "locations": [
+          "Nairobi", "Masai Mara", "Serengeti", "Ngorongoro", "Lake Manyara"
+        ],
+        "accommodations": [
+          {"day": 1, "location": "Nairobi", "lodge": "Fairmont Norfolk Hotel", "board": "LDBB"},
+          {"day": 2, "location": "Masai Mara", "lodge": "The Fairmont Mara Safari Club", "board": "LDBB"},
+          {"day": 3, "location": "Masai Mara", "lodge": "The Fairmont Mara Safari Club", "board": "LDBB"},
+          {"day": 4, "location": "Serengeti", "lodge": "Kirawira Camp", "board": "LDBB"},
+          {"day": 5, "location": "Serengeti", "lodge": "Kirawira Camp", "board": "LDBB"},
+          {"day": 6, "location": "Ngorongoro", "lodge": "Ngorongoro Serena Lodge", "board": "LDBB"},
+          {"day": 7, "location": "Ngorongoro", "lodge": "Ngorongoro Serena Lodge", "board": "LDBB"},
+          {"day": 8, "location": "Manyara", "lodge": "Lake Manyara Serena Lodge", "board": "LDBB"},
+          {"day": 9, "location": "Departure", "lodge": "", "board": ""}
+        ],
+        "activities": {
+          "gameViewing": true,
+          "morningGameDrives": true,
+          "afternoonGameDrives": true,
+          "craterTour": true,
+          "optionalBalloonSafari": true
+        },
+        "highlights": [
+          "Masai Mara wildlife viewing",
+          "Serengeti National Park",
+          "Ngorongoro Crater tour",
+          "Lake Manyara National Park with tree-climbing lions",
+          "Olduvai Gorge archaeological site"
+        ],
+        "transportType": "4x4 vehicles"
+      },
+      {
+        "tourCode": "JT036",
+        "title": "East African Highlights 4 X 4 (Luxury)",
+        "duration": "11 days",
+        "destinations": ["Kenya", "Tanzania"],
+        "locations": [
+          "Nairobi", "Masai Mara", "Serengeti", "Ngorongoro", "Manyara", "Amboseli"
+        ],
+        "accommodations": [
+          {"day": 1, "location": "Nairobi", "lodge": "Fairmont Norfolk Hotel", "board": "BB"},
+          {"day": 2, "location": "Masai Mara", "lodge": "The Fairmont Mara Safari Club", "board": "LDBB"},
+          {"day": 3, "location": "Masai Mara", "lodge": "The Fairmont Mara Safari Club", "board": "LDBB"},
+          {"day": 4, "location": "Serengeti", "lodge": "Kirawira Camp", "board": "LDBB"},
+          {"day": 5, "location": "Serengeti", "lodge": "Kirawira Camp", "board": "LDBB"},
+          {"day": 6, "location": "Ngorongoro", "lodge": "Ngorongoro Serena Lodge", "board": "LDBB"},
+          {"day": 7, "location": "Ngorongoro", "lodge": "Ngorongoro Serena Lodge", "board": "LDBB"},
+          {"day": 8, "location": "Manyara", "lodge": "Lake Manyara Serena Lodge", "board": "LDBB"},
+          {"day": 9, "location": "Amboseli", "lodge": "Serena Lodge", "board": "LDBB"},
+          {"day": 10, "location": "Amboseli", "lodge": "Amboseli Serena Lodge", "board": "LDBB"},
+          {"day": 11, "location": "Departure", "lodge": "", "board": ""}
+        ],
+        "activities": {
+          "gameViewing": true,
+          "morningGameDrives": true,
+          "afternoonGameDrives": true,
+          "craterTour": true,
+          "optionalBalloonSafari": true
+        },
+        "highlights": [
+          "Masai Mara National Reserve",
+          "Serengeti National Park",
+          "Ngorongoro Crater tour",
+          "Lake Manyara with tree-climbing lions",
+          "Amboseli National Park with views of Mt. Kilimanjaro",
+          "Olduvai Gorge archaeological site"
+        ],
+        "transportType": "4x4 vehicles"
+      },
+      {
+        "tourCode": "JT035",
+        "title": "Best of East Africa Safari 4 X 4 (Luxury)",
+        "duration": "13 days",
+        "destinations": ["Kenya", "Tanzania"],
+        "locations": [
+          "Nairobi", "Samburu", "Aberdares", "Lake Nakuru/Naivasha", "Masai Mara", "Serengeti", "Ngorongoro", "Lake Manyara"
+        ],
+        "accommodations": [
+          {"day": 1, "location": "Nairobi", "lodge": "Fairmont Norfolk Hotel", "board": "BB"},
+          {"day": 2, "location": "Samburu", "lodge": "Samburu Intrepids Camp", "board": "LDBB"},
+          {"day": 3, "location": "Samburu", "lodge": "Samburu Intrepids Camp", "board": "LDBB"},
+          {"day": 4, "location": "Aberdares", "lodge": "The Fairmont Ark Lodge", "board": "LDBB"},
+          {"day": 5, "location": "Nakuru/Naivasha", "lodge": "Great Rift Valley Lodge", "board": "LDBB"},
+          {"day": 6, "location": "Masai Mara", "lodge": "The Fairmont Mara Safari Club", "board": "LDBB"},
+          {"day": 7, "location": "Masai Mara", "lodge": "The Fairmont Mara Safari Club", "board": "LDBB"},
+          {"day": 8, "location": "Serengeti", "lodge": "Kirawira Camp", "board": "LDBB"},
+          {"day": 9, "location": "Serengeti", "lodge": "Kirawira Camp", "board": "LDBB"},
+          {"day": 10, "location": "Ngorongoro", "lodge": "Ngorongoro Serena Lodge", "board": "LDBB"},
+          {"day": 11, "location": "Ngorongoro", "lodge": "Ngorongoro Serena Lodge", "board": "LDBB"},
+          {"day": 12, "location": "Manyara", "lodge": "Lake Manyara Serena Lodge", "board": "LDBB"},
+          {"day": 13, "location": "Departure", "lodge": "", "board": ""}
+        ],
+        "activities": {
+          "gameViewing": true,
+          "morningGameDrives": true,
+          "afternoonGameDrives": true,
+          "craterTour": true,
+          "optionalBalloonSafari": true
+        },
+        "highlights": [
+          "Samburu National Reserve",
+          "Aberdare National Park",
+          "Lake Nakuru National Park",
+          "Masai Mara National Reserve",
+          "Serengeti National Park",
+          "Ngorongoro Crater tour",
+          "Lake Manyara National Park",
+          "Great Rift Valley",
+          "Optional balloon safari"
+        ],
+        "transportType": "4x4 vehicles"
+      }
+    ],
+    "boardTypes": {
+      "BB": "Bed and breakfast",
+      "LDBB": "Lunch, dinner, bed and breakfast",
+      "L": "Lunch",
+      "D": "Dinner",
+      "TRSF": "Transfer",
+      "E": "Early morning game drive",
+      "A": "Morning game drive",
+      "P": "Afternoon game drive",
+      "GV": "Game Viewing",
+      "GT": "Crater Tour",
+      "CT": "Crater Tour",
+      "LE": "Leisure",
+      "FLT": "Flight"
+    },
+    "generalInformation": {
+      "meetAndGreet": "Met upon arrival at airport by a Jambo Tours representative",
+      "transfers": "Assistance and transfer to your hotel provided",
+      "departureAssistance": "A Jambo Tours representative will re-confirm your onward flight and assist you at check-in",
+      "optionalActivities": {
+        "balloonSafari": "Early morning optional balloon ride across the Masai Mara Reserve with champagne-style breakfast"
+      },
+      "specialHighlights": {
+        "ngorongoroCrater": "The largest intact caldera in the world with overwhelming physical beauty and abundance of wildlife",
+        "olduvaiGorge": "Site of Louis and Mary Leakey's renowned archaeological discoveries including some of man's earliest known ancestral remains",
+        "masaiMara": "Perhaps the only region left in Kenya where the visitor may see animals in the same super-abundance as existed a century ago"
+      }
+    }
+  }

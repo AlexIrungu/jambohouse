@@ -95,7 +95,7 @@ const Navbar = () => {
                         <Link to="/" className={getLinkStyles('/')}>
                             Home
                         </Link>
-                        <Link to="/about" className={getLinkStyles('/about')}>
+                        <Link to="/safaari" className={getLinkStyles('/about')}>
                             About
                         </Link>
                         

@@ -11,6 +11,9 @@ import NewsletterPopup from './components/NewsletterPopup';
 import AIChatbot from './components/AIChatbot';
 import PostDetails from './components/PostDetails';
 import BookingForm from './components/BookingForm';
+import Destinations from './components/Destinations';
+import DestinationDetails from './components/DestinationDetails';
+import SafariTours from './components/SafariTours'
 
 // Safari pages
 import Safaris from './components/Safaris';
@@ -20,7 +23,7 @@ import RwandaSafaris from './components/RwandaSafari';
 import Pricelist from './components/Pricelist';
 import CarHire from './components/CarHire';
 import HotelBooking from './components/HotelBooking';
-import Blog from './components/Blog';
+import BlogContainer from './components/Blog'
 
 function App() {
   return (
@@ -41,9 +44,11 @@ function App() {
           <Route path="/pricelist" element={<Pricelist />} />
           <Route path="/car-hire" element={<CarHire />} />
           <Route path="/hotel-booking" element={<HotelBooking />} />
-          <Route path="/blog" element={<Blog />} />
-          <Route path="/blog/:id" element={<PostDetails />} />
+          <Route path="/blog/*" element={<BlogContainer />} />
           <Route path="/booking-form/:carId" element={<BookingForm />} />
+          <Route path="/destinations" element={<Destinations />} />
+      <Route path="/destinations/:country/:destination" element={<DestinationDetails />} />
+      <Route path="/safaari" element={<SafariTours />} />
         </Routes>
         <Footer />
       </div>
