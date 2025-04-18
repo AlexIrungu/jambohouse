@@ -15,6 +15,7 @@ import {
   FaTiktok, 
   FaWhatsapp 
 } from 'react-icons/fa6';
+import { Link } from 'react-router-dom';
 
 const Footer = () => {
   // Social media links data
@@ -104,9 +105,13 @@ const Footer = () => {
         {/* Right Column */}
         <div className="jambo-footer-column flex-1 min-w-[250px] mb-5 px-[25px]">
           <div className="flex justify-end gap-8 mb-5">
-            <a href="#" className="text-eggshell text-opacity-85 text-sm hover:text-princeton-orange">FAQ</a>
-            <a href="#" className="text-eggshell text-opacity-85 text-sm hover:text-princeton-orange">Contact</a>
-            <a href="#" className="text-eggshell text-opacity-85 text-sm hover:text-princeton-orange">Terms</a>
+            <Link to='/faq'><button className="text-eggshell text-opacity-85 text-sm hover:text-princeton-orange">FAQ</button></Link>
+            <Link to='/contact'><button className="text-eggshell text-opacity-85 text-sm hover:text-princeton-orange">Contact</button> </Link>
+            
+                       
+           <Link to='/terms'>
+           <button className="text-eggshell text-opacity-85 text-sm hover:text-princeton-orange">Terms</button>
+           </Link> 
           </div>
           
           <div className="mb-5">

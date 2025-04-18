@@ -1,7 +1,7 @@
 import React, { useState, useEffect, lazy, Suspense } from 'react';
 import { ChevronRight, Calendar, MapPin, ArrowRight, ChevronDown } from 'lucide-react';
 import KenyaSafari, { safariPackages as kenyaPackages } from './KenyaSafari';
-import TanzaniaSafari, { allPackages as tanzaniaPackages } from './TanzaniaSafari';
+import TanzaniaSafari from './TanzaniaSafari';
 import RwandaSafari from './RwandaSafari';
 
 // Lazy load the Map component to avoid SSR issues

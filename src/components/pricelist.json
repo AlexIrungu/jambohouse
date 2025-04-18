@@ -1,0 +1,1266 @@
+{
+    "brochureName": "JAMBO TRAVEL HOUSE BROCHURE PRICE LIST FOR NETT RATES",
+    "year": "2023/24",
+    "categories": [
+      {
+        "name": "Classic Safaris",
+        "packages": [
+          {
+            "id": "JT001",
+            "name": "Grand Kenya (Classic)",
+            "pricing": [
+              {
+                "season": "02.01-30.03.2023",
+                "doubleRoom": 2894,
+                "singleSupplement": 825
+              },
+              {
+                "season": "01.04-30.06.2023",
+                "doubleRoom": 2632,
+                "singleSupplement": 306
+              },
+              {
+                "season": "01.07-31.10.2023",
+                "doubleRoom": 3337,
+                "singleSupplement": 925
+              },
+              {
+                "season": "01.11-15.12.2023",
+                "doubleRoom": 2711,
+                "singleSupplement": 622
+              }
+            ]
+          },
+          {
+            "id": "JT002",
+            "name": "Karibu Kenya Classic",
+            "pricing": [
+              {
+                "season": "02.01-30.03.2023",
+                "doubleRoom": 2567,
+                "singleSupplement": 481
+              },
+              {
+                "season": "01.04-30.06.2023",
+                "doubleRoom": 2361,
+                "singleSupplement": 135
+              },
+              {
+                "season": "01.07-31.10.2023",
+                "doubleRoom": 2777,
+                "singleSupplement": 549
+              },
+              {
+                "season": "01.11-15.12.2023",
+                "doubleRoom": 2556,
+                "singleSupplement": 474
+              }
+            ]
+          },
+          {
+            "id": "JT003",
+            "name": "Twiga Safari (Classic)",
+            "pricing": [
+              {
+                "season": "02.01-30.03.2023",
+                "doubleRoom": 2827,
+                "singleSupplement": 931
+              },
+              {
+                "season": "01.04-30.06.2023",
+                "doubleRoom": 2690,
+                "singleSupplement": 413
+              },
+              {
+                "season": "01.07-31.10.2023",
+                "doubleRoom": 3310,
+                "singleSupplement": 1110
+              },
+              {
+                "season": "01.11-15.12.2023",
+                "doubleRoom": 2760,
+                "singleSupplement": 726
+              }
+            ]
+          },
+          {
+            "id": "JT004",
+            "name": "Kenya Horizons (Classic)",
+            "pricing": [
+              {
+                "season": "02.01-30.03.2023",
+                "doubleRoom": 2268,
+                "singleSupplement": 567
+              },
+              {
+                "season": "01.04-30.06.2023",
+                "doubleRoom": 2096,
+                "singleSupplement": 397
+              },
+              {
+                "season": "01.07-31.10.2023",
+                "doubleRoom": 2628,
+                "singleSupplement": 749
+              },
+              {
+                "season": "01.11-15.12.2023",
+                "doubleRoom": 2121,
+                "singleSupplement": 514
+              }
+            ]
+          },
+          {
+            "id": "JT005",
+            "name": "Kenya Footsteps (Classic)",
+            "pricing": [
+              {
+                "season": "02.01-30.03.2023",
+                "doubleRoom": 2054,
+                "singleSupplement": 390
+              },
+              {
+                "season": "01.04-30.06.2023",
+                "doubleRoom": 1883,
+                "singleSupplement": 196
+              },
+              {
+                "season": "01.07-31.10.2023",
+                "doubleRoom": 2223,
+                "singleSupplement": 446
+              },
+              {
+                "season": "01.11-15.12.2023",
+                "doubleRoom": 2043,
+                "singleSupplement": 384
+              }
+            ]
+          },
+          {
+            "id": "JT006",
+            "name": "Classic Kenya Safari",
+            "pricing": [
+              {
+                "season": "02.01-30.03.2023",
+                "doubleRoom": 2177,
+                "singleSupplement": 375
+              },
+              {
+                "season": "01.04-30.06.2023",
+                "doubleRoom": 2066,
+                "singleSupplement": 413
+              },
+              {
+                "season": "01.07-31.10.2023",
+                "doubleRoom": 2561,
+                "singleSupplement": 843
+              },
+              {
+                "season": "01.11-15.12.2023",
+                "doubleRoom": 2110,
+                "singleSupplement": 413
+              }
+            ]
+          },
+          {
+            "id": "JT007",
+            "name": "Kenya Highlights Safari (Classic)",
+            "pricing": [
+              {
+                "season": "02.01-30.03.2023",
+                "doubleRoom": 2296,
+                "singleSupplement": 510
+              },
+              {
+                "season": "01.04-30.06.2023",
+                "doubleRoom": 2129,
+                "singleSupplement": 307
+              },
+              {
+                "season": "01.07-31.10.2023",
+                "doubleRoom": 2667,
+                "singleSupplement": 671
+              },
+              {
+                "season": "01.11-15.12.2023",
+                "doubleRoom": 2221,
+                "singleSupplement": 418
+              }
+            ]
+          },
+          {
+            "id": "JT008",
+            "name": "Explore Kenya Safari (Classic)",
+            "pricing": [
+              {
+                "season": "02.01-30.03.2023",
+                "doubleRoom": 2028,
+                "singleSupplement": 390
+              },
+              {
+                "season": "01.04-30.06.2023",
+                "doubleRoom": 1857,
+                "singleSupplement": 156
+              },
+              {
+                "season": "01.07-31.10.2023",
+                "doubleRoom": 2199,
+                "singleSupplement": 446
+              },
+              {
+                "season": "01.11-15.12.2023",
+                "doubleRoom": 1791,
+                "singleSupplement": 293
+              }
+            ]
+          },
+          {
+            "id": "JT009",
+            "name": "Majestic Kenya Safari (Classic)",
+            "pricing": [
+              {
+                "season": "02.01-30.03.2023",
+                "doubleRoom": 2236,
+                "singleSupplement": 712
+              },
+              {
+                "season": "01.04-30.06.2023",
+                "doubleRoom": 2175,
+                "singleSupplement": 413
+              },
+              {
+                "season": "01.07-31.10.2023",
+                "doubleRoom": 2717,
+                "singleSupplement": 931
+              },
+              {
+                "season": "01.11-15.12.2023",
+                "doubleRoom": 2196,
+                "singleSupplement": 587
+              }
+            ]
+          },
+          {
+            "id": "JT010",
+            "name": "Kenya Trails Safari (Classic)",
+            "pricing": [
+              {
+                "season": "02.01-30.03.2023",
+                "doubleRoom": 1670,
+                "singleSupplement": 444
+              },
+              {
+                "season": "01.04-30.06.2023",
+                "doubleRoom": 1580,
+                "singleSupplement": 309
+              },
+              {
+                "season": "01.07-31.10.2023",
+                "doubleRoom": 1978,
+                "singleSupplement": 474
+              },
+              {
+                "season": "01.11-15.12.2023",
+                "doubleRoom": 1536,
+                "singleSupplement": 309
+              }
+            ]
+          },
+          {
+            "id": "JT011",
+            "name": "Discover Kenya Safari (Classic)",
+            "pricing": [
+              {
+                "season": "02.01-30.03.2023",
+                "doubleRoom": 1516,
+                "singleSupplement": 293
+              },
+              {
+                "season": "01.04-30.06.2023",
+                "doubleRoom": 1378,
+                "singleSupplement": 134
+              },
+              {
+                "season": "01.07-31.10.2023",
+                "doubleRoom": 1644,
+                "singleSupplement": 342
+              },
+              {
+                "season": "01.11-15.12.2023",
+                "doubleRoom": 1505,
+                "singleSupplement": 292
+              }
+            ]
+          },
+          {
+            "id": "JT012",
+            "name": "Simba Classic (Classic)",
+            "pricing": [
+              {
+                "season": "02.01-30.03.2023",
+                "doubleRoom": 1563,
+                "singleSupplement": 419
+              },
+              {
+                "season": "01.04-30.06.2023",
+                "doubleRoom": 1551,
+                "singleSupplement": 414
+              },
+              {
+                "season": "01.07-31.10.2023",
+                "doubleRoom": 1945,
+                "singleSupplement": 689
+              },
+              {
+                "season": "01.11-15.12.2023",
+                "doubleRoom": 1497,
+                "singleSupplement": 355
+              }
+            ]
+          },
+          {
+            "id": "JT013",
+            "name": "Kenya Plains and Safari (Classic)",
+            "pricing": [
+              {
+                "season": "02.01-30.03.2023",
+                "doubleRoom": 1973,
+                "singleSupplement": 587
+              },
+              {
+                "season": "01.04-30.06.2023",
+                "doubleRoom": 1865,
+                "singleSupplement": 281
+              },
+              {
+                "season": "01.07-31.10.2023",
+                "doubleRoom": 2565,
+                "singleSupplement": 634
+              },
+              {
+                "season": "01.11-15.12.2023",
+                "doubleRoom": 1859,
+                "singleSupplement": 362
+              }
+            ]
+          },
+          {
+            "id": "JT014",
+            "name": "Ndovu Trail (Classic)",
+            "pricing": [
+              {
+                "season": "02.01-30.03.2023",
+                "doubleRoom": 1742,
+                "singleSupplement": 319
+              },
+              {
+                "season": "01.04-30.06.2023",
+                "doubleRoom": 1583,
+                "singleSupplement": 69
+              },
+              {
+                "season": "01.07-31.10.2023",
+                "doubleRoom": 1901,
+                "singleSupplement": 368
+              },
+              {
+                "season": "01.11-15.12.2023",
+                "doubleRoom": 1742,
+                "singleSupplement": 319
+              }
+            ]
+          },
+          {
+            "id": "JT015",
+            "name": "Kenya Frontiers Safari (Classic)",
+            "pricing": [
+              {
+                "season": "02.01-30.03.2023",
+                "doubleRoom": 1960,
+                "singleSupplement": 337
+              },
+              {
+                "season": "01.04-30.06.2023",
+                "doubleRoom": 1916,
+                "singleSupplement": 346
+              },
+              {
+                "season": "01.07-31.10.2023",
+                "doubleRoom": 2424,
+                "singleSupplement": 855
+              },
+              {
+                "season": "01.11-15.12.2023",
+                "doubleRoom": 1896,
+                "singleSupplement": 479
+              }
+            ]
+          },
+          {
+            "id": "JT016",
+            "name": "Migration Safari (Classic)",
+            "pricing": [
+              {
+                "season": "02.01-30.03.2023",
+                "doubleRoom": 1388,
+                "singleSupplement": 376
+              },
+              {
+                "season": "01.04-30.06.2023",
+                "doubleRoom": 1212,
+                "singleSupplement": 136
+              },
+              {
+                "season": "01.07-31.10.2023",
+                "doubleRoom": 1676,
+                "singleSupplement": 423
+              },
+              {
+                "season": "01.11-15.12.2023",
+                "doubleRoom": 1267,
+                "singleSupplement": 253
+              }
+            ]
+          },
+          {
+            "id": "JT017",
+            "name": "Masai Safari Classic",
+            "pricing": [
+              {
+                "season": "02.01-30.03.2023",
+                "doubleRoom": 1230,
+                "singleSupplement": 244
+              },
+              {
+                "season": "01.04-30.06.2023",
+                "doubleRoom": 1104,
+                "singleSupplement": 58
+              },
+              {
+                "season": "01.07-31.10.2023",
+                "doubleRoom": 1347,
+                "singleSupplement": 263
+              },
+              {
+                "season": "01.11-15.12.2023",
+                "doubleRoom": 1230,
+                "singleSupplement": 224
+              }
+            ]
+          },
+          {
+            "id": "JT018",
+            "name": "Safari Royale (Classic)",
+            "pricing": [
+              {
+                "season": "02.01-30.03.2023",
+                "doubleRoom": 1277,
+                "singleSupplement": 346
+              },
+              {
+                "season": "01.04-30.06.2023",
+                "doubleRoom": 1112,
+                "singleSupplement": 345
+              },
+              {
+                "season": "01.07-31.10.2023",
+                "doubleRoom": 1651,
+                "singleSupplement": 511
+              },
+              {
+                "season": "01.11-15.12.2023",
+                "doubleRoom": 1222,
+                "singleSupplement": 198
+              }
+            ]
+          },
+          {
+            "id": "JT019",
+            "name": "Mara Serenade Experience (Classic)",
+            "pricing": [
+              {
+                "season": "02.01-30.03.2023",
+                "doubleRoom": 843,
+                "singleSupplement": 169
+              },
+              {
+                "season": "01.04-30.06.2023",
+                "doubleRoom": 843,
+                "singleSupplement": 173
+              },
+              {
+                "season": "01.07-31.10.2023",
+                "doubleRoom": 1131,
+                "singleSupplement": 216
+              },
+              {
+                "season": "01.11-15.12.2023",
+                "doubleRoom": 780,
+                "singleSupplement": 208
+              }
+            ]
+          },
+          {
+            "id": "JT020",
+            "name": "Mara Classic Experience (Classic)",
+            "pricing": [
+              {
+                "season": "02.01-30.03.2023",
+                "doubleRoom": 778,
+                "singleSupplement": 102
+              },
+              {
+                "season": "01.04-30.06.2023",
+                "doubleRoom": 682,
+                "singleSupplement": 70
+              },
+              {
+                "season": "01.07-31.10.2023",
+                "doubleRoom": 861,
+                "singleSupplement": 130
+              },
+              {
+                "season": "01.11-15.12.2023",
+                "doubleRoom": 778,
+                "singleSupplement": 102
+              }
+            ]
+          },
+          {
+            "id": "JT021",
+            "name": "Mara Premium Experience (Classic)",
+            "pricing": [
+              {
+                "season": "02.01-30.03.2023",
+                "doubleRoom": 806,
+                "singleSupplement": 177
+              },
+              {
+                "season": "01.04-30.06.2023",
+                "doubleRoom": 806,
+                "singleSupplement": 177
+              },
+              {
+                "season": "01.07-31.10.2023",
+                "doubleRoom": 1079,
+                "singleSupplement": 372
+              },
+              {
+                "season": "01.11-15.12.2023",
+                "doubleRoom": 778,
+                "singleSupplement": 58
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Mt Kilimanjaro Safaris",
+        "packages": [
+          {
+            "id": "JT022",
+            "name": "Kilimanjaro Safari (Classic)",
+            "pricing": [
+              {
+                "season": "02.01-30.03.2023",
+                "doubleRoom": 757,
+                "singleSupplement": 167
+              },
+              {
+                "season": "01.04-30.06.2023",
+                "doubleRoom": 666,
+                "singleSupplement": 100
+              },
+              {
+                "season": "01.07-31.10.2023",
+                "doubleRoom": 819,
+                "singleSupplement": 177
+              },
+              {
+                "season": "01.11-15.12.2023",
+                "doubleRoom": 684,
+                "singleSupplement": 110
+              }
+            ]
+          },
+          {
+            "id": "JT023",
+            "name": "Kilimanjaro Experience (Classic)",
+            "pricing": [
+              {
+                "season": "02.01-30.03.2023",
+                "doubleRoom": 643,
+                "singleSupplement": 91
+              },
+              {
+                "season": "01.04-30.06.2023",
+                "doubleRoom": 609,
+                "singleSupplement": 59
+              },
+              {
+                "season": "01.07-31.10.2023",
+                "doubleRoom": 719,
+                "singleSupplement": 104
+              },
+              {
+                "season": "01.11-15.12.2023",
+                "doubleRoom": 643,
+                "singleSupplement": 91
+              }
+            ]
+          },
+          {
+            "id": "JT024",
+            "name": "Discover Amboseli (Classic)",
+            "pricing": [
+              {
+                "season": "02.01-30.03.2023",
+                "doubleRoom": 843,
+                "singleSupplement": 292
+              },
+              {
+                "season": "01.04-30.06.2023",
+                "doubleRoom": 793,
+                "singleSupplement": 190
+              },
+              {
+                "season": "01.07-31.10.2023",
+                "doubleRoom": 942,
+                "singleSupplement": 242
+              },
+              {
+                "season": "01.11-15.12.2023",
+                "doubleRoom": 843,
+                "singleSupplement": 292
+              }
+            ]
+          },
+          {
+            "id": "JT025",
+            "name": "Treasures of East Africa (Classic)",
+            "pricing": [
+              {
+                "season": "02.01-30.03.2023",
+                "doubleRoom": 4377,
+                "singleSupplement": 622
+              },
+              {
+                "season": "01.04-30.06.2023",
+                "doubleRoom": 3268,
+                "singleSupplement": 151
+              },
+              {
+                "season": "01.07-31.10.2023",
+                "doubleRoom": 4439,
+                "singleSupplement": 632
+              },
+              {
+                "season": "01.11-15.12.2023",
+                "doubleRoom": 3619,
+                "singleSupplement": 528
+              }
+            ]
+          },
+          {
+            "id": "JT026",
+            "name": "Splendours of Tanzania (Classic)",
+            "pricing": [
+              {
+                "season": "02.01-30.03.2023",
+                "doubleRoom": 3806,
+                "singleSupplement": 406
+              },
+              {
+                "season": "01.04-30.06.2023",
+                "doubleRoom": 2739,
+                "singleSupplement": 42
+              },
+              {
+                "season": "01.07-31.10.2023",
+                "doubleRoom": 3806,
+                "singleSupplement": 406
+              },
+              {
+                "season": "01.11-15.12.2023",
+                "doubleRoom": 3061,
+                "singleSupplement": 370
+              }
+            ]
+          },
+          {
+            "id": "JT027",
+            "name": "Tanzania Migration Safari (Classic)",
+            "pricing": [
+              {
+                "season": "02.01-30.03.2023",
+                "doubleRoom": 3580,
+                "singleSupplement": 346
+              },
+              {
+                "season": "01.04-30.06.2023",
+                "doubleRoom": 2539,
+                "singleSupplement": 42
+              },
+              {
+                "season": "01.07-31.10.2023",
+                "doubleRoom": 3580,
+                "singleSupplement": 346
+              },
+              {
+                "season": "01.11-15.12.2023",
+                "doubleRoom": 2887,
+                "singleSupplement": 303
+              }
+            ]
+          },
+          {
+            "id": "JT028",
+            "name": "East Africa Odyssey (Classic)",
+            "pricing": [
+              {
+                "season": "02.01-30.03.2023",
+                "doubleRoom": 4682,
+                "singleSupplement": 517
+              },
+              {
+                "season": "01.04-30.06.2023",
+                "doubleRoom": 4227,
+                "singleSupplement": 381
+              },
+              {
+                "season": "01.07-31.10.2023",
+                "doubleRoom": 4726,
+                "singleSupplement": 530
+              },
+              {
+                "season": "01.11-15.12.2023",
+                "doubleRoom": 4258,
+                "singleSupplement": 472
+              }
+            ]
+          },
+          {
+            "id": "JT029",
+            "name": "Tanzania Photography Safari (Classic)",
+            "pricing": [
+              {
+                "season": "02.01-30.03.2023",
+                "doubleRoom": 3692,
+                "singleSupplement": 357
+              },
+              {
+                "season": "01.04-30.06.2023",
+                "doubleRoom": 2653,
+                "singleSupplement": 59
+              },
+              {
+                "season": "01.07-31.10.2023",
+                "doubleRoom": 3692,
+                "singleSupplement": 357
+              },
+              {
+                "season": "01.11-15.12.2023",
+                "doubleRoom": 3318,
+                "singleSupplement": 319
+              }
+            ]
+          },
+          {
+            "id": "JT030",
+            "name": "Tanzania Highlight Classic",
+            "pricing": [
+              {
+                "season": "02.01-30.03.2023",
+                "doubleRoom": 3465,
+                "singleSupplement": 293
+              },
+              {
+                "season": "01.04-30.06.2023",
+                "doubleRoom": 2427,
+                "singleSupplement": 100
+              },
+              {
+                "season": "01.07-31.10.2023",
+                "doubleRoom": 3465,
+                "singleSupplement": 293
+              },
+              {
+                "season": "01.11-15.12.2023",
+                "doubleRoom": 3120,
+                "singleSupplement": 260
+              }
+            ]
+          },
+          {
+            "id": "JT031",
+            "name": "Rift Valley Explorer",
+            "pricing": [
+              {
+                "season": "02.01-30.03.2023",
+                "doubleRoom": 1521,
+                "singleSupplement": 329
+              },
+              {
+                "season": "01.04-30.06.2023",
+                "doubleRoom": 1459,
+                "singleSupplement": 309
+              },
+              {
+                "season": "01.07-31.10.2023",
+                "doubleRoom": 1708,
+                "singleSupplement": 394
+              },
+              {
+                "season": "01.11-15.12.2023",
+                "doubleRoom": 1510,
+                "singleSupplement": 322
+              }
+            ]
+          },
+          {
+            "id": "JT032",
+            "name": "Kenya Escapade 4 x4 (Classic)",
+            "pricing": [
+              {
+                "season": "02.01-30.03.2023",
+                "doubleRoom": 1165,
+                "singleSupplement": 257
+              },
+              {
+                "season": "01.04-30.06.2023",
+                "doubleRoom": 1115,
+                "singleSupplement": 244
+              },
+              {
+                "season": "01.07-31.10.2023",
+                "doubleRoom": 1342,
+                "singleSupplement": 318
+              },
+              {
+                "season": "01.11-15.12.2023",
+                "doubleRoom": 1165,
+                "singleSupplement": 257
+              }
+            ]
+          },
+          {
+            "id": "JT033",
+            "name": "Jambo Safari (Classic)",
+            "pricing": [
+              {
+                "season": "02.01-30.03.2023",
+                "doubleRoom": 1187,
+                "singleSupplement": 214
+              },
+              {
+                "season": "01.04-30.06.2023",
+                "doubleRoom": 1121,
+                "singleSupplement": 112
+              },
+              {
+                "season": "01.07-31.10.2023",
+                "doubleRoom": 1217,
+                "singleSupplement": 221
+              },
+              {
+                "season": "01.11-15.12.2023",
+                "doubleRoom": 1187,
+                "singleSupplement": 214
+              }
+            ]
+          },
+          {
+            "id": "JT034",
+            "name": "Tsavo/Taita Hills Express (Classic)",
+            "pricing": [
+              {
+                "season": "02.01-30.03.2023",
+                "doubleRoom": 914,
+                "singleSupplement": 149
+              },
+              {
+                "season": "01.04-30.06.2023",
+                "doubleRoom": 861,
+                "singleSupplement": 47
+              },
+              {
+                "season": "01.07-31.10.2023",
+                "doubleRoom": 931,
+                "singleSupplement": 156
+              },
+              {
+                "season": "01.11-15.12.2023",
+                "doubleRoom": 914,
+                "singleSupplement": 149
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Luxury Safaris",
+        "packages": [
+          {
+            "id": "JT035",
+            "name": "Best of East Africa Safari (Luxury)",
+            "pricing": [
+              {
+                "season": "02.01-30.03.2023",
+                "doubleRoom": 5955,
+                "singleSupplement": 1219
+              },
+              {
+                "season": "01.04-30.06.2023",
+                "doubleRoom": 4831,
+                "singleSupplement": 586
+              },
+              {
+                "season": "01.07-31.10.2023",
+                "doubleRoom": 6631,
+                "singleSupplement": 1599
+              },
+              {
+                "season": "01.11-15.12.2023",
+                "doubleRoom": 5467,
+                "singleSupplement": 1124
+              }
+            ]
+          },
+          {
+            "id": "JT036",
+            "name": "East Africa Highlights 4 x4 (Luxury)",
+            "pricing": [
+              {
+                "season": "02.01-30.03.2023",
+                "doubleRoom": 5308,
+                "singleSupplement": 1094
+              },
+              {
+                "season": "01.04-30.06.2023",
+                "doubleRoom": 4333,
+                "singleSupplement": 463
+              },
+              {
+                "season": "01.07-31.10.2023",
+                "doubleRoom": 5881,
+                "singleSupplement": 1398
+              },
+              {
+                "season": "01.11-15.12.2023",
+                "doubleRoom": 4799,
+                "singleSupplement": 948
+              }
+            ]
+        },
+        {
+            "id": "JT037",
+            "name": "Classic East Africa 4 x 4 (Luxury)",
+            "pricing": [
+              {
+                "season": "02.01-30.03.2023",
+                "doubleRoom": 4914,
+                "singleSupplement": 1014
+              },
+              {
+                "season": "01.04-30.06.2023",
+                "doubleRoom": 3956,
+                "singleSupplement": 627
+              },
+              {
+                "season": "01.07-31.10.2023",
+                "doubleRoom": 5384,
+                "singleSupplement": 1243
+              },
+              {
+                "season": "01.11-15.12.2023",
+                "doubleRoom": 4169,
+                "singleSupplement": 832
+              }
+            ]
+          },
+          {
+            "id": "JT038",
+            "name": "Splendours of Kenya 4 x 4 (Luxury)",
+            "pricing": [
+              {
+                "season": "02.01-30.03.2023",
+                "doubleRoom": 2217,
+                "singleSupplement": 479
+              },
+              {
+                "season": "01.04-30.06.2023",
+                "doubleRoom": 2045,
+                "singleSupplement": 403
+              },
+              {
+                "season": "01.07-31.10.2023",
+                "doubleRoom": 2521,
+                "singleSupplement": 605
+              },
+              {
+                "season": "01.11-15.12.2023",
+                "doubleRoom": 2205,
+                "singleSupplement": 471
+              }
+            ]
+          },
+          {
+            "id": "JT039",
+            "name": "Wings Over Kenya (Luxury)",
+            "pricing": [
+              {
+                "season": "02.01-30.03.2023",
+                "doubleRoom": 7183,
+                "singleSupplement": 2651
+              },
+              {
+                "season": "01.04-30.06.2023",
+                "doubleRoom": 6970,
+                "singleSupplement": 2520
+              },
+              {
+                "season": "01.07-31.10.2023",
+                "doubleRoom": 8279,
+                "singleSupplement": 3204
+              },
+              {
+                "season": "01.11-15.12.2023",
+                "doubleRoom": 5772,
+                "singleSupplement": 1161
+              }
+            ]
+          },
+          {
+            "id": "JT040",
+            "name": "Memories of Kenya (Luxury)",
+            "pricing": [
+              {
+                "season": "02.01-30.03.2023",
+                "doubleRoom": 6182,
+                "singleSupplement": 2074
+              },
+              {
+                "season": "01.04-30.06.2023",
+                "doubleRoom": 5948,
+                "singleSupplement": 1840
+              },
+              {
+                "season": "01.07-31.10.2023",
+                "doubleRoom": 6706,
+                "singleSupplement": 2460
+              },
+              {
+                "season": "01.11-15.12.2023",
+                "doubleRoom": 5959,
+                "singleSupplement": 1955
+              }
+            ]
+          },
+          {
+            "id": "JT041",
+            "name": "The Ultimate Tanzania Safari (Luxury)",
+            "pricing": [
+              {
+                "season": "02.01-30.03.2023",
+                "doubleRoom": 6724,
+                "singleSupplement": 1957
+              },
+              {
+                "season": "01.04-30.06.2023",
+                "doubleRoom": 6724,
+                "singleSupplement": 1957
+              },
+              {
+                "season": "01.07-31.10.2023",
+                "doubleRoom": 7148,
+                "singleSupplement": 2162
+              },
+              {
+                "season": "01.11-15.12.2023",
+                "doubleRoom": 6724,
+                "singleSupplement": 1957
+              }
+            ]
+          },
+          {
+            "id": "JT042",
+            "name": "Wings Over Kenya and Tanzani Safari (Luxury)",
+            "pricing": [
+              {
+                "season": "02.01-30.03.2023",
+                "doubleRoom": 11281,
+                "singleSupplement": 3444
+              },
+              {
+                "season": "01.04-30.06.2023",
+                "doubleRoom": 9913,
+                "singleSupplement": 2920
+              },
+              {
+                "season": "01.07-31.10.2023",
+                "doubleRoom": 11332,
+                "singleSupplement": 3542
+              },
+              {
+                "season": "01.11-15.12.2023",
+                "doubleRoom": 8619,
+                "singleSupplement": 742
+              }
+            ]
+          },
+          {
+            "id": "JT043",
+            "name": "Marangu Route From 1st January to 31st Dec 2023/24",
+            "climbPricing": [
+              {
+                "duration": "5 DAY CLIMB",
+                "privateClimb": 1781,
+                "joiningClimb": 1723,
+                "groupSize": [
+                  {
+                    "size": "3-5 Persons",
+                    "price": 1456
+                  },
+                  {
+                    "size": "6-10 Persons",
+                    "price": 1372
+                  }
+                ]
+              },
+              {
+                "duration": "6 DAY CLIMB",
+                "privateClimb": 2051,
+                "joiningClimb": 1982,
+                "groupSize": [
+                  {
+                    "size": "3-5 Persons",
+                    "price": 1715
+                  },
+                  {
+                    "size": "6-10 Persons",
+                    "price": 1631
+                  }
+                ]
+              },
+              {
+                "duration": "7 DAY CLIMB",
+                "privateClimb": 2321,
+                "joiningClimb": 2241,
+                "groupSize": [
+                  {
+                    "size": "3-5 Persons",
+                    "price": 1973
+                  },
+                  {
+                    "size": "6-10 Persons",
+                    "price": 1890
+                  }
+                ]
+              }
+            ],
+            "tourLeader": [
+              {
+                "duration": "5-Day Climb",
+                "price": 832
+              },
+              {
+                "duration": "6-Day Climb",
+                "price": 1009
+              },
+              {
+                "duration": "7-Day Climb",
+                "price": 1186
+              }
+            ],
+            "notes": "Children younger than 15 years of age qualify for a 30% discount"
+          },
+          {
+            "id": "JT044",
+            "name": "Machame/Lemosho/Shira/Umbwe/Rongai/Northern Circuit Routes: From 1st January - 31st Dec 2023/24",
+            "climbPricing": [
+              {
+                "duration": "6 DAY CLIMB",
+                "privateClimb": 2144,
+                "joiningClimb": 2075,
+                "groupSize": [
+                  {
+                    "size": "3-5 Persons",
+                    "price": 1814
+                  },
+                  {
+                    "size": "6-10 Persons",
+                    "price": 1722
+                  }
+                ]
+              },
+              {
+                "duration": "7 DAY CLIMB",
+                "privateClimb": 2413,
+                "joiningClimb": 2333,
+                "groupSize": [
+                  {
+                    "size": "3-5 Persons",
+                    "price": 2072
+                  },
+                  {
+                    "size": "6-10 Persons",
+                    "price": 1980
+                  }
+                ]
+              },
+              {
+                "duration": "8 DAY CLIMB",
+                "privateClimb": 2682,
+                "joiningClimb": 2590,
+                "groupSize": [
+                  {
+                    "size": "3-5 Persons",
+                    "price": 2329
+                  },
+                  {
+                    "size": "6-10 Persons",
+                    "price": 2237
+                  }
+                ]
+              },
+              {
+                "duration": "9 DAY CLIMB",
+                "privateClimb": 2951,
+                "joiningClimb": 2848,
+                "groupSize": [
+                  {
+                    "size": "3-5 Persons",
+                    "price": 2587
+                  },
+                  {
+                    "size": "6-10 Persons",
+                    "price": 2495
+                  }
+                ]
+              }
+            ],
+            "tourLeader": [
+              {
+                "duration": "6-Day Climb",
+                "price": 946
+              },
+              {
+                "duration": "7-Day Climb",
+                "price": 1110
+              },
+              {
+                "duration": "8-Day Climb",
+                "price": 1275
+              },
+              {
+                "duration": "9-Day Climb",
+                "price": 1439
+              }
+            ],
+            "additionalInfo": "Cost of an additional Day/Night on the Mountain - US$ 256",
+            "notes": "Children younger than 15 years of age qualify for a 30% discount"
+          }
+
+    ]
+}
+    ]
+}

@@ -10,7 +10,7 @@ const PopularDestinations = () => {
       description: "Experience the iconic Masai Mara ecosystem with its abundant wildlife and breathtaking landscapes of the African savannah.",
       category: "Wildlife Safari",
       price: "From $1,549",
-      image: "/api/placeholder/500/300"
+      image: "https://images.unsplash.com/photo-1554990772-0bea55d510d5?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8bWFzYWklMjBtYXJhfGVufDB8fDB8fHww"
     },
     {
       country: "Tanzania",
@@ -18,7 +18,7 @@ const PopularDestinations = () => {
       description: "Witness the Great Migration and explore the endless plains of the Serengeti, home to Africa's most spectacular wildlife displays.",
       category: "Wildlife Safari",
       price: "From $1,083",
-      image: "/api/placeholder/500/300"
+      image: "https://images.unsplash.com/photo-1580145575237-75fec2a0320b?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8c2VyZW5nZXRpfGVufDB8fDB8fHww"
     },
     {
       country: "Rwanda",
@@ -26,7 +26,7 @@ const PopularDestinations = () => {
       description: "Trek through misty forests to encounter endangered mountain gorillas in their natural habitat in this pristine wildlife sanctuary.",
       category: "Gorilla Trek",
       price: "From $3,132",
-      image: "/api/placeholder/500/300"
+      image: "https://images.unsplash.com/photo-1662612732223-1fe6ea43263e?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8dm9sY2Fub2VzJTIwcndhbmRhfGVufDB8fDB8fHww"
     }
   ];
 
@@ -107,7 +107,7 @@ const AllDestinations = () => {
       ],
       rating: 5,
       style: "border-t-asparagus",
-      bgImage: "/api/placeholder/500/300"
+      bgImage: "https://images.unsplash.com/photo-1554990772-0bea55d510d5?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8bWFzYWklMjBtYXJhfGVufDB8fDB8fHww"
     },
     {
       title: "Amboseli",
@@ -122,7 +122,7 @@ const AllDestinations = () => {
       ],
       rating: 4,
       style: "border-t-hunyadi-yellow",
-      bgImage: "/api/placeholder/500/300"
+      bgImage: "https://images.unsplash.com/photo-1631646109206-4b5616964f84?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8YW1ib3NlbGl8ZW58MHx8MHx8fDA%3D"
     },
     {
       title: "Serengeti",
@@ -137,7 +137,7 @@ const AllDestinations = () => {
       ],
       rating: 5,
       style: "border-t-brown-sugar",
-      bgImage: "/api/placeholder/500/300"
+      bgImage: "https://images.unsplash.com/photo-1580145575237-75fec2a0320b?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8c2VyZW5nZXRpfGVufDB8fDB8fHww"
     },
     {
       title: "Ngorongoro Crater",
@@ -152,7 +152,7 @@ const AllDestinations = () => {
       ],
       rating: 5,
       style: "border-t-asparagus",
-      bgImage: "/api/placeholder/500/300"
+      bgImage: "https://images.unsplash.com/photo-1566296524462-e0a341bf65e6?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8bmdvcm9uZ29yb3xlbnwwfHwwfHx8MA%3D%3D"
     },
     {
       title: "Volcanoes National Park",
@@ -167,7 +167,7 @@ const AllDestinations = () => {
       ],
       rating: 5,
       style: "border-t-hunyadi-yellow",
-      bgImage: "/api/placeholder/500/300"
+      bgImage: "https://images.unsplash.com/photo-1662612732223-1fe6ea43263e?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8dm9sY2Fub2VzJTIwcndhbmRhfGVufDB8fDB8fHww"
     },
     {
       title: "Akagera National Park",
@@ -182,7 +182,7 @@ const AllDestinations = () => {
       ],
       rating: 4,
       style: "border-t-brown-sugar",
-      bgImage: "/api/placeholder/500/300"
+      bgImage: "https://images.unsplash.com/photo-1665070385454-5e0c4421a38c?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8YWthZ2VyYSUyMG5hdGlvbmFsJTIwcGFya3xlbnwwfHwwfHx8MA%3D%3D"
     }
   ];
 

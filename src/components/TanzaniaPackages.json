@@ -1,35 +1,48 @@
 [
-    {
-        "name": "KILIMANJARO SAFARI (CLASSIC)",
-        "tourCode": "JT022",
-        "duration": "3 days",
-        "itinerary": [
-          {
-            "day": 1,
-            "title": "Nairobi/Amboseli National Park",
-            "location": "Amboseli",
-            "accommodation": "Amboseli Serena Lodge",
-            "board": "LDBB",
-            "activity": "P",
-            "description": "Lunch at The Carnivore Restaurant. After lunch drive to Amboseli National Park, lying below the most famous symbol of Africa, Mount Kilimanjaro. The 392 sq km Amboseli National Park lies due south of Nairobi, within clear sight of Mt Kilimanjaro, Africa's highest mountain at 5896 metres. The waters of the mountain feed the seasonal swamps and marshes on which the game and birds, which live in the park, rely. It is here that photographers will hope to shoot the classic picture of the elephant or giraffe standing against the dramatic backdrop of the snow capped mountain. Game drive enroute to your lodge. Dinner and overnight at Amboseli Serena Lodge (LDBB)"
-          },
-          {
-            "day": 2,
-            "title": "Amboseli National Park",
-            "location": "Amboseli",
-            "accommodation": "Amboseli Serena Lodge",
-            "board": "LDBB",
-            "activity": "E, P",
-            "description": "Early morning game drive returning to the lodge for breakfast. Rest of the morning at leisure. Lunch. Afternoon game drive. Dinner and overnight at Amboseli Serena Lodge (LDBB)"
-          },
-          {
-            "day": 3,
-            "title": "Amboseli National Park/Nairobi/Departure",
-            "activity": "TRSF",
-            "description": "After breakfast, drive to Nairobi and drop off at your hotel or Jomo Kenyatta Airport for your departure flight back home. An Jambo Tours representative will re-confirm your onward flight, and assist you at check-in. End of our services."
-          }
-        ]
+  {
+    "tourName": "KILIMANJARO SAFARI (CLASSIC)",
+    "tourCode": "JT022",
+    "duration": "3 days",
+    "locations": ["Nairobi", "Amboseli National Park"],
+    "accommodations": ["Amboseli Serena Lodge"],
+    "highlights": [
+      "View of Mount Kilimanjaro",
+      "Game drives in Amboseli National Park",
+      "Lunch at The Carnivore Restaurant",
+      "Opportunity to photograph wildlife against Mt. Kilimanjaro backdrop",
+      "Early morning game drive experience"
+    ],
+    "coverImage": "kilimanjaro_safari_classic.jpg",
+    "itinerary": [
+      {
+        "day": 1,
+        "title": "Nairobi/Amboseli National Park",
+        "location": "Amboseli",
+        "accommodation": "Amboseli Serena Lodge",
+        "board": "LDBB",
+        "activity": "P",
+        "description": "Lunch at The Carnivore Restaurant. After lunch drive to Amboseli National Park, lying below the most famous symbol of Africa, Mount Kilimanjaro. The 392 sq km Amboseli National Park lies due south of Nairobi, within clear sight of Mt Kilimanjaro, Africa's highest mountain at 5896 metres. The waters of the mountain feed the seasonal swamps and marshes on which the game and birds, which live in the park, rely. It is here that photographers will hope to shoot the classic picture of the elephant or giraffe standing against the dramatic backdrop of the snow capped mountain. Game drive enroute to your lodge. Dinner and overnight at Amboseli Serena Lodge (LDBB)"
       },
+      {
+        "day": 2,
+        "title": "Amboseli National Park",
+        "location": "Amboseli",
+        "accommodation": "Amboseli Serena Lodge",
+        "board": "LDBB",
+        "activity": "E, P",
+        "description": "Early morning game drive returning to the lodge for breakfast. Rest of the morning at leisure. Lunch. Afternoon game drive. Dinner and overnight at Amboseli Serena Lodge (LDBB)"
+      },
+      {
+        "day": 3,
+        "title": "Amboseli National Park/Nairobi/Departure",
+        "location": "Nairobi",
+        "accommodation": "None",
+        "board": "B",
+        "activity": "TRSF",
+        "description": "After breakfast, drive to Nairobi and drop off at your hotel or Jomo Kenyatta Airport for your departure flight back home. An Jambo Tours representative will re-confirm your onward flight, and assist you at check-in. End of our services."
+      }
+    ]
+  },
       {
         "tourName": "Kilimanjaro Experience",
         "tourCode": "JT023",
@@ -490,9 +503,29 @@
         ]
       },
       {
-        "name": "RIFT VALLEY EXPLORER 4 X 4 (CLASSIC)",
+        "tourName": "RIFT VALLEY EXPLORER 4 X 4 (CLASSIC)",
         "tourCode": "JT031",
         "duration": "6 days",
+        "locations": [
+          "Nairobi",
+          "Aberdares",
+          "Nakuru/Naivasha",
+          "Masai Mara"
+        ],
+        "accommodations": [
+          "Southern Sun Mayfair",
+          "The Ark Lodge",
+          "Great Rift Valley Lodge",
+          "Siana Springs Tented Camp"
+        ],
+        "highlights": [
+          "Visit to Aberdares National Park",
+          "Visit to Nyahururu waterfalls",
+          "Game drives in Nakuru/Naivasha",
+          "Game drives in Masai Mara",
+          "Optional hot air balloon safari"
+        ],
+        "coverImage": "safari-jt031.jpg",
         "itinerary": [
           {
             "day": 1,
@@ -544,9 +577,26 @@
         ]
       },
       {
-        "name": "KENYA ESCAPADE 4 X 4 (CLASSIC)",
+        "tourName": "KENYA ESCAPADE 4 X 4 (CLASSIC)",
         "tourCode": "JT032",
         "duration": "5 days",
+        "locations": [
+          "Nairobi",
+          "Nakuru/Naivasha",
+          "Masai Mara"
+        ],
+        "accommodations": [
+          "Southern Sun Mayfair Hotel",
+          "Great Rift Valley Lodge",
+          "Siana Springs Tented Camp"
+        ],
+        "highlights": [
+          "Game drives in Nakuru/Naivasha",
+          "Game drives in Masai Mara",
+          "Optional hot air balloon safari",
+          "Visit to Lake Nakuru National Park"
+        ],
+        "coverImage": "safari-jt032.jpg",
         "itinerary": [
           {
             "day": 1,
@@ -590,9 +640,31 @@
         ]
       },
       {
-        "name": "JAMBO SAFARI (CLASSIC)",
+        "tourName": "JAMBO SAFARI (CLASSIC)",
         "tourCode": "JT033",
         "duration": "5 days",
+        "locations": [
+          "Amboseli",
+          "Tsavo West",
+          "Tsavo East",
+          "Taita Hills"
+        ],
+        "accommodations": [
+          "Kibo Safari Camp",
+          "Voyager Safari Camp",
+          "Voi Wildlife Lodge",
+          "Taita Hills Lodge"
+        ],
+        "highlights": [
+          "Game drives in Amboseli",
+          "Visit to Amboseli National Park",
+          "Game drives in Tsavo West",
+          "Visit to Tsavo West National Park",
+          "Game drives in Tsavo East",
+          "Visit to Tsavo East National Park",
+          "Game drives in Taita Hills"
+        ],
+        "coverImage": "safari-jt033.jpg",
         "itinerary": [
           {
             "day": 1,
@@ -636,9 +708,27 @@
         ]
       },
       {
-        "name": "TSAVO/TAITA HILLS EXPRESS (CLASSIC)",
+        "tourName": "TSAVO/TAITA HILLS EXPRESS (CLASSIC)",
         "tourCode": "JT034",
         "duration": "4 days",
+        "locations": [
+          "Tsavo West",
+          "Tsavo East",
+          "Taita Hills"
+        ],
+        "accommodations": [
+          "Voyager Safari Camp",
+          "Voi Wildlife Lodge",
+          "Taita Hills Lodge"
+        ],
+        "highlights": [
+          "Game drives in Tsavo West",
+          "Visit to Tsavo West National Park",
+          "Game drives in Tsavo East",
+          "Visit to Tsavo East National Park",
+          "Game drives in Taita Hills"
+        ],
+        "coverImage": "safari-jt034.jpg",
         "itinerary": [
           {
             "day": 1,

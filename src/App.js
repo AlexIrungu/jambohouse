@@ -14,6 +14,8 @@ import BookingForm from './components/BookingForm';
 import Destinations from './components/Destinations';
 import DestinationDetails from './components/DestinationDetails';
 import SafariTours from './components/SafariTours'
+import TermsAndConditions from './components/TermsAndConditions';
+import FAQ from './components/FAQ';
 
 // Safari pages
 import Safaris from './components/Safaris';
@@ -49,6 +51,8 @@ function App() {
           <Route path="/destinations" element={<Destinations />} />
       <Route path="/destinations/:country/:destination" element={<DestinationDetails />} />
       <Route path="/safaari" element={<SafariTours />} />
+      <Route path="/terms" element={<TermsAndConditions />} />
+      <Route path="/faq" element={<FAQ />} />
         </Routes>
         <Footer />
       </div>

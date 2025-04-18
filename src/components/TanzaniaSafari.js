@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { Calendar, ChevronDown, X, MapPin, Star, Award, Clock, Users, ArrowRight, Filter, Sun, Cloud, Umbrella, Check } from 'lucide-react';
-import safariPackages from './TanzaniaPackages.json'
+import safariPackages from './TanzaniaPackages.json';
 
-// Placeholder image paths - these would be imported in a real application
+// Placeholder images - using API placeholder for consistent display
 const placeholderImages = {
   tanz: "/api/placeholder/1200/800",
-  kilimanjaro: "/api/placeholder/600/400",
+  kilimanjaro: "/api/placeholder/1200/800",
   lake: "/api/placeholder/600/400",
   serengeti: "/api/placeholder/600/400",
   tarangire: "/api/placeholder/600/400",
@@ -15,275 +15,6 @@ const placeholderImages = {
   luzury: "/api/placeholder/600/400",
   grand: "/api/placeholder/600/400"
 };
-
-// export const allPackages = [
-//   {
-//     id: "JT022",
-//     name: "Kilimanjaro Safari",
-//     type: "Classic",
-//     duration: "5 Days / 4 Nights",
-//     destinations: ["Kilimanjaro", "Arusha"],
-//     description: "Experience the majesty of Kilimanjaro and its surroundings with this classic safari package.",
-//     highlights: [
-//       "Views of Mount Kilimanjaro",
-//       "Wildlife viewing in Arusha National Park",
-//       "Cultural visits to local villages",
-//       "Guided nature walks"
-//     ],
-//     difficulty: "Moderate",
-//     featured: false,
-//     bestValue: true,
-//     pricing: {
-//       "Jan-Mar": { shared: 870.55, single: 192.05 },
-//       "Apr-Jun": { shared: 765.90, single: 115.00 },
-//       "Jul-Oct": { shared: 941.85, single: 2043.55 },
-//       "Nov-Dec": { shared: 786.60, single: 126.50 }
-//     },
-//     coverImage: placeholderImages.kilimanjaro,
-//     itinerary: [
-//       { day: 1, title: "Arrival in Arusha", description: "Airport pickup and transfer to your lodge. Welcome dinner and safari briefing." },
-//       { day: 2, title: "Arusha National Park", description: "Full day exploring Arusha National Park with game drives and nature walks." },
-//       { day: 3, title: "Kilimanjaro Foothills", description: "Visit to local communities and exploration of Kilimanjaro's lower slopes." },
-//       { day: 4, title: "Nature Trails & Wildlife", description: "Game drives and guided nature walks in search of diverse wildlife." },
-//       { day: 5, title: "Departure", description: "Morning activity followed by airport transfer for your departure flight." }
-//     ]
-//   },
-//   {
-//     id: "JT023",
-//     name: "Treasure of East Africa",
-//     type: "Classic",
-//     duration: "10 Days / 9 Nights",
-//     destinations: ["Serengeti", "Ngorongoro", "Lake Manyara"],
-//     description: "Comprehensive safari covering the best wildlife viewing spots in East Africa for an unforgettable experience.",
-//     highlights: [
-//       "Full day in the Serengeti",
-//       "Ngorongoro Crater expedition",
-//       "Lake Manyara's tree-climbing lions",
-//       "Great Migration viewing (seasonal)"
-//     ],
-//     difficulty: "Moderate",
-//     featured: true,
-//     bestValue: false,
-//     pricing: {
-//       "Jan-Mar": { shared: 5033.55, single: 715.30 },
-//       "Apr-Jun": { shared: 3758.20, single: 173.65 },
-//       "Jul-Oct": { shared: 5104.85, single: 726.80 },
-//       "Nov-Dec": { shared: 4174.50, single: 607.20 }
-//     },
-//     coverImage: placeholderImages.serengeti,
-//     itinerary: [
-//       { day: 1, title: "Arrival in Arusha", description: "Welcome to Tanzania! Transfer to your hotel for overnight stay." },
-//       { day: 2, title: "To Lake Manyara", description: "Drive to Lake Manyara National Park for afternoon game drive." },
-//       { day: 3, title: "Serengeti National Park", description: "Transfer to Serengeti with game viewing en route." },
-//       { day: 4, title: "Serengeti Full Day", description: "Full day exploring the vast Serengeti plains." },
-//       { day: 5, title: "Serengeti Plains", description: "Another day of extraordinary wildlife viewing." }
-//     ]
-//   },
-//   {
-//     id: "JT026",
-//     name: "Splendours of Tanzania",
-//     type: "Classic",
-//     duration: "7 Days / 6 Nights",
-//     destinations: ["Tarangire", "Serengeti", "Ngorongoro"],
-//     description: "Discover the magnificent wildlife and landscapes of Tanzania's most famous parks and conservation areas.",
-//     highlights: [
-//       "Big five game viewing",
-//       "Spectacular landscapes",
-//       "Maasai cultural interactions",
-//       "Exclusive game drives"
-//     ],
-//     difficulty: "Easy",
-//     featured: false,
-//     bestValue: false,
-//     pricing: {
-//       "Jan-Mar": { shared: 4376.90, single: 466.90 },
-//       "Apr-Jun": { shared: 3149.85, single: 462.30 },
-//       "Jul-Oct": { shared: 4376.90, single: 466.90 },
-//       "Nov-Dec": { shared: 3520.15, single: 425.50 }
-//     },
-//     coverImage: placeholderImages.tarangire,
-//     itinerary: [
-//       { day: 1, title: "Arrival in Arusha", description: "Welcome at Kilimanjaro Airport and transfer to your hotel in Arusha." },
-//       { day: 2, title: "Tarangire National Park", description: "Morning departure to Tarangire, afternoon game drive." },
-//       { day: 3, title: "Serengeti National Park", description: "Journey to Serengeti with game viewing en route." },
-//       { day: 4, title: "Serengeti Full Day", description: "Full day exploring the iconic Serengeti ecosystem." }
-//     ]
-//   },
-//   {
-//     id: "JT027",
-//     name: "Tanzania Migration Safari",
-//     type: "Classic",
-//     duration: "6 Days / 5 Nights",
-//     destinations: ["Serengeti", "Ngorongoro"],
-//     description: "Follow the Great Migration with this specially timed safari to witness one of nature's greatest spectacles.",
-//     highlights: [
-//       "Great Migration viewing",
-//       "Wildebeest river crossings (seasonal)",
-//       "Predator-prey interactions",
-//       "Unmatched wildlife photography"
-//     ],
-//     difficulty: "Moderate",
-//     featured: true,
-//     bestValue: false,
-//     pricing: {
-//       "Jan-Mar": { shared: 1083.30, single: 278.30 },
-//       "Apr-Jun": { shared: 0, single: 0 },
-//       "Jul-Oct": { shared: 969.45, single: 335.80 },
-//       "Nov-Dec": { shared: 0, single: 0 }
-//     },
-//     coverImage: placeholderImages.ngorongoro,
-//     itinerary: [
-//       { day: 1, title: "Arrival", description: "Welcome to Tanzania! Transfer to your hotel in Arusha." },
-//       { day: 2, title: "To Serengeti", description: "Fly to the Serengeti and afternoon game drive." },
-//       { day: 3, title: "Migration Tracking", description: "Full day following the Great Migration herds." }
-//     ]
-//   },
-//   {
-//     id: "JT028",
-//     name: "East Africa Odyssey",
-//     type: "Classic",
-//     duration: "12 Days / 11 Nights",
-//     destinations: ["Serengeti", "Ngorongoro", "Tarangire", "Lake Manyara"],
-//     description: "The ultimate East African adventure covering multiple parks and reserves across Tanzania.",
-//     highlights: [
-//       "Extended Serengeti stay",
-//       "Full day at Ngorongoro Crater",
-//       "Four different ecosystems",
-//       "Optional hot air balloon safari"
-//     ],
-//     difficulty: "Challenging",
-//     featured: false,
-//     bestValue: true,
-//     pricing: {
-//       "Jan-Mar": { shared: 5384.30, single: 594.55 },
-//       "Apr-Jun": { shared: 4861.05, single: 438.15 },
-//       "Jul-Oct": { shared: 5434.90, single: 609.50 },
-//       "Nov-Dec": { shared: 4896.70, single: 542.80 }
-//     },
-//     coverImage: placeholderImages.hot,
-//     itinerary: [
-//       { day: 1, title: "Arrival", description: "Welcome to Tanzania! Transfer to your hotel in Arusha." },
-//       { day: 2, title: "Tarangire", description: "Drive to Tarangire National Park, famous for its elephants." },
-//       { day: 3, title: "Lake Manyara", description: "Explore Lake Manyara National Park's diverse habitats." }
-//     ]
-//   },
-//   {
-//     id: "JT029",
-//     name: "Tanzania Photography Safari",
-//     type: "Classic",
-//     duration: "8 Days / 7 Nights",
-//     destinations: ["Serengeti", "Ngorongoro", "Lake Manyara"],
-//     description: "Specially designed for photography enthusiasts with optimal viewing positions and timing for wildlife photography.",
-//     highlights: [
-//       "Photography-focused game drives",
-//       "Golden hour sessions",
-//       "Professional photography tips",
-//       "Special vehicles with camera mounts"
-//     ],
-//     difficulty: "Moderate",
-//     featured: true,
-//     bestValue: false,
-//     pricing: {
-//       "Jan-Mar": { shared: 4245.80, single: 410.55 },
-//       "Apr-Jun": { shared: 3050.95, single: 67.85 },
-//       "Jul-Oct": { shared: 4245.80, single: 410.55 },
-//       "Nov-Dec": { shared: 3816.85, single: 366.85 }
-//     },
-//     coverImage: placeholderImages.lake,
-//     itinerary: [
-//       { day: 1, title: "Arrival", description: "Welcome to Tanzania! Transfer to your hotel in Arusha." },
-//       { day: 2, title: "Lake Manyara", description: "Morning drive to Lake Manyara for afternoon photography session." },
-//       { day: 3, title: "Ngorongoro", description: "Explore the magnificent Ngorongoro Crater." }
-//     ]
-//   },
-//   {
-//     id: "JT030",
-//     name: "Tanzania Highlight Classic",
-//     type: "Classic",
-//     duration: "7 Days / 6 Nights",
-//     destinations: ["Tarangire", "Serengeti", "Ngorongoro"],
-//     description: "The essential Tanzania experience covering the most popular parks and wildlife viewing opportunities.",
-//     highlights: [
-//       "Elephant herds in Tarangire",
-//       "Serengeti plains game viewing",
-//       "Ngorongoro Crater descent",
-//       "Professional naturalist guides"
-//     ],
-//     difficulty: "Easy",
-//     featured: false,
-//     bestValue: false,
-//     pricing: {
-//       "Jan-Mar": { shared: 3984.75, single: 336.95 },
-//       "Apr-Jun": { shared: 2791.05, single: 115.00 },
-//       "Jul-Oct": { shared: 3984.75, single: 336.95 },
-//       "Nov-Dec": { shared: 3588.00, single: 299.00 }
-//     },
-//     coverImage: placeholderImages.serengetinp,
-//     itinerary: [
-//       { day: 1, title: "Arrival", description: "Welcome to Tanzania! Transfer to your hotel in Arusha." },
-//       { day: 2, title: "Tarangire", description: "Drive to Tarangire for afternoon game drive." },
-//       { day: 3, title: "To Serengeti", description: "Transfer to the Serengeti with game drive en route." }
-//     ]
-//   },
-//   {
-//     id: "JT041",
-//     name: "The Ultimate Tanzania Safari",
-//     type: "Luxury",
-//     duration: "10 Days / 9 Nights",
-//     destinations: ["Serengeti", "Ngorongoro", "Tarangire", "Lake Manyara"],
-//     description: "Premium luxury safari experience with exclusive lodges, private guides, and exceptional service throughout.",
-//     highlights: [
-//       "Luxury accommodations",
-//       "Private safari vehicles",
-//       "Gourmet dining experiences",
-//       "Champagne sundowners"
-//     ],
-//     difficulty: "Easy",
-//     featured: true,
-//     bestValue: false,
-//     pricing: {
-//       "Jan-Mar": { shared: 7732.60, single: 2250.55 },
-//       "Apr-Jun": { shared: 7732.60, single: 2250.55 },
-//       "Jul-Oct": { shared: 8192.60, single: 2486.30 },
-//       "Nov-Dec": { shared: 7732.60, single: 2250.55 }
-//     },
-//     coverImage: placeholderImages.luzury,
-//     itinerary: [
-//       { day: 1, title: "VIP Arrival", description: "VIP welcome at Kilimanjaro Airport and private transfer to luxury lodge." },
-//       { day: 2, title: "Tarangire Luxury", description: "Charter flight to Tarangire and afternoon game drive." },
-//       { day: 3, title: "Luxury Serengeti", description: "Fly to the Serengeti for your luxury tented camp stay." }
-//     ]
-//   },
-//   {
-//     id: "JT042",
-//     name: "Wings Over Kenya & Tanzania Safari",
-//     type: "Luxury",
-//     duration: "14 Days / 13 Nights",
-//     destinations: ["Maasai Mara", "Serengeti", "Ngorongoro", "Amboseli"],
-//     description: "The ultimate East African luxury experience with private flights between destinations for maximum comfort and efficiency.",
-//     highlights: [
-//       "Private air transfers",
-//       "Five-star accommodations",
-//       "Exclusive wildlife viewing",
-//       "Professional photography guide"
-//     ],
-//     difficulty: "Easy",
-//     featured: true,
-//     bestValue: false,
-//     pricing: {
-//       "Jan-Mar": { shared: 12973.15, single: 3960.60 },
-//       "Apr-Jun": { shared: 11399.95, single: 3243.00 },
-//       "Jul-Oct": { shared: 13031.80, single: 4073.30 },
-//       "Nov-Dec": { shared: 9911.85, single: 853.30 }
-//     },
-//     coverImage: placeholderImages.grand,
-//     itinerary: [
-//       { day: 1, title: "Arrival in Nairobi", description: "VIP welcome at Jomo Kenyatta Airport and transfer to luxury hotel." },
-//       { day: 2, title: "To Amboseli", description: "Private flight to Amboseli with views of Mt. Kilimanjaro." },
-//       { day: 3, title: "Amboseli Experience", description: "Full day exploring Amboseli with expert guide." }
-//     ]
-//   }
-// ];
 
 // Season data with icons and descriptions
 const seasonData = [
@@ -349,7 +80,7 @@ const allPackages = safariPackages.map(pkg => {
     description: pkg.description || `Experience the wonders of ${pkg.locations?.join(', ') || pkg.location}`,
     destinations: pkg.locations || [pkg.location] || [],
     highlights: pkg.highlights || ["Wildlife viewing", "Scenic landscapes"],
-    coverImage: placeholderImages.tanz, // Use your placeholder or add images to JSON
+    coverImage: placeholderImages.tanz, // Use placeholder image
     featured: Math.random() > 0.7, // Randomly feature some packages
     bestValue: Math.random() > 0.8, // Randomly mark some as best value
     pricing: {
@@ -446,7 +177,7 @@ const TanzaniaSafari = () => {
       <div className="relative w-full h-[80vh] overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-r from-cafe-noir/80 to-transparent z-10"></div>
         <img 
-          src={placeholderImages.tanz}
+          src="/api/placeholder/1200/800"
           alt="Tanzania Safari"
           className="absolute inset-0 w-full h-full object-cover object-center"
         />
@@ -596,7 +327,7 @@ const TanzaniaSafari = () => {
                     >
                       <div className="relative">
                         <img 
-                          src={safari.coverImage || placeholderImages.tanz} 
+                          src={safari.coverImage}
                           alt={safari.name} 
                           className="w-full h-64 object-cover"
                         />
@@ -762,7 +493,7 @@ const TanzaniaSafari = () => {
                 
                 <div className="h-full">
                   <img 
-                    src={placeholderImages.hot} 
+                    src="/api/placeholder/600/400" 
                     alt="Safari Experience" 
                     className="w-full h-full object-cover"
                   />
@@ -817,7 +548,7 @@ const TanzaniaSafari = () => {
                 {/* Package Header */}
                 <div className="relative h-96">
                   <img 
-                    src={selectedPackage.coverImage || placeholderImages.tanz} 
+                    src={selectedPackage.coverImage} 
                     alt={selectedPackage.name} 
                     className="w-full h-full object-cover"
                   />
@@ -851,247 +582,247 @@ const TanzaniaSafari = () => {
                       </div>
                     </div>
                     <h1 className="text-4xl font-bold text-white mb-2">{selectedPackage.name}</h1>
-                    <div className="flex flex-wrap items-center gap-4 text-white">
-                      <div className="flex items-center">
-                        <Clock className="h-5 w-5 mr-1" />
-                        <span>{selectedPackage.duration}</span>
+          <div className="flex flex-wrap items-center gap-4 text-white">
+            <div className="flex items-center">
+              <Clock className="h-5 w-5 mr-1" />
+              <span>{selectedPackage.duration}</span>
+            </div>
+            <div className="flex items-center">
+              <MapPin className="h-5 w-5 mr-1" />
+              <span>{selectedPackage.destinations.join(', ')}</span>
+            </div>
+            <span className={`px-3 py-1 rounded-full ${
+              selectedPackage.difficulty === 'Easy' ? 'bg-mindaro text-cafe-noir' :
+              selectedPackage.difficulty === 'Moderate' ? 'bg-hunyadi-yellow text-cafe-noir' :
+              'bg-brown-sugar text-white'
+            }`}>
+              {selectedPackage.difficulty} Difficulty
+            </span>
+          </div>
+        </div>
+      </div>
+      
+      {/* Package Content */}
+      <div className="p-8">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+          {/* Main Content - 2/3 width */}
+          <div className="lg:col-span-2">
+            <div className="mb-8">
+              <h2 className="text-2xl font-bold text-cafe-noir mb-4">Overview</h2>
+              <p className="text-gray-700 mb-6">{selectedPackage.description}</p>
+              
+              <div className="bg-alice-blue rounded-lg p-6 mb-6">
+                <h3 className="font-bold text-cafe-noir mb-3">Safari Highlights</h3>
+                <div className="grid sm:grid-cols-2 gap-3">
+                  {selectedPackage.highlights.map((highlight, index) => (
+                    <div key={index} className="flex items-start">
+                      <div className="bg-hunyadi-yellow/20 p-1 rounded-full mr-3 mt-0.5">
+                        <Check className="h-4 w-4 text-hunyadi-yellow" />
                       </div>
-                      <div className="flex items-center">
-                        <MapPin className="h-5 w-5 mr-1" />
-                        <span>{selectedPackage.destinations.join(', ')}</span>
+                      <span className="text-gray-700">{highlight}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+            
+            {/* Itinerary Section */}
+            <div className="mb-8">
+              <h2 className="text-2xl font-bold text-cafe-noir mb-4">Safari Itinerary</h2>
+              <div className="space-y-6">
+                {selectedPackage.itinerary.map((day, index) => (
+                  <div key={index} className="flex">
+                    <div className="mr-4">
+                      <div className="bg-moss-green text-white w-10 h-10 rounded-full flex items-center justify-center font-bold">
+                        {day.day}
                       </div>
-                      <span className={`px-3 py-1 rounded-full ${
-                        selectedPackage.difficulty === 'Easy' ? 'bg-mindaro text-cafe-noir' :
-                        selectedPackage.difficulty === 'Moderate' ? 'bg-hunyadi-yellow text-cafe-noir' :
-                        'bg-brown-sugar text-white'
-                      }`}>
-                        {selectedPackage.difficulty} Difficulty
-                      </span>
+                    </div>
+                    <div className="bg-white border-l-4 border-moss-green pl-4 py-2 flex-1">
+                      <h3 className="font-bold text-cafe-noir">{day.title}</h3>
+                      <p className="text-gray-600 text-sm">{day.description}</p>
                     </div>
                   </div>
-                </div>
-                
-                {/* Package Content */}
-                <div className="p-8">
-                  <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-                    {/* Main Content - 2/3 width */}
-                    <div className="lg:col-span-2">
-                      <div className="mb-8">
-                        <h2 className="text-2xl font-bold text-cafe-noir mb-4">Overview</h2>
-                        <p className="text-gray-700 mb-6">{selectedPackage.description}</p>
-                        
-                        <div className="bg-alice-blue rounded-lg p-6 mb-6">
-                          <h3 className="font-bold text-cafe-noir mb-3">Safari Highlights</h3>
-                          <div className="grid sm:grid-cols-2 gap-3">
-                            {selectedPackage.highlights.map((highlight, index) => (
-                              <div key={index} className="flex items-start">
-                                <div className="bg-hunyadi-yellow/20 p-1 rounded-full mr-3 mt-0.5">
-                                  <Check className="h-4 w-4 text-hunyadi-yellow" />
-                                </div>
-                                <span className="text-gray-700">{highlight}</span>
-                              </div>
-                            ))}
-                          </div>
-                        </div>
-                      </div>
-                      
-                      {/* Itinerary Section */}
-                      <div className="mb-8">
-                        <h2 className="text-2xl font-bold text-cafe-noir mb-4">Safari Itinerary</h2>
-                        <div className="space-y-6">
-                          {selectedPackage.itinerary.map((day, index) => (
-                            <div key={index} className="flex">
-                              <div className="mr-4">
-                                <div className="bg-moss-green text-white w-10 h-10 rounded-full flex items-center justify-center font-bold">
-                                  {day.day}
-                                </div>
-                              </div>
-                              <div className="bg-white border-l-4 border-moss-green pl-4 py-2 flex-1">
-                                <h3 className="font-bold text-cafe-noir">{day.title}</h3>
-                                <p className="text-gray-600 text-sm">{day.description}</p>
-                              </div>
-                            </div>
-                          ))}
-                          {selectedPackage.itinerary.length < 5 && (
-                            <div className="flex items-center text-gray-500 text-sm mt-2">
-                              <span>Full itinerary details provided upon booking</span>
-                            </div>
-                          )}
-                        </div>
-                      </div>
-                      
-                      {/* Destinations */}
-                      <div className="mb-8">
-                        <h2 className="text-2xl font-bold text-cafe-noir mb-4">Destinations</h2>
-                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                          {selectedPackage.destinations.map((destination, idx) => (
-                            <div key={idx} className="bg-cornsilk rounded-lg p-4 flex items-center">
-                              <MapPin className="h-6 w-6 text-hunyadi-yellow mr-3" />
-                              <div>
-                                <h3 className="font-medium text-cafe-noir">{destination}</h3>
-                                <p className="text-xs text-gray-600">
-                                  {destination === 'Serengeti' && 'Famous for the great migration and vast plains'}
-                                  {destination === 'Ngorongoro' && 'Stunning crater with concentrated wildlife'}
-                                  {destination === 'Kilimanjaro' && 'Africa\'s highest mountain with diverse ecosystems'}
-                                  {destination === 'Tarangire' && 'Known for large elephant herds and baobab trees'}
-                                  {destination === 'Lake Manyara' && 'Home to tree-climbing lions and birdlife'}
-                                  {destination === 'Arusha' && 'Gateway to Tanzania\'s northern safari circuit'}
-                                  {destination === 'Maasai Mara' && 'Kenya\'s famous reserve connecting to Serengeti'}
-                                  {destination === 'Amboseli' && 'Kenya\'s park with views of Mount Kilimanjaro'}
-                                </p>
-                              </div>
-                            </div>
-                          ))}
-                        </div>
-                      </div>
+                ))}
+                {selectedPackage.itinerary.length < 5 && (
+                  <div className="flex items-center text-gray-500 text-sm mt-2">
+                    <span>Full itinerary details provided upon booking</span>
+                  </div>
+                )}
+              </div>
+            </div>
+            
+            {/* Destinations */}
+            <div className="mb-8">
+              <h2 className="text-2xl font-bold text-cafe-noir mb-4">Destinations</h2>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                {selectedPackage.destinations.map((destination, idx) => (
+                  <div key={idx} className="bg-cornsilk rounded-lg p-4 flex items-center">
+                    <MapPin className="h-6 w-6 text-hunyadi-yellow mr-3" />
+                    <div>
+                      <h3 className="font-medium text-cafe-noir">{destination}</h3>
+                      <p className="text-xs text-gray-600">
+                        {destination === 'Serengeti' && 'Famous for the great migration and vast plains'}
+                        {destination === 'Ngorongoro' && 'Stunning crater with concentrated wildlife'}
+                        {destination === 'Kilimanjaro' && 'Africa\'s highest mountain with diverse ecosystems'}
+                        {destination === 'Tarangire' && 'Known for large elephant herds and baobab trees'}
+                        {destination === 'Lake Manyara' && 'Home to tree-climbing lions and birdlife'}
+                        {destination === 'Arusha' && 'Gateway to Tanzania\'s northern safari circuit'}
+                        {destination === 'Maasai Mara' && 'Kenya\'s famous reserve connecting to Serengeti'}
+                        {destination === 'Amboseli' && 'Kenya\'s park with views of Mount Kilimanjaro'}
+                      </p>
                     </div>
-                    
-                    {/* Sidebar - 1/3 width */}
-                    <div className="lg:col-span-1">
-                      {/* Pricing Card */}
-                      <div className="bg-white rounded-lg shadow-lg border border-french-gray p-6 mb-6 sticky top-4">
-                        <h3 className="text-xl font-bold text-cafe-noir mb-2">Pricing Details</h3>
-                        <p className="text-sm text-gray-600 mb-4">Price per person for {currentSeasonData.name}</p>
-                        
-                        <div className="mb-6">
-                          <div className="flex justify-between items-center mb-2">
-                            <span className="text-gray-700">Shared Accommodation:</span>
-                            <span className="text-2xl font-bold text-moss-green">
-                              ${selectedPackage.pricing[selectedSeason].shared.toFixed(0)}
-                            </span>
-                          </div>
-                          <div className="flex justify-between items-center">
-                            <span className="text-gray-700">Single Supplement:</span>
-                            <span className="text-lg font-semibold text-cafe-noir">
-                              ${selectedPackage.pricing[selectedSeason].single.toFixed(0)}
-                            </span>
-                          </div>
-                        </div>
-                        
-                        <div className="bg-alice-blue rounded-lg p-4 mb-6">
-                          <h4 className="font-medium text-cafe-noir mb-2">Includes:</h4>
-                          <ul className="space-y-2">
-                            <li className="text-sm text-gray-600 flex items-start">
-                              <Check className="h-4 w-4 text-moss-green mr-2 flex-shrink-0 mt-0.5" />
-                              <span>All accommodations</span>
-                            </li>
-                            <li className="text-sm text-gray-600 flex items-start">
-                              <Check className="h-4 w-4 text-moss-green mr-2 flex-shrink-0 mt-0.5" />
-                              <span>Professional guides & vehicles</span>
-                            </li>
-                            <li className="text-sm text-gray-600 flex items-start">
-                              <Check className="h-4 w-4 text-moss-green mr-2 flex-shrink-0 mt-0.5" />
-                              <span>All park entrance fees</span>
-                            </li>
-                            <li className="text-sm text-gray-600 flex items-start">
-                              <Check className="h-4 w-4 text-moss-green mr-2 flex-shrink-0 mt-0.5" />
-                              <span>All meals as specified</span>
-                            </li>
-                          </ul>
-                        </div>
-                        
-                        <button className="w-full bg-hunyadi-yellow hover:bg-princeton-orange text-cafe-noir font-bold py-3 px-4 rounded-lg transition duration-300 flex justify-center items-center mb-4">
-                          <span>Book This Safari</span>
-                        </button>
-                        
-                        <button className="w-full bg-cafe-noir hover:bg-cafe-noir/80 text-white font-bold py-3 px-4 rounded-lg transition duration-300 flex justify-center items-center">
-                          <span>Request Custom Quote</span>
-                        </button>
-                      </div>
-                      
-                      {/* Season Availability */}
-                      <div className="bg-white rounded-lg shadow-lg border border-french-gray p-6 mb-6">
-                        <h3 className="font-bold text-cafe-noir mb-3">Seasonal Availability</h3>
-                        <div className="space-y-3">
-                          {Object.entries(selectedPackage.pricing).map(([season, prices]) => (
-                            <div 
-                              key={season} 
-                              className={`flex items-center justify-between p-2 rounded ${
-                                prices.shared > 0 
-                                  ? season === selectedSeason 
-                                    ? 'bg-moss-green/20' 
-                                    : 'bg-gray-50' 
-                                  : 'bg-gray-100'
-                              }`}
-                            >
-                              <div className="flex items-center">
-                                {season === 'Jan-Mar' && <Sun className="h-4 w-4 text-hunyadi-yellow mr-2" />}
-                                {season === 'Apr-Jun' && <Cloud className="h-4 w-4 text-columbia-blue mr-2" />}
-                                {season === 'Jul-Oct' && <Sun className="h-4 w-4 text-princeton-orange mr-2" />}
-                                {season === 'Nov-Dec' && <Umbrella className="h-4 w-4 text-moss-green mr-2" />}
-                                <span className={prices.shared > 0 ? "text-cafe-noir" : "text-gray-400"}>
-                                  {season}
-                                </span>
-                              </div>
-                              {prices.shared > 0 ? (
-                                <span className="font-medium text-moss-green">
-                                  ${prices.shared.toFixed(0)}
-                                </span>
-                              ) : (
-                                <span className="text-gray-400 text-sm">Not Available</span>
-                              )}
-                            </div>
-                          ))}
-                        </div>
-                      </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+          
+          {/* Sidebar - 1/3 width */}
+          <div className="lg:col-span-1">
+            {/* Pricing Card */}
+            <div className="bg-white rounded-lg shadow-lg border border-french-gray p-6 mb-6 sticky top-4">
+              <h3 className="text-xl font-bold text-cafe-noir mb-2">Pricing Details</h3>
+              <p className="text-sm text-gray-600 mb-4">Price per person for {currentSeasonData.name}</p>
+              
+              <div className="mb-6">
+                <div className="flex justify-between items-center mb-2">
+                  <span className="text-gray-700">Shared Accommodation:</span>
+                  <span className="text-2xl font-bold text-moss-green">
+                    ${selectedPackage.pricing[selectedSeason].shared.toFixed(0)}
+                  </span>
+                </div>
+                <div className="flex justify-between items-center">
+                  <span className="text-gray-700">Single Supplement:</span>
+                  <span className="text-lg font-semibold text-cafe-noir">
+                    ${selectedPackage.pricing[selectedSeason].single.toFixed(0)}
+                  </span>
+                </div>
+              </div>
+              
+              <div className="bg-alice-blue rounded-lg p-4 mb-6">
+                <h4 className="font-medium text-cafe-noir mb-2">Includes:</h4>
+                <ul className="space-y-2">
+                  <li className="text-sm text-gray-600 flex items-start">
+                    <Check className="h-4 w-4 text-moss-green mr-2 flex-shrink-0 mt-0.5" />
+                    <span>All accommodations</span>
+                  </li>
+                  <li className="text-sm text-gray-600 flex items-start">
+                    <Check className="h-4 w-4 text-moss-green mr-2 flex-shrink-0 mt-0.5" />
+                    <span>Professional guides & vehicles</span>
+                  </li>
+                  <li className="text-sm text-gray-600 flex items-start">
+                    <Check className="h-4 w-4 text-moss-green mr-2 flex-shrink-0 mt-0.5" />
+                    <span>All park entrance fees</span>
+                  </li>
+                  <li className="text-sm text-gray-600 flex items-start">
+                    <Check className="h-4 w-4 text-moss-green mr-2 flex-shrink-0 mt-0.5" />
+                    <span>All meals as specified</span>
+                  </li>
+                </ul>
+              </div>
+              
+              <button className="w-full bg-hunyadi-yellow hover:bg-princeton-orange text-cafe-noir font-bold py-3 px-4 rounded-lg transition duration-300 flex justify-center items-center mb-4">
+                <span>Book This Safari</span>
+              </button>
+              
+              <button className="w-full bg-cafe-noir hover:bg-cafe-noir/80 text-white font-bold py-3 px-4 rounded-lg transition duration-300 flex justify-center items-center">
+                <span>Request Custom Quote</span>
+              </button>
+            </div>
+            
+            {/* Season Availability */}
+            <div className="bg-white rounded-lg shadow-lg border border-french-gray p-6 mb-6">
+              <h3 className="font-bold text-cafe-noir mb-3">Seasonal Availability</h3>
+              <div className="space-y-3">
+                {Object.entries(selectedPackage.pricing).map(([season, prices]) => (
+                  <div 
+                    key={season} 
+                    className={`flex items-center justify-between p-2 rounded ${
+                      prices.shared > 0 
+                        ? season === selectedSeason 
+                          ? 'bg-moss-green/20' 
+                          : 'bg-gray-50' 
+                        : 'bg-gray-100'
+                    }`}
+                  >
+                    <div className="flex items-center">
+                      {season === 'Jan-Mar' && <Sun className="h-4 w-4 text-hunyadi-yellow mr-2" />}
+                      {season === 'Apr-Jun' && <Cloud className="h-4 w-4 text-columbia-blue mr-2" />}
+                      {season === 'Jul-Oct' && <Sun className="h-4 w-4 text-princeton-orange mr-2" />}
+                      {season === 'Nov-Dec' && <Umbrella className="h-4 w-4 text-moss-green mr-2" />}
+                      <span className={prices.shared > 0 ? "text-cafe-noir" : "text-gray-400"}>
+                        {season}
+                      </span>
+                    </div>
+                    {prices.shared > 0 ? (
+                      <span className="font-medium text-moss-green">
+                        ${prices.shared.toFixed(0)}
+                      </span>
+                    ) : (
+                      <span className="text-gray-400 text-sm">Not Available</span>
+                    )}
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        {/* Similar Packages Section */}
+        {similarPackages.length > 0 && (
+          <div className="mt-12 border-t border-french-gray pt-8">
+            <h2 className="text-2xl font-bold text-cafe-noir mb-6">Similar Safari Packages</h2>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              {similarPackages.map((safari) => (
+                <div 
+                  key={safari.id} 
+                  className="bg-white rounded-lg overflow-hidden shadow-md border border-french-gray hover:shadow-lg transition duration-300"
+                >
+                  <div className="relative h-48">
+                    <img 
+                      src={safari.coverImage || placeholderImages.tanz} 
+                      alt={safari.name} 
+                      className="w-full h-full object-cover"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end p-4">
+                      <h3 className="text-lg font-bold text-white">{safari.name}</h3>
                     </div>
                   </div>
                   
-                  {/* Similar Packages Section */}
-                  {similarPackages.length > 0 && (
-                    <div className="mt-12 border-t border-french-gray pt-8">
-                      <h2 className="text-2xl font-bold text-cafe-noir mb-6">Similar Safari Packages</h2>
-                      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                        {similarPackages.map((safari) => (
-                          <div 
-                            key={safari.id} 
-                            className="bg-white rounded-lg overflow-hidden shadow-md border border-french-gray hover:shadow-lg transition duration-300"
-                          >
-                            <div className="relative h-48">
-                              <img 
-                                src={safari.coverImage || placeholderImages.tanz} 
-                                alt={safari.name} 
-                                className="w-full h-full object-cover"
-                              />
-                              <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end p-4">
-                                <h3 className="text-lg font-bold text-white">{safari.name}</h3>
-                              </div>
-                            </div>
-                            
-                            <div className="p-4">
-                              <div className="flex justify-between items-center mb-2">
-                                <div className="flex items-center">
-                                  <Clock className="h-4 w-4 text-gray-500 mr-1" />
-                                  <span className="text-xs text-gray-600">{safari.duration}</span>
-                                </div>
-                                <span className="bg-moss-green text-white px-2 py-1 rounded text-xs">
-                                  ${safari.pricing[selectedSeason].shared.toFixed(0)}
-                                </span>
-                              </div>
-                              
-                              <button 
-                                onClick={() => viewPackageDetails(safari.id)}
-                                className="w-full bg-hunyadi-yellow/80 hover:bg-hunyadi-yellow text-cafe-noir font-medium py-2 px-4 rounded transition duration-300 flex justify-center items-center text-sm"
-                              >
-                                <span>View Details</span>
-                                <ArrowRight className="ml-1 h-3 w-3" />
-                              </button>
-                            </div>
-                          </div>
-                        ))}
+                  <div className="p-4">
+                    <div className="flex justify-between items-center mb-2">
+                      <div className="flex items-center">
+                        <Clock className="h-4 w-4 text-gray-500 mr-1" />
+                        <span className="text-xs text-gray-600">{safari.duration}</span>
                       </div>
+                      <span className="bg-moss-green text-white px-2 py-1 rounded text-xs">
+                        ${safari.pricing[selectedSeason].shared.toFixed(0)}
+                      </span>
                     </div>
-                  )}
+                    
+                    <button 
+                      onClick={() => viewPackageDetails(safari.id)}
+                      className="w-full bg-hunyadi-yellow/80 hover:bg-hunyadi-yellow text-cafe-noir font-medium py-2 px-4 rounded transition duration-300 flex justify-center items-center text-sm"
+                    >
+                      <span>View Details</span>
+                      <ArrowRight className="ml-1 h-3 w-3" />
+                    </button>
+                  </div>
                 </div>
-              </>
-            )}
+              ))}
+            </div>
           </div>
         )}
       </div>
-      
-      
-    </div>
-  );
+    </>
+  )}
+</div>
+)}
+</div>
+
+
+</div>
+);
 };
 
 export default TanzaniaSafari;

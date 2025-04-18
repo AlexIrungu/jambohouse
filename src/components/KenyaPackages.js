@@ -480,7 +480,6 @@ export const safariPackages = [
         difficulty: "Moderate",
         destinations: ["Masai Mara", "Lake Nakuru", "Mount Kenya", "Amboseli", "Lake Naivasha"],
         coverImage: "explore-kenya.jpg",
-        tourCode: "JT008",
         itinerary: [
           {
             day: "Day 01",
@@ -548,7 +547,6 @@ export const safariPackages = [
         difficulty: "Moderate",
         destinations: ["Nairobi", "Mount Kenya", "Lake Nakuru", "Masai Mara", "Amboseli"],
         coverImage: "majestic-kenya.jpg",
-        tourCode: "JT009",
         itinerary: [
           {
             day: "Day 01",
@@ -616,7 +614,6 @@ export const safariPackages = [
         difficulty: "Easy to Moderate",
         destinations: ["Nairobi", "Mount Kenya", "Lake Nakuru", "Masai Mara"],
         coverImage: "kenya-trails.jpg",
-        tourCode: "JT010",
         itinerary: [
           {
             day: "Day 01",
@@ -662,7 +659,7 @@ export const safariPackages = [
         id: "JT011",
         name: "Discover Kenya Safari (Classic)",
         duration: "6 Days / 5 Nights",
-        "description": "A perfect introduction to Kenya's wildlife and landscapes for first-time safari-goers.",
+        description: "A perfect introduction to Kenya's wildlife and landscapes for first-time safari-goers.",
         highlights: [
           "Aberdare National Park tree lodge",
           "Lake Nakuru and Lake Naivasha exploration",
@@ -708,7 +705,7 @@ export const safariPackages = [
         id: "JT012",
         name: "Simba Safari (Classic)",
         duration: "6 Days / 5 Nights",
-        "description": "Follow in the footsteps of lions on this classic Kenya safari experience.",
+        description: "Follow in the footsteps of lions on this classic Kenya safari experience.",
         highlights: [
           "Aberdare National Park tree lodge experience",
           "Lake Nakuru National Park wildlife viewing",
@@ -754,7 +751,7 @@ export const safariPackages = [
         id: "JT013",
         name: "Kenya Plains & Safari (Classic)",
         duration: "7 Days / 6 Nights",
-        "description": "Discover the magnificent plains of Kenya and witness diverse wildlife in their natural habitats.",
+        description: "Discover the magnificent plains of Kenya and witness diverse wildlife in their natural habitats.",
         highlights: [
           "Lake Nakuru flamingo viewing",
           "Masai Mara Big Five sightings",
@@ -805,7 +802,7 @@ export const safariPackages = [
         id: "JT014",
         name: "Ndovu Trail (Classic)",
         duration: "7 Days / 6 Nights",
-        "description": "Experience Kenya's stunning landscapes and abundant wildlife on this classic safari trail.",
+        description: "Experience Kenya's stunning landscapes and abundant wildlife on this classic safari trail.",
         highlights: [
           "Lake Naivasha and Lake Nakuru exploration",
           "Masai Mara game drives",
@@ -853,9 +850,20 @@ export const safariPackages = [
         ]
       },
       {
+        id: "JT015",
         name: "KENYA FRONTIERS SAFARI (CLASSIC)",
-        "tourCode": "JT015",
         duration: "7 days",
+        description: "Experience the magnificent wildlife and landscapes of Kenya with this comprehensive 7-day safari adventure. This journey takes you through Lake Nakuru National Park, the iconic Masai Mara National Reserve, and Amboseli National Park with its breathtaking views of Mount Kilimanjaro.",
+        highlights: [
+          "Visit to Lake Nakuru National Park, famous for its flamingos and rhino sanctuary",
+          "Extended stay in the Masai Mara, home to the great wildebeest migration",
+          "Optional hot air balloon safari with champagne breakfast",
+          "Amboseli National Park with views of Mount Kilimanjaro",
+          "Game drives to spot Africa's Big Five and other wildlife",
+          "Lunch at the famous Carnivore Restaurant in Nairobi"
+        ],
+        destination: ["Nairobi", "Lake Nakuru", "Masai Mara", "Amboseli"],
+        coverImage: "kenya-frontiers-safari.jpg",
         itinerary: [
           {
             "day": 1,
@@ -920,9 +928,20 @@ export const safariPackages = [
         ]
       },
       {
+        id: "JT016",
         name: "MIGRATION SAFARI (CLASSIC)",
-        "tourCode": "JT016",
         duration: "5 days",
+        description: "Experience the wonder of Kenya's wildlife with this 5-day Migration Safari. This journey focuses on Lake Nakuru National Park and the world-renowned Masai Mara National Reserve, home to the spectacular Great Migration.",
+        highlights: [
+          "Game viewing at Lake Nakuru National Park, with its flamingos and rhino sanctuary",
+          "Two full days in the Masai Mara, perfect for witnessing the great wildebeest migration",
+          "Optional hot air balloon safari with champagne breakfast",
+          "Spectacular game drives to spot Africa's iconic wildlife",
+          "Lunch at the famous Carnivore Restaurant in Nairobi",
+          "Comfortable accommodations at Serena properties"
+        ],
+        destination: ["Nairobi", "Lake Nakuru", "Masai Mara"],
+        coverImage: "migration-safari.jpg",
         itinerary: [
           {
             "day": 1,
@@ -969,9 +988,20 @@ export const safariPackages = [
         ]
       },
       {
+        id: "JT017",
         name: "MAASAI SAFARI (CLASSIC)",
-        "tourCode": "JT017",
         duration: "5 days",
+        description: "Immerse yourself in Kenya's breathtaking landscapes and diverse wildlife with this 5-day Maasai Safari. Explore Lake Nakuru National Park, Lake Naivasha, and the iconic Masai Mara National Reserve with its abundant wildlife.",
+        highlights: [
+          "Visit to Lake Nakuru National Park, renowned for its flamingos and rhino sanctuary",
+          "Stay at Lake Naivasha, home to hippos and diverse birdlife",
+          "Two nights in the world-famous Masai Mara National Reserve",
+          "Optional hot air balloon safari with champagne breakfast",
+          "Multiple game drives to spot Africa's Big Five and other wildlife",
+          "Lunch at the famous Carnivore Restaurant in Nairobi"
+        ],
+        destination: ["Nairobi", "Lake Nakuru", "Lake Naivasha", "Masai Mara"],
+        coverImage: "maasai-safari.jpg",
         itinerary: [
           {
             "day": 1,
@@ -1018,9 +1048,20 @@ export const safariPackages = [
         ]
       },
       {
+        id: "JT018",
         name: "SAFARI ROYALE (CLASSIC)",
-        "tourCode": "JT018",
         duration: "5 days",
+        description: "Experience a royal safari adventure through Kenya's most spectacular wildlife reserves. This 5-day journey takes you through Lake Nakuru National Park and the magnificent Masai Mara National Reserve, combining comfort with extraordinary wildlife viewing.",
+        highlights: [
+          "Exploration of Lake Nakuru National Park, famous for its flamingos and rhino sanctuary",
+          "Extended stay in the world-renowned Masai Mara National Reserve",
+          "Optional hot air balloon safari with champagne breakfast",
+          "Multiple game drives to spot Africa's iconic wildlife including the Big Five",
+          "Luxury accommodations at Sarova properties throughout the safari",
+          "Farewell lunch at the famous Carnivore Restaurant in Nairobi"
+        ],
+        destination: ["Nairobi", "Lake Nakuru", "Masai Mara"],
+        coverImage: "safari-royale.jpg",
         itinerary: [
           {
             "day": 1,
@@ -1067,9 +1108,20 @@ export const safariPackages = [
         ]
       },
       {
+        id: "JT019",
         name: "MARA SERENADE EXPERIENCE (CLASSIC)",
-        "tourCode": "JT019",
         duration: "3 days",
+        description: "Embark on a short but memorable safari experience to Kenya's premier wildlife destination, the Masai Mara National Reserve. This 3-day adventure offers exceptional game viewing opportunities and comfortable accommodation at the renowned Mara Serena Lodge.",
+        highlights: [
+          "Focus on the world-famous Masai Mara National Reserve",
+          "Opportunity to witness the spectacular wildlife including the Big Five",
+          "Optional hot air balloon safari with champagne breakfast",
+          "Morning and afternoon game drives for maximum wildlife exposure",
+          "Comfortable stay at the strategically located Mara Serena Lodge",
+          "Farewell lunch at the famous Carnivore Restaurant in Nairobi"
+        ],
+        destination: ["Nairobi", "Masai Mara"],
+        coverImage: "mara-serenade.jpg",
         itinerary: [
           {
             "day": 1,
@@ -1098,9 +1150,20 @@ export const safariPackages = [
         ]
       },
       {
+        id: "JT020",
         name: "MARA CLASSIC EXPERIENCE (CLASSIC)",
-        "tourCode": "JT020",
         duration: "3 days",
+        description: "Experience the wonders of Kenya's most famous wildlife reserve with this 3-day Mara Classic Experience. This safari focuses exclusively on the Masai Mara National Reserve, providing ample opportunity to witness its incredible biodiversity and breathtaking landscapes.",
+        highlights: [
+          "Concentrated safari experience in the world-renowned Masai Mara National Reserve",
+          "Multiple game drives to maximize wildlife viewing opportunities",
+          "Optional hot air balloon safari with champagne breakfast",
+          "Comfortable accommodation at the popular Mara Sopa Lodge",
+          "Opportunity to witness the Big Five and other iconic African wildlife",
+          "Farewell lunch at the famous Carnivore Restaurant in Nairobi"
+        ],
+        destination: ["Nairobi", "Masai Mara"],
+        coverImage: "mara-classic.jpg",
         itinerary: [
           {
             "day": 1,
@@ -1129,9 +1192,20 @@ export const safariPackages = [
         ]
       },
       {
+        id: "JT021",
         name: "MARA PREMIUM EXPERIENCE (CLASSIC)",
-        "tourCode": "JT021",
         duration: "3 days",
+        description: "Indulge in a premium safari experience in Kenya's magnificent Masai Mara National Reserve. This 3-day adventure offers superior accommodation at the Sarova Mara Camp and excellent wildlife viewing opportunities in one of Africa's most renowned wildlife sanctuaries.",
+        highlights: [
+          "Exclusive focus on the legendary Masai Mara National Reserve",
+          "Premium accommodation at the luxurious Sarova Mara Camp",
+          "Multiple game drives to spot the Big Five and other iconic wildlife",
+          "Optional hot air balloon safari with champagne breakfast",
+          "Personalized service and authentic safari experience",
+          "Farewell lunch at the famous Carnivore Restaurant in Nairobi"
+        ],
+        destination: ["Nairobi", "Masai Mara"],
+        coverImage: "mara-premium.jpg",
         itinerary: [
           {
             "day": 1,
@@ -1158,7 +1232,7 @@ export const safariPackages = [
             "description": "After breakfast drive to Nairobi arriving in time for lunch at The Carnivore Restaurant. After lunch drop off at your hotel or Jomo Kenyatta Airport for your departure flight back home. A Jambo Tours representative will re-confirm your onward flight, and assist you at check-in. End of our services."
           }
         ]
-      },
+      }
     ];
     
     // Activity code meanings

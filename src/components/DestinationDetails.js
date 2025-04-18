@@ -18,7 +18,7 @@ const DestinationDetails = () => {
           "masai-mara": {
             title: "Masai Mara",
             tagline: "Home to the Great Migration",
-            hero: "/api/placeholder/1200/600",
+            hero: "https://images.unsplash.com/photo-1554990772-0bea55d510d5?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8bWFzYWklMjBtYXJhfGVufDB8fDB8fHww",
             description: "The Masai Mara National Reserve is one of Africa's most magnificent game reserves. Bordering Tanzania, the Mara is the northern extension of the Serengeti and forms a wildlife corridor between the two countries. It's named after the statuesque, red-cloaked Maasai people who live in the park and graze their animals there as they have done for centuries.",
             longDescription: "The Masai Mara is one of Africa's greatest wildlife reserves. Acacia dotted plains, tree-lined rivers and woodlands are abundant with wildlife and an array of bird species. The Mara is recognized as one of the best wildlife viewing destinations in the world, and the annual Great Migration of wildebeest, zebra, and Thomson's gazelle from the Serengeti to the Mara attracts visitors from around the world.",
             bestTimeToVisit: "July to October (Migration Season)",
@@ -74,7 +74,7 @@ const DestinationDetails = () => {
           "amboseli": {
             title: "Amboseli",
             tagline: "In the Shadow of Kilimanjaro",
-            hero: "/api/placeholder/1200/600",
+            hero: "https://images.unsplash.com/photo-1631646109206-4b5616964f84?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8YW1ib3NlbGl8ZW58MHx8MHx8fDA%3D",
             description: "Amboseli National Park offers some of the most breathtaking views of Mount Kilimanjaro and is renowned for its large elephant herds and easy wildlife viewing.",
             longDescription: "Located in southern Kenya, Amboseli National Park is famous for its large elephant herds and stunning views of Mount Kilimanjaro across the border in Tanzania. The park's open plains, acacia woodland, swamps and marshland offer visitors varied wildlife viewing opportunities in a picturesque setting.",
             bestTimeToVisit: "June to October, January to February",
@@ -126,7 +126,7 @@ const DestinationDetails = () => {
           "serengeti": {
             title: "Serengeti",
             tagline: "Endless Plains of Wonder",
-            hero: "/api/placeholder/1200/600",
+            hero: "https://images.unsplash.com/photo-1580145575237-75fec2a0320b?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8c2VyZW5nZXRpfGVufDB8fDB8fHww",
             description: "Tanzania's oldest and most popular national park, the Serengeti is famed for its annual migration, when some six million hooves pound the open plains, as more than 200,000 zebra and 300,000 Thomson's gazelle join the wildebeest's trek for fresh grazing.",
             longDescription: "The Serengeti ecosystem is one of the oldest on earth, with the essential features of climate, vegetation and fauna having remained largely unchanged for millions of years. The Serengeti's vast plains are punctuated by kopjes—island mountains of granite standing in a sea of grass. The park has diverse habitats, from the endless plains in the south, to the woodland and hills in the central area, to the black clay plains in the west, and the extensive woodland and river systems of the north.",
             bestTimeToVisit: "Year-round (Migration varies by season)",
@@ -182,7 +182,7 @@ const DestinationDetails = () => {
           "ngorongoro-crater": {
             title: "Ngorongoro Crater",
             tagline: "Africa's Garden of Eden",
-            hero: "/api/placeholder/1200/600",
+            hero: "https://images.unsplash.com/photo-1566296524462-e0a341bf65e6?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8bmdvcm9uZ29yb3xlbnwwfHwwfHx8MA%3D%3D",
             description: "Often called 'Africa's Eden', the Ngorongoro Crater is a breathtaking natural wonder, a collapsed volcano that contains a wealth of wildlife in an area naturally enclosed by the crater walls.",
             longDescription: "The Ngorongoro Crater is a breathtaking natural wonder, a UNESCO World Heritage Site and one of Africa's most remarkable geological features. This vast, unbroken caldera is home to more than 25,000 animals, creating one of the highest densities of wildlife in Africa. The crater floor consists of several distinct habitats including grassland, swamps, forests and Lake Magadi, a central soda lake filled by the Munge River.",
             bestTimeToVisit: "June to October, December to March",
@@ -234,7 +234,7 @@ const DestinationDetails = () => {
           "volcanoes-national-park": {
             title: "Volcanoes National Park",
             tagline: "Gorillas in the Mist",
-            hero: "/api/placeholder/1200/600",
+            hero: "https://images.unsplash.com/photo-1662612732223-1fe6ea43263e?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8dm9sY2Fub2VzJTIwcndhbmRhfGVufDB8fDB8fHww",
             description: "Home to endangered mountain gorillas and golden monkeys, Volcanoes National Park is part of the Virunga Conservation Area and offers some of the most emotional wildlife encounters in Africa.",
             longDescription: "Volcanoes National Park, situated in northwestern Rwanda, is named after the chain of dormant volcanoes that form the Virunga Massif. The park is home to about a third of the world's remaining mountain gorillas and was the base for Dian Fossey's gorilla research. The landscape features bamboo forests, open grassland, swamp and heath, providing diverse habitats for numerous mammal species and over 200 recorded bird species.",
             bestTimeToVisit: "December to February, June to September",
@@ -290,7 +290,7 @@ const DestinationDetails = () => {
           "akagera-national-park": {
             title: "Akagera National Park",
             tagline: "Rwanda's Big Five Destination",
-            hero: "/api/placeholder/1200/600",
+            hero: "https://images.unsplash.com/photo-1662612732223-1fe6ea43263e?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8dm9sY2Fub2VzJTIwcndhbmRhfGVufDB8fDB8fHww",
             description: "Rwanda's only savannah park, Akagera combines woodland, swamps, lakes and grassland in a beautiful landscape that's home to a wide variety of wildlife including recently reintroduced lions and rhinos.",
             longDescription: "Located in eastern Rwanda, Akagera National Park is Central Africa's largest protected wetland and the last remaining refuge for savannah-adapted species in the country. The park consists of a complex system of lakes, papyrus swamps, and rolling hills. After years of conservation efforts, Akagera now hosts all of the Big Five (lion, leopard, rhino, elephant, and buffalo), making it Rwanda's premier safari destination alongside its famous gorilla trekking.",
             bestTimeToVisit: "June to September, December to February",
