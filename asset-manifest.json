@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/jambohouse/static/css/main.04d99644.css",
-    "main.js": "/jambohouse/static/js/main.244b0074.js",
+    "main.css": "/jambohouse/static/css/main.abb17e1e.css",
+    "main.js": "/jambohouse/static/js/main.d1d70e89.js",
     "static/css/632.51e94746.chunk.css": "/jambohouse/static/css/632.51e94746.chunk.css",
     "static/js/632.add46806.chunk.js": "/jambohouse/static/js/632.add46806.chunk.js",
     "static/js/453.1325bb4c.chunk.js": "/jambohouse/static/js/453.1325bb4c.chunk.js",
@@ -22,15 +22,15 @@
     "static/media/marasun.jpg": "/jambohouse/static/media/marasun.63d02d219196cc89a357.jpg",
     "static/media/ngorongoro.avif": "/jambohouse/static/media/ngorongoro.dd73497d241b509fb23f.avif",
     "index.html": "/jambohouse/index.html",
-    "main.04d99644.css.map": "/jambohouse/static/css/main.04d99644.css.map",
-    "main.244b0074.js.map": "/jambohouse/static/js/main.244b0074.js.map",
+    "main.abb17e1e.css.map": "/jambohouse/static/css/main.abb17e1e.css.map",
+    "main.d1d70e89.js.map": "/jambohouse/static/js/main.d1d70e89.js.map",
     "632.51e94746.chunk.css.map": "/jambohouse/static/css/632.51e94746.chunk.css.map",
     "632.add46806.chunk.js.map": "/jambohouse/static/js/632.add46806.chunk.js.map",
     "453.1325bb4c.chunk.js.map": "/jambohouse/static/js/453.1325bb4c.chunk.js.map",
     "937.d771d3a1.chunk.js.map": "/jambohouse/static/js/937.d771d3a1.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.04d99644.css",
-    "static/js/main.244b0074.js"
+    "static/css/main.abb17e1e.css",
+    "static/js/main.d1d70e89.js"
   ]
 }
