@@ -1,13 +1,14 @@
 {
   "files": {
     "main.css": "/jambohouse/static/css/main.7d4d209e.css",
-    "main.js": "/jambohouse/static/js/main.62e84fc3.js",
+    "main.js": "/jambohouse/static/js/main.09865485.js",
     "static/css/632.51e94746.chunk.css": "/jambohouse/static/css/632.51e94746.chunk.css",
     "static/js/632.add46806.chunk.js": "/jambohouse/static/js/632.add46806.chunk.js",
     "static/js/453.1325bb4c.chunk.js": "/jambohouse/static/js/453.1325bb4c.chunk.js",
     "static/js/937.d771d3a1.chunk.js": "/jambohouse/static/js/937.d771d3a1.chunk.js",
     "static/media/karibukenya.jpg": "/jambohouse/static/media/karibukenya.bb44fdd45c268e50483a.jpg",
     "static/media/lioncub.jpg": "/jambohouse/static/media/lioncub.06c31911c4d8ff2c8c10.jpg",
+    "static/media/Untitled design (15).png": "/jambohouse/static/media/Untitled design (15).88438c2eb21a277f29b5.png",
     "static/media/twiga.jpg": "/jambohouse/static/media/twiga.9790ce91c34deaafff4c.jpg",
     "static/media/kenyahero.jpg": "/jambohouse/static/media/kenyahero.5a250af2b8a458a7aa6c.jpg",
     "static/media/zebra.jpg": "/jambohouse/static/media/zebra.dec577df32f697eb46e6.jpg",
@@ -22,12 +23,13 @@
     "static/media/marasun.jpg": "/jambohouse/static/media/marasun.63d02d219196cc89a357.jpg",
     "static/media/tanzania.jpg": "/jambohouse/static/media/tanzania.662f6d184c007c3837da.jpg",
     "static/media/serengetinp.avif": "/jambohouse/static/media/serengetinp.d45ae3a5580d267b21d0.avif",
+    "static/media/newlogo.png": "/jambohouse/static/media/newlogo.ff228a7a4f9c323896a7.png",
     "static/media/kilimanjaro.avif": "/jambohouse/static/media/kilimanjaro.832db5dc305e29275789.avif",
     "static/media/ngorongoro.avif": "/jambohouse/static/media/ngorongoro.dd73497d241b509fb23f.avif",
     "static/media/Lake Manyara.avif": "/jambohouse/static/media/Lake Manyara.b9f1193f8f98e1fc30cd.avif",
     "index.html": "/jambohouse/index.html",
     "main.7d4d209e.css.map": "/jambohouse/static/css/main.7d4d209e.css.map",
-    "main.62e84fc3.js.map": "/jambohouse/static/js/main.62e84fc3.js.map",
+    "main.09865485.js.map": "/jambohouse/static/js/main.09865485.js.map",
     "632.51e94746.chunk.css.map": "/jambohouse/static/css/632.51e94746.chunk.css.map",
     "632.add46806.chunk.js.map": "/jambohouse/static/js/632.add46806.chunk.js.map",
     "453.1325bb4c.chunk.js.map": "/jambohouse/static/js/453.1325bb4c.chunk.js.map",
@@ -35,6 +37,6 @@
   },
   "entrypoints": [
     "static/css/main.7d4d209e.css",
-    "static/js/main.62e84fc3.js"
+    "static/js/main.09865485.js"
   ]
 }
