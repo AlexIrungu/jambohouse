@@ -16,6 +16,7 @@ import {
   FaWhatsapp 
 } from 'react-icons/fa6';
 import { Link } from 'react-router-dom';
+import newlogo from '../assets/newlogo.png'
 
 const Footer = () => {
   // Social media links data
@@ -35,7 +36,7 @@ const Footer = () => {
         {/* Left Column */}
         <div className="jambo-footer-column flex-1 min-w-[250px] mb-5 px-[25px]">
           <img 
-            src="https://www.jambotravelhouseholidays.com/wp-content/uploads/2022/10/cropped-Asset-7-1.png" 
+            src={newlogo}
             alt="Jambo Travel House Holidays Logo" 
             className="jambo-logo w-[130px] mb-[25px] block"
           />

@@ -60,7 +60,7 @@ const Enquire = () => {
                                     </div>
                                     <div>
                                         <p className="text-sm text-mindaro font-medium">Email Us</p>
-                                        <p className="text-white">info@africanadventures.com</p>
+                                        <p className="text-white">tours@jambotravelhouse.co.ke</p>
                                     </div>
                                 </div>
                                 
@@ -70,7 +70,7 @@ const Enquire = () => {
                                     </div>
                                     <div>
                                         <p className="text-sm text-mindaro font-medium">Call Us</p>
-                                        <p className="text-white">+254 123 456 7890</p>
+                                        <p className="text-white">+254 722 218901</p>
                                     </div>
                                 </div>
                                 
@@ -237,7 +237,7 @@ const Enquire = () => {
                                         Destination Countries
                                     </label>
                                     <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
-                                        {['Kenya', 'Tanzania', 'Uganda', 'Rwanda', 'South Africa'].map((country) => (
+                                        {['Kenya', 'Tanzania', 'Rwanda'].map((country) => (
                                             <label key={country} className="flex items-center p-3 border border-french-gray rounded-lg hover:border-brown-sugar hover:bg-cornsilk transition-all cursor-pointer">
                                                 <Controller
                                                     name="countries"

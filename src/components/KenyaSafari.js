@@ -30,6 +30,7 @@ import zebra from "../assets/zebra.jpg";
 import marasun from "../assets/marasun.jpg";
 import easymara from "../assets/easymara.jpg";
 import kenyasaf from "../assets/lioncub.jpg";
+import { Link } from "react-router-dom";
 
 export const safariPackages = [
     {
@@ -120,7 +121,7 @@ export const safariPackages = [
         difficulty: "Easy to Moderate",
         featured: true,
         destinations: ["Masai Mara", "Lake Nakuru", "Aberdares", "Samburu", "Amboseli", "Lake Naivasha"],
-        coverImage: "karibu",
+        coverImage: karibu,
         itinerary: [
           {
             "day": "Day 01",
@@ -193,7 +194,7 @@ export const safariPackages = [
         ],
         difficulty: "Moderate",
         destinations: ["Masai Mara", "Samburu", "Amboseli", "Lake Nakuru", "Mount Kenya", "Aberdare"],
-        coverImage: "twiga",
+        coverImage: twiga,
         itinerary: [
           {
             "day": "Day 01",
@@ -266,7 +267,7 @@ export const safariPackages = [
         ],
         difficulty: "Easy",
         destinations: ["Masai Mara", "Lake Nakuru", "Mount Kenya", "Samburu"],
-        coverImage: "amboseli",
+        coverImage: amboseli,
         itinerary: [
           {
             "day": "Day 01",
@@ -512,7 +513,7 @@ export const safariPackages = [
         ],
         difficulty: "Moderate",
         destinations: ["Masai Mara", "Lake Nakuru", "Mount Kenya", "Amboseli", "Lake Naivasha"],
-        coverImage: "explore-kenya.jpg",
+        coverImage: "https://images.unsplash.com/photo-1579618904391-012a99fe25be?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTh8fGtlbnlhJTIwbGFuZHNjYXBlc3xlbnwwfHwwfHx8MA%3D%3D",
         itinerary: [
           {
             day: "Day 01",
@@ -579,7 +580,7 @@ export const safariPackages = [
         ],
         difficulty: "Moderate",
         destinations: ["Nairobi", "Mount Kenya", "Lake Nakuru", "Masai Mara", "Amboseli"],
-        coverImage: "majestic-kenya.jpg",
+        coverImage: "https://images.unsplash.com/photo-1535941339077-2dd1c7963098?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fGtlbnlhfGVufDB8fDB8fHww",
         itinerary: [
           {
             day: "Day 01",
@@ -646,7 +647,7 @@ export const safariPackages = [
         ],
         difficulty: "Easy to Moderate",
         destinations: ["Nairobi", "Mount Kenya", "Lake Nakuru", "Masai Mara"],
-        coverImage: "kenya-trails.jpg",
+        coverImage: "https://images.unsplash.com/photo-1623745493572-ef78d94249f3?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTl8fGtlbnlhfGVufDB8fDB8fHww",
         itinerary: [
           {
             day: "Day 01",
@@ -1881,9 +1882,15 @@ const KenyaSafari = () => {
 
                     {/* Call to Action */}
                     <div>
-                      <button className="w-full bg-amber-500 hover:bg-amber-600 text-white font-medium py-3 px-4 rounded-xl transition-colors flex items-center justify-center shadow-md hover:shadow-lg mb-3">
-                        Reserve Now
-                      </button>
+                    <Link 
+  to={`/safaris/kenya/book/${selectedPackage.id}`}
+  state={{ selectedPackage: selectedPackage }}
+>
+  <button className="w-full bg-amber-500 hover:bg-amber-600 text-white font-medium py-3 px-4 rounded-xl transition-colors flex items-center justify-center shadow-md hover:shadow-lg mb-3">
+    Reserve Now
+  </button>
+</Link>
+                      
                       <button className="w-full bg-white border border-amber-500 hover:bg-amber-50 text-amber-600 font-medium py-3 px-4 rounded-xl transition-colors flex items-center justify-center">
                         <Mail className="mr-2 h-4 w-4" />
                         Request Quote

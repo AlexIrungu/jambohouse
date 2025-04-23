@@ -1,8 +1,8 @@
 import React, { useState, useEffect, lazy, Suspense } from 'react';
 import { ChevronRight, Calendar, MapPin, ArrowRight, ChevronDown } from 'lucide-react';
 import KenyaSafari, { safariPackages as kenyaPackages } from './KenyaSafari';
-import TanzaniaSafari from './TanzaniaSafari';
-import RwandaSafari from './RwandaSafari';
+import { safariPackages as tanzaniaPackages } from './TanzaniaPackages';
+import RwandaSafari, { rwandaPackages } from './RwandaSafari';
 
 // Lazy load the Map component to avoid SSR issues
 const Map = lazy(() => import('./Map'));
@@ -64,7 +64,7 @@ const Safaris = () => {
       id: 'kenya',
       name: 'Kenya',
       description: 'Home of the Great Wildebeest Migration and iconic national parks',
-      backgroundImage: '/images/kenya-safari-bg.jpg',
+      backgroundImage: 'https://plus.unsplash.com/premium_photo-1666695512218-72b628a0a6a5?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NDV8fGtlbnlhfGVufDB8fDB8fHww',
       flagIcon: '🇰🇪',
       highlights: ['Masai Mara', 'Amboseli', 'Lake Nakuru', 'Tsavo'],
       bestTime: 'June to October',
@@ -79,44 +79,48 @@ const Safaris = () => {
         destinations: pkg.destinations
       }))
     },
-    // {
-    //   id: 'tanzania',
-    //   name: 'Tanzania',
-    //   description: 'Serengeti, Ngorongoro, and unparalleled wildlife experiences',
-    //   backgroundImage: '/images/tanzania-safari-bg.jpg',
-    //   flagIcon: '🇹🇿',
-    //   highlights: ['Serengeti', 'Ngorongoro Crater', 'Mount Kilimanjaro', 'Zanzibar'],
-    //   bestTime: 'July to October',
-    //   signature: 'Ngorongoro Crater',
-    //   packages: tanzaniaPackages.slice(0, 3).map(pkg => ({
-    //     title: pkg.name,
-    //     duration: pkg.duration,
-    //     price: `$${pkg.pricing["Jul-Oct"].shared.toFixed(2)}`,
-    //     image: pkg.coverImage,
-    //     description: pkg.description,
-    //     highlights: pkg.highlights,
-    //     destinations: pkg.destinations
-    //   }))
-    // },
-    // {
-    //   id: 'rwanda',
-    //   name: 'Rwanda',
-    //   description: 'Mountain gorillas, lush landscapes, and unique wildlife encounters',
-    //   backgroundImage: '/images/rwanda-safari-bg.jpg',
-    //   flagIcon: '🇷🇼',
-    //   highlights: ['Volcanoes National Park', 'Nyungwe Forest', 'Akagera', 'Lake Kivu'],
-    //   bestTime: 'June to September',
-    //   signature: 'Mountain Gorilla Trekking',
-    //   packages: rwandaPackages.filter(pkg => pkg.type !== 'addon').slice(0, 3).map(pkg => ({
-    //     title: pkg.name,
-    //     duration: pkg.duration,
-    //     price: `$${pkg.pricing.high.shared.toFixed(2)}`,
-    //     image: "/images/gorilla-trek.jpg",
-    //     description: pkg.description,
-    //     highlights: pkg.highlights,
-    //     destinations: pkg.destinations
-    //   }))
-    // }
+    {
+      id: 'tanzania',
+      name: 'Tanzania',
+      description: 'Serengeti, Ngorongoro, and unparalleled wildlife experiences',
+      backgroundImage: 'https://images.unsplash.com/photo-1631029306022-d715aedf6960?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NjN8fHRhbnphbmlhfGVufDB8fDB8fHww',
+      flagIcon: '🇹🇿',
+      highlights: ['Serengeti', 'Ngorongoro Crater', 'Mount Kilimanjaro', 'Zanzibar'],
+      bestTime: 'July to October',
+      signature: 'Ngorongoro Crater',
+      packages: tanzaniaPackages.slice(0, 3).map(pkg => ({
+        title: pkg.name,
+        duration: pkg.duration,
+        price: pkg.pricing && pkg.pricing["Jul-Oct"] 
+          ? `$${pkg.pricing["Jul-Oct"].shared.toFixed(2)}`
+          : 'Contact for pricing',
+        image: pkg.coverImage,
+        description: pkg.description,
+        highlights: pkg.highlights,
+        destinations: pkg.destinations
+      }))
+    },
+    {
+      id: 'rwanda',
+      name: 'Rwanda',
+      description: 'Mountain gorillas, lush landscapes, and unique wildlife encounters',
+      backgroundImage: 'https://images.unsplash.com/photo-1667504319000-8133f9021cf8?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MzR8fHJ3YW5kYXxlbnwwfHwwfHx8MA%3D%3D',
+      flagIcon: '🇷🇼',
+      highlights: ['Volcanoes National Park', 'Nyungwe Forest', 'Akagera', 'Lake Kivu'],
+      bestTime: 'June to September',
+      signature: 'Mountain Gorilla Trekking',
+      packages: rwandaPackages.slice(0, 3).map(pkg => ({
+        title: pkg.name,
+        duration: `${pkg.duration.nights} Nights / ${pkg.duration.days} Days`,
+        price: pkg.pricing && pkg.pricing.high && pkg.pricing.high.shared
+          ? `$${pkg.pricing.high.shared.toFixed(2)}`
+          : 'Contact for pricing',
+        image: "/images/gorilla-trek.jpg",
+        description: pkg.description,
+        highlights: pkg.highlights,
+        destinations: pkg.destinations || []
+      }))
+    }
   ];
 
   const togglePackageDetails = (index) => {

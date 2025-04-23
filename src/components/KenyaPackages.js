@@ -1,3 +1,4 @@
+
 export const safariPackages = [
     {
       id: "JT001",

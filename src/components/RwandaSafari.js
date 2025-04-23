@@ -1,393 +1,396 @@
 import React, { useState } from 'react';
 import { Calendar, Mountain, Check, MapPin, ArrowRight, DollarSign, Star, X, Sun, Moon } from 'lucide-react';
+import { Link } from 'react-router-dom'
 
-const RwandaSafari = () => {
-  // JSON data for all tour packages
-  const tourData = {
-    "tour_packages": [
-      {
-        "tour_code": "JT046",
-        "name": "Two Nights/Three Days Gorillas in the Midst",
-        "destination": "Rwanda",
-        "duration": {
-          "nights": 2,
-          "days": 3
-        },
-        "highlight": "Mountain Gorilla Tracking",
-        "itinerary": [
-          {
-            "day": 1,
-            "location": "Kigali",
-            "accommodation": "Novotel Umubano/Kigali Serena",
-            "board": "BB",
-            "activities": ["Flight Transfer", "City Tour", "Genocide Memorial Museum Visit", "Leisure"]
-          },
-          {
-            "day": 2,
-            "location": "Ruhengeri/Kigali",
-            "accommodation": "Novotel Umubano/Kigali Serena",
-            "board": "L-BB",
-            "activities": ["Gorilla Trekking", "Visit Twin Lakes Butera & Ruhondo"]
-          },
-          {
-            "day": 3,
-            "location": "Departure",
-            "activities": ["Transfer to Airport", "Departure Flight"]
-          }
-        ],
-        "description": "Visit the mountain gorilla population in Parc National des Volcans, currently with only 700 individuals remaining."
+ // JSON data for all tour packages
+ export const tourData = {
+  "tour_packages": [
+    {
+      "tour_code": "JT046",
+      "name": "Two Nights/Three Days Gorillas in the Midst",
+      "destination": "Rwanda",
+      "duration": {
+        "nights": 2,
+        "days": 3
       },
-      {
-        "tour_code": "JT047",
-        "name": "Three Nights/Four Days Gorillas in the Midst",
-        "destination": "Rwanda",
-        "duration": {
-          "nights": 3,
-          "days": 4
+      "highlight": "Mountain Gorilla Tracking",
+      "itinerary": [
+        {
+          "day": 1,
+          "location": "Kigali",
+          "accommodation": "Novotel Umubano/Kigali Serena",
+          "board": "BB",
+          "activities": ["Flight Transfer", "City Tour", "Genocide Memorial Museum Visit", "Leisure"]
         },
-        "highlight": "Mountain Gorilla Tracking",
-        "itinerary": [
-          {
-            "day": 1,
-            "location": "Kigali",
-            "accommodation": "Novotel Umubano/Kigali Serena",
-            "board": "BB",
-            "activities": ["Flight Transfer", "City Tour", "Genocide Memorial Museum Visit", "Leisure"]
-          },
-          {
-            "day": 2,
-            "location": "Ruhengeri/Kigali",
-            "accommodation": "Gorilla Mountain View Lodge",
-            "board": "",
-            "activities": ["Gorilla Trekking", "Visit Twin Lakes"]
-          },
-          {
-            "day": 3,
-            "location": "Ruhengeri/Kigali",
-            "accommodation": "Novotel Umubano/Kigali Serena",
-            "board": "L-BB",
-            "activities": ["Second Gorilla Trekking", "Different Gorilla Family"]
-          },
-          {
-            "day": 4,
-            "location": "Departure",
-            "activities": ["Transfer to Airport", "Departure Flight"]
-          }
-        ],
-        "description": "Extended gorilla tracking experience with visits to different gorilla families in Parc National des Volcans."
-      },
-      {
-        "tour_code": "JT045",
-        "name": "Classic Rwanda Safari",
-        "destination": "Rwanda",
-        "duration": {
-          "nights": 5,
-          "days": 6
+        {
+          "day": 2,
+          "location": "Ruhengeri/Kigali",
+          "accommodation": "Novotel Umubano/Kigali Serena",
+          "board": "L-BB",
+          "activities": ["Gorilla Trekking", "Visit Twin Lakes Butera & Ruhondo"]
         },
-        "highlight": "Chimps and Gorilla Tracking",
-        "itinerary": [
-          {
-            "day": 1,
-            "location": "Nyungwe",
-            "accommodation": "Gisakura Guest House",
-            "board": "LDBB",
-            "activities": ["Flight Transfer", "Visit Butare", "King's Palace", "National Museum"]
-          },
-          {
-            "day": 2,
-            "location": "Nyungwe",
-            "accommodation": "Gisakura Guest House",
-            "board": "LDBB",
-            "activities": ["Chimpanzee and Primate Tracking", "Tea Plantation Visit"]
-          },
-          {
-            "day": 3,
-            "location": "Lake Kivu",
-            "accommodation": "Lake Kivu Serena",
-            "board": "LDBB",
-            "activities": ["Second Chimp Tracking Attempt", "Drive to Lake Kivu"]
-          },
-          {
-            "day": 4,
-            "location": "Ruhengeri/Kinigi",
-            "accommodation": "Gorilla Mountain View Lodge",
-            "board": "LDBB",
-            "activities": ["Leisure at Lake", "Drive to Ruhengeri"]
-          },
-          {
-            "day": 5,
-            "location": "Kigali",
-            "accommodation": "Novotel Umubano/Kigali Serena",
-            "board": "L-BB",
-            "activities": ["Gorilla Tracking", "Twin Lakes Visit", "Drive to Kigali"]
-          },
-          {
-            "day": 6,
-            "location": "Departure",
-            "activities": ["Transfer to Airport", "Departure Flight"]
-          }
-        ],
-        "description": "Comprehensive safari combining chimps in Nyungwe Forest, Lake Kivu, and mountain gorillas in Virunga Mountains."
-      },
-      {
-        "tour_code": "JT044",
-        "name": "Machame Route",
-        "destination": "Tanzania",
-        "duration": {
-          "nights": 7,
-          "days": 8
-        },
-        "highlight": "Kilimanjaro Climbing",
-        "itinerary": [
-          {
-            "day": 1,
-            "location": "Moshi",
-            "accommodation": "Springland Hotel/Similar",
-            "board": "DBB",
-            "activities": ["Transfer from Nairobi/Arusha", "Pre-climb Briefing"]
-          },
-          {
-            "day": 2,
-            "location": "Machame",
-            "accommodation": "Machame Camp",
-            "board": "LDBB",
-            "activities": ["Begin Climb through Rainforest", "5-6 Hour Trek"]
-          },
-          {
-            "day": 3,
-            "location": "Shira",
-            "accommodation": "Shira Camp",
-            "board": "LDBB",
-            "activities": ["6 Hour Ascent", "Reach 3800m Altitude"]
-          },
-          {
-            "day": 4,
-            "location": "Barranco",
-            "accommodation": "Barranco Camp",
-            "board": "LDBB",
-            "activities": ["Climb to Lava Tower", "Descent to Barranco Valley"]
-          },
-          {
-            "day": 5,
-            "location": "Barafu",
-            "accommodation": "Barafu Camp",
-            "board": "LDBB",
-            "activities": ["Climb Barranco Wall", "6-7 Hour Trek", "Night Summit Preparation"]
-          },
-          {
-            "day": 6,
-            "location": "Mweka",
-            "accommodation": "Mweka Camp",
-            "board": "LDBB",
-            "activities": ["Early Summit Attempt", "Reach Uhuru Peak (5895m)", "Descent via Stella Point"]
-          },
-          {
-            "day": 7,
-            "location": "Moshi",
-            "accommodation": "Springland Hotel/Similar",
-            "board": "DBB",
-            "activities": ["Final Descent", "Certificate Collection", "Return to Hotel"]
-          },
-          {
-            "day": 8,
-            "location": "Departure",
-            "activities": ["Transfer to Airport", "Departure"]
-          }
-        ],
-        "description": "Popular and scenic Kilimanjaro climbing route via Machame with good acclimatization profile."
-      },
-      {
-        "tour_code": "JT043",
-        "name": "Marangu Route",
-        "destination": "Tanzania",
-        "duration": {
-          "nights": 6,
-          "days": 7
-        },
-        "highlight": "Kilimanjaro Climbing",
-        "itinerary": [
-          {
-            "day": 1,
-            "location": "Moshi",
-            "accommodation": "Springland Hotel/Similar",
-            "board": "DBB",
-            "activities": ["Transfer from Nairobi/Arusha", "Pre-climb Briefing"]
-          },
-          {
-            "day": 2,
-            "location": "Mandara",
-            "accommodation": "Mandara Hut",
-            "board": "LDBB",
-            "activities": ["Drive to Marangu Gate", "5 Hour Forest Trek"]
-          },
-          {
-            "day": 3,
-            "location": "Horombo",
-            "accommodation": "Horombo Hut",
-            "board": "LDBB",
-            "activities": ["Trek through Moorland", "6 Hour Walk"]
-          },
-          {
-            "day": 4,
-            "location": "Kibo",
-            "accommodation": "Kibo Hut",
-            "board": "LDBB",
-            "activities": ["Cross Alpine Desert", "Acclimatization Day"]
-          },
-          {
-            "day": 5,
-            "location": "Horombo",
-            "accommodation": "Horombo Hut",
-            "board": "LDBB",
-            "activities": ["Midnight Summit Attempt", "Reach Uhuru Peak (5895m)", "Descent to Horombo"]
-          },
-          {
-            "day": 6,
-            "location": "Moshi",
-            "accommodation": "Springland Hotel/Similar",
-            "board": "DBB",
-            "activities": ["Descent to Marangu Gate", "Certificate Collection", "Return to Hotel"]
-          },
-          {
-            "day": 7,
-            "location": "Departure",
-            "activities": ["Transfer to Airport", "Departure"]
-          }
-        ],
-        "description": "The easiest and most popular route up Kilimanjaro with hut accommodations along the way."
-      },
-      {
-        "tour_code": "JT048",
-        "name": "Rwanda Gorilla Trekking",
-        "destination": "Rwanda",
-        "duration": {
-          "nights": 3,
-          "days": 4
-        },
-        "highlight": "Mountain Gorilla Tracking",
-        "description": "Specialized eco-friendly gorilla trekking safaris with professional guides in the Virunga Mountains, where gorillas share 97% of our DNA. Tracking may take up to 2-4 hours with viewing time limited to one hour per visit.",
-        "itinerary": [
-          {
-            "day": 1,
-            "location": "Kigali",
-            "accommodation": "Kigali Serena",
-            "board": "BB",
-            "activities": ["Airport Transfer", "City Tour", "Cultural Experience"]
-          },
-          {
-            "day": 2,
-            "location": "Volcanoes National Park",
-            "accommodation": "Gorilla Mountain View Lodge",
-            "board": "FB",
-            "activities": ["Transfer to Park", "Park Briefing", "Nature Walks"]
-          },
-          {
-            "day": 3,
-            "location": "Volcanoes National Park",
-            "accommodation": "Gorilla Mountain View Lodge",
-            "board": "FB",
-            "activities": ["Gorilla Trekking", "Cultural Village Visit"]
-          },
-          {
-            "day": 4,
-            "location": "Departure",
-            "activities": ["Return to Kigali", "Departure Flight"]
-          }
-        ]
-      },
-      {
-        "tour_code": "JT049",
-        "name": "Kilimanjaro Climbing - Alternative Routes",
-        "destination": "Tanzania",
-        "duration": {
-          "nights": 6,
-          "days": 7
-        },
-        "highlight": "Kilimanjaro Climbing",
-        "description": "Mount Kilimanjaro stands at 5,895 meters and features six routes: Marangu, Machame, Shira, Rongai, Lemosho, and the Northern Circuit. The mountain has three volcanic cones: Kibo (5,895m), Mawenzi (5,149m), and Shira (3,962m).",
-        "itinerary": [
-          {
-            "day": 1,
-            "location": "Moshi",
-            "accommodation": "Mountain Hotel",
-            "board": "BB",
-            "activities": ["Airport Transfer", "Equipment Check", "Briefing"]
-          },
-          {
-            "day": 2,
-            "location": "First Camp",
-            "accommodation": "Mountain Camp",
-            "board": "FB",
-            "activities": ["Begin Trek", "Forest Zone"]
-          },
-          {
-            "day": 3,
-            "location": "Second Camp",
-            "accommodation": "Mountain Camp",
-            "board": "FB",
-            "activities": ["Ascent", "Acclimatization"]
-          },
-          {
-            "day": 4,
-            "location": "High Camp",
-            "accommodation": "Mountain Camp",
-            "board": "FB",
-            "activities": ["High Altitude Trek", "Summit Preparation"]
-          },
-          {
-            "day": 5,
-            "location": "Summit Day",
-            "accommodation": "Descent Camp",
-            "board": "FB",
-            "activities": ["Summit Push", "Reach Uhuru Peak", "Begin Descent"]
-          },
-          {
-            "day": 6,
-            "location": "Moshi",
-            "accommodation": "Mountain Hotel",
-            "board": "BB",
-            "activities": ["Final Descent", "Certificate Ceremony"]
-          },
-          {
-            "day": 7,
-            "location": "Departure",
-            "activities": ["Airport Transfer", "Departure"]
-          }
-        ]
-      }
-    ],
-    "gorilla_tracking_info": {
-      "location": "Parc National des Volcans (Volcanoes National Park)",
-      "distance_from_kigali": "91 km NW (2 hours drive)",
-      "gorilla_population": "Approximately 700 individuals",
-      "altitude_range": "3500m - 4507m",
-      "habituated_families": 4,
-      "visitor_limitations": {
-        "people_per_family": 8,
-        "total_daily_visitors": 32
-      },
-      "visit_rules": [
-        "No spitting in the park",
-        "No littering",
-        "No coughing in direction of gorillas",
-        "Only speak in whispers",
-        "Do not point at gorillas",
-        "Maintain 7m distance from gorillas",
-        "No consuming food near gorillas",
-        "If you get close to a gorilla, sit very still",
-        "If a gorilla charges, do not look directly at it",
-        "Stand perfectly still until the guide asks you to move back"
+        {
+          "day": 3,
+          "location": "Departure",
+          "activities": ["Transfer to Airport", "Departure Flight"]
+        }
       ],
-      "essentials": [
-        "Long pants",
-        "Good hiking boots",
-        "Light waterproof coat",
-        "Cap/hat",
-        "Camera (no flash)",
-        "Drinking water"
+      "description": "Visit the mountain gorilla population in Parc National des Volcans, currently with only 700 individuals remaining."
+    },
+    {
+      "tour_code": "JT047",
+      "name": "Three Nights/Four Days Gorillas in the Midst",
+      "destination": "Rwanda",
+      "duration": {
+        "nights": 3,
+        "days": 4
+      },
+      "highlight": "Mountain Gorilla Tracking",
+      "itinerary": [
+        {
+          "day": 1,
+          "location": "Kigali",
+          "accommodation": "Novotel Umubano/Kigali Serena",
+          "board": "BB",
+          "activities": ["Flight Transfer", "City Tour", "Genocide Memorial Museum Visit", "Leisure"]
+        },
+        {
+          "day": 2,
+          "location": "Ruhengeri/Kigali",
+          "accommodation": "Gorilla Mountain View Lodge",
+          "board": "",
+          "activities": ["Gorilla Trekking", "Visit Twin Lakes"]
+        },
+        {
+          "day": 3,
+          "location": "Ruhengeri/Kigali",
+          "accommodation": "Novotel Umubano/Kigali Serena",
+          "board": "L-BB",
+          "activities": ["Second Gorilla Trekking", "Different Gorilla Family"]
+        },
+        {
+          "day": 4,
+          "location": "Departure",
+          "activities": ["Transfer to Airport", "Departure Flight"]
+        }
+      ],
+      "description": "Extended gorilla tracking experience with visits to different gorilla families in Parc National des Volcans."
+    },
+    {
+      "tour_code": "JT045",
+      "name": "Classic Rwanda Safari",
+      "destination": "Rwanda",
+      "duration": {
+        "nights": 5,
+        "days": 6
+      },
+      "highlight": "Chimps and Gorilla Tracking",
+      "itinerary": [
+        {
+          "day": 1,
+          "location": "Nyungwe",
+          "accommodation": "Gisakura Guest House",
+          "board": "LDBB",
+          "activities": ["Flight Transfer", "Visit Butare", "King's Palace", "National Museum"]
+        },
+        {
+          "day": 2,
+          "location": "Nyungwe",
+          "accommodation": "Gisakura Guest House",
+          "board": "LDBB",
+          "activities": ["Chimpanzee and Primate Tracking", "Tea Plantation Visit"]
+        },
+        {
+          "day": 3,
+          "location": "Lake Kivu",
+          "accommodation": "Lake Kivu Serena",
+          "board": "LDBB",
+          "activities": ["Second Chimp Tracking Attempt", "Drive to Lake Kivu"]
+        },
+        {
+          "day": 4,
+          "location": "Ruhengeri/Kinigi",
+          "accommodation": "Gorilla Mountain View Lodge",
+          "board": "LDBB",
+          "activities": ["Leisure at Lake", "Drive to Ruhengeri"]
+        },
+        {
+          "day": 5,
+          "location": "Kigali",
+          "accommodation": "Novotel Umubano/Kigali Serena",
+          "board": "L-BB",
+          "activities": ["Gorilla Tracking", "Twin Lakes Visit", "Drive to Kigali"]
+        },
+        {
+          "day": 6,
+          "location": "Departure",
+          "activities": ["Transfer to Airport", "Departure Flight"]
+        }
+      ],
+      "description": "Comprehensive safari combining chimps in Nyungwe Forest, Lake Kivu, and mountain gorillas in Virunga Mountains."
+    },
+    {
+      "tour_code": "JT044",
+      "name": "Machame Route",
+      "destination": "Tanzania",
+      "duration": {
+        "nights": 7,
+        "days": 8
+      },
+      "highlight": "Kilimanjaro Climbing",
+      "itinerary": [
+        {
+          "day": 1,
+          "location": "Moshi",
+          "accommodation": "Springland Hotel/Similar",
+          "board": "DBB",
+          "activities": ["Transfer from Nairobi/Arusha", "Pre-climb Briefing"]
+        },
+        {
+          "day": 2,
+          "location": "Machame",
+          "accommodation": "Machame Camp",
+          "board": "LDBB",
+          "activities": ["Begin Climb through Rainforest", "5-6 Hour Trek"]
+        },
+        {
+          "day": 3,
+          "location": "Shira",
+          "accommodation": "Shira Camp",
+          "board": "LDBB",
+          "activities": ["6 Hour Ascent", "Reach 3800m Altitude"]
+        },
+        {
+          "day": 4,
+          "location": "Barranco",
+          "accommodation": "Barranco Camp",
+          "board": "LDBB",
+          "activities": ["Climb to Lava Tower", "Descent to Barranco Valley"]
+        },
+        {
+          "day": 5,
+          "location": "Barafu",
+          "accommodation": "Barafu Camp",
+          "board": "LDBB",
+          "activities": ["Climb Barranco Wall", "6-7 Hour Trek", "Night Summit Preparation"]
+        },
+        {
+          "day": 6,
+          "location": "Mweka",
+          "accommodation": "Mweka Camp",
+          "board": "LDBB",
+          "activities": ["Early Summit Attempt", "Reach Uhuru Peak (5895m)", "Descent via Stella Point"]
+        },
+        {
+          "day": 7,
+          "location": "Moshi",
+          "accommodation": "Springland Hotel/Similar",
+          "board": "DBB",
+          "activities": ["Final Descent", "Certificate Collection", "Return to Hotel"]
+        },
+        {
+          "day": 8,
+          "location": "Departure",
+          "activities": ["Transfer to Airport", "Departure"]
+        }
+      ],
+      "description": "Popular and scenic Kilimanjaro climbing route via Machame with good acclimatization profile."
+    },
+    {
+      "tour_code": "JT043",
+      "name": "Marangu Route",
+      "destination": "Tanzania",
+      "duration": {
+        "nights": 6,
+        "days": 7
+      },
+      "highlight": "Kilimanjaro Climbing",
+      "itinerary": [
+        {
+          "day": 1,
+          "location": "Moshi",
+          "accommodation": "Springland Hotel/Similar",
+          "board": "DBB",
+          "activities": ["Transfer from Nairobi/Arusha", "Pre-climb Briefing"]
+        },
+        {
+          "day": 2,
+          "location": "Mandara",
+          "accommodation": "Mandara Hut",
+          "board": "LDBB",
+          "activities": ["Drive to Marangu Gate", "5 Hour Forest Trek"]
+        },
+        {
+          "day": 3,
+          "location": "Horombo",
+          "accommodation": "Horombo Hut",
+          "board": "LDBB",
+          "activities": ["Trek through Moorland", "6 Hour Walk"]
+        },
+        {
+          "day": 4,
+          "location": "Kibo",
+          "accommodation": "Kibo Hut",
+          "board": "LDBB",
+          "activities": ["Cross Alpine Desert", "Acclimatization Day"]
+        },
+        {
+          "day": 5,
+          "location": "Horombo",
+          "accommodation": "Horombo Hut",
+          "board": "LDBB",
+          "activities": ["Midnight Summit Attempt", "Reach Uhuru Peak (5895m)", "Descent to Horombo"]
+        },
+        {
+          "day": 6,
+          "location": "Moshi",
+          "accommodation": "Springland Hotel/Similar",
+          "board": "DBB",
+          "activities": ["Descent to Marangu Gate", "Certificate Collection", "Return to Hotel"]
+        },
+        {
+          "day": 7,
+          "location": "Departure",
+          "activities": ["Transfer to Airport", "Departure"]
+        }
+      ],
+      "description": "The easiest and most popular route up Kilimanjaro with hut accommodations along the way."
+    },
+    {
+      "tour_code": "JT048",
+      "name": "Rwanda Gorilla Trekking",
+      "destination": "Rwanda",
+      "duration": {
+        "nights": 3,
+        "days": 4
+      },
+      "highlight": "Mountain Gorilla Tracking",
+      "description": "Specialized eco-friendly gorilla trekking safaris with professional guides in the Virunga Mountains, where gorillas share 97% of our DNA. Tracking may take up to 2-4 hours with viewing time limited to one hour per visit.",
+      "itinerary": [
+        {
+          "day": 1,
+          "location": "Kigali",
+          "accommodation": "Kigali Serena",
+          "board": "BB",
+          "activities": ["Airport Transfer", "City Tour", "Cultural Experience"]
+        },
+        {
+          "day": 2,
+          "location": "Volcanoes National Park",
+          "accommodation": "Gorilla Mountain View Lodge",
+          "board": "FB",
+          "activities": ["Transfer to Park", "Park Briefing", "Nature Walks"]
+        },
+        {
+          "day": 3,
+          "location": "Volcanoes National Park",
+          "accommodation": "Gorilla Mountain View Lodge",
+          "board": "FB",
+          "activities": ["Gorilla Trekking", "Cultural Village Visit"]
+        },
+        {
+          "day": 4,
+          "location": "Departure",
+          "activities": ["Return to Kigali", "Departure Flight"]
+        }
+      ]
+    },
+    {
+      "tour_code": "JT049",
+      "name": "Kilimanjaro Climbing - Alternative Routes",
+      "destination": "Tanzania",
+      "duration": {
+        "nights": 6,
+        "days": 7
+      },
+      "highlight": "Kilimanjaro Climbing",
+      "description": "Mount Kilimanjaro stands at 5,895 meters and features six routes: Marangu, Machame, Shira, Rongai, Lemosho, and the Northern Circuit. The mountain has three volcanic cones: Kibo (5,895m), Mawenzi (5,149m), and Shira (3,962m).",
+      "itinerary": [
+        {
+          "day": 1,
+          "location": "Moshi",
+          "accommodation": "Mountain Hotel",
+          "board": "BB",
+          "activities": ["Airport Transfer", "Equipment Check", "Briefing"]
+        },
+        {
+          "day": 2,
+          "location": "First Camp",
+          "accommodation": "Mountain Camp",
+          "board": "FB",
+          "activities": ["Begin Trek", "Forest Zone"]
+        },
+        {
+          "day": 3,
+          "location": "Second Camp",
+          "accommodation": "Mountain Camp",
+          "board": "FB",
+          "activities": ["Ascent", "Acclimatization"]
+        },
+        {
+          "day": 4,
+          "location": "High Camp",
+          "accommodation": "Mountain Camp",
+          "board": "FB",
+          "activities": ["High Altitude Trek", "Summit Preparation"]
+        },
+        {
+          "day": 5,
+          "location": "Summit Day",
+          "accommodation": "Descent Camp",
+          "board": "FB",
+          "activities": ["Summit Push", "Reach Uhuru Peak", "Begin Descent"]
+        },
+        {
+          "day": 6,
+          "location": "Moshi",
+          "accommodation": "Mountain Hotel",
+          "board": "BB",
+          "activities": ["Final Descent", "Certificate Ceremony"]
+        },
+        {
+          "day": 7,
+          "location": "Departure",
+          "activities": ["Airport Transfer", "Departure"]
+        }
       ]
     }
-  };
+  ],
+  "gorilla_tracking_info": {
+    "location": "Parc National des Volcans (Volcanoes National Park)",
+    "distance_from_kigali": "91 km NW (2 hours drive)",
+    "gorilla_population": "Approximately 700 individuals",
+    "altitude_range": "3500m - 4507m",
+    "habituated_families": 4,
+    "visitor_limitations": {
+      "people_per_family": 8,
+      "total_daily_visitors": 32
+    },
+    "visit_rules": [
+      "No spitting in the park",
+      "No littering",
+      "No coughing in direction of gorillas",
+      "Only speak in whispers",
+      "Do not point at gorillas",
+      "Maintain 7m distance from gorillas",
+      "No consuming food near gorillas",
+      "If you get close to a gorilla, sit very still",
+      "If a gorilla charges, do not look directly at it",
+      "Stand perfectly still until the guide asks you to move back"
+    ],
+    "essentials": [
+      "Long pants",
+      "Good hiking boots",
+      "Light waterproof coat",
+      "Cap/hat",
+      "Camera (no flash)",
+      "Drinking water"
+    ]
+  }
+};
+export const rwandaPackages = tourData.tour_packages;
+const RwandaSafari = () => {
+ 
 
   // Enhanced data structure for UI display
   const destinationImages = {
@@ -546,10 +549,10 @@ const RwandaSafari = () => {
   return (
     <div className="bg-gray-50 min-h-screen font-sans">
       {/* Hero Section */}
-      <div className="relative w-full h-64 bg-amber-900">
+      <div className="relative w-full h-[100vh] bg-amber-900">
         {/* Background image */}
         <img 
-          src="/api/placeholder/1200/800"
+          src="https://images.unsplash.com/photo-1605559911928-e03606ea0dc0?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fHJ3YW5kYXxlbnwwfHwwfHx8MA%3D%3D"
           alt="Rwanda Landscape"
           className="absolute inset-0 w-full h-full object-cover object-center"
         />
@@ -558,12 +561,19 @@ const RwandaSafari = () => {
           <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">Discover Rwanda's Natural Wonders</h1>
           <p className="text-lg md:text-xl text-gray-100 mb-6 max-w-3xl">Experience unforgettable gorilla trekking, breathtaking landscapes, and vibrant culture in the Land of a Thousand Hills</p>
           <div className="flex flex-wrap justify-center gap-4">
+            <Link to='/enquire'>
             <button className="bg-yellow-600 hover:bg-yellow-500 text-amber-900 px-6 py-3 rounded-full font-bold transition transform hover:scale-105 shadow-lg">
               Plan Your Safari
             </button>
+
+            </Link>
+            
+            <Link to='/rwandashow'>
             <button className="bg-transparent border-2 border-gray-200 text-gray-200 px-6 py-3 rounded-full font-bold hover:bg-gray-200 hover:text-amber-900 transition transform hover:scale-105">
               View Travel Guide
             </button>
+            </Link>
+            
           </div>
         </div>
       </div>
@@ -926,9 +936,16 @@ const RwandaSafari = () => {
                   
                   {/* CTA Button */}
                   <div className="mb-6">
-                    <button className="w-full bg-green-600 hover:bg-green-500 text-white py-3 rounded-lg font-bold shadow-md transition transform hover:scale-105">
-                      Book This Safari
-                    </button>
+                  <Link 
+  to={`/safaris/rwanda/book/${selectedPackage.code}`}
+  state={{ selectedPackage: selectedPackage }}
+  className="w-full"
+>
+  <button className="w-full bg-green-600 hover:bg-green-500 text-white py-3 rounded-lg font-bold shadow-md transition transform hover:scale-105">
+    Book This Safari
+  </button>
+</Link>
+                    
                   </div>
                   
                   {/* Enquiry Button */}
@@ -1015,6 +1032,7 @@ const RwandaSafari = () => {
           </div>
         </div>
       )}
+     
     </div>
   );
 };

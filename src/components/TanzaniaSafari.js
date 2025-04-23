@@ -1,6 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { Calendar, ChevronDown, X, MapPin, Star, Award, Clock, Users, ArrowRight, Filter, Sun, Cloud, Umbrella, Check } from 'lucide-react';
-import safariPackages from './TanzaniaPackages.json';
+import { safariPackages } from './TanzaniaPackages';
+import tanz from '../assets/tanzania.jpg'
+import kilimanjaro from '../assets/kilimanjaro.avif'
+import lake from '../assets/Lake Manyara.avif'
+import { Link } from 'react-router-dom';
 
 // Placeholder images - using API placeholder for consistent display
 const placeholderImages = {
@@ -80,7 +84,7 @@ const allPackages = safariPackages.map(pkg => {
     description: pkg.description || `Experience the wonders of ${pkg.locations?.join(', ') || pkg.location}`,
     destinations: pkg.locations || [pkg.location] || [],
     highlights: pkg.highlights || ["Wildlife viewing", "Scenic landscapes"],
-    coverImage: placeholderImages.tanz, // Use placeholder image
+    coverImage: pkg.coverImage, // Use placeholder image
     featured: Math.random() > 0.7, // Randomly feature some packages
     bestValue: Math.random() > 0.8, // Randomly mark some as best value
     pricing: {
@@ -177,7 +181,7 @@ const TanzaniaSafari = () => {
       <div className="relative w-full h-[80vh] overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-r from-cafe-noir/80 to-transparent z-10"></div>
         <img 
-          src="/api/placeholder/1200/800"
+          src={tanz}
           alt="Tanzania Safari"
           className="absolute inset-0 w-full h-full object-cover object-center"
         />
@@ -329,7 +333,7 @@ const TanzaniaSafari = () => {
                         <img 
                           src={safari.coverImage}
                           alt={safari.name} 
-                          className="w-full h-64 object-cover"
+                          className="w-full h-80 object-cover"
                         />
                         <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex flex-col justify-end p-4">
                           <div className="flex flex-wrap gap-2 mb-2">
@@ -493,7 +497,7 @@ const TanzaniaSafari = () => {
                 
                 <div className="h-full">
                   <img 
-                    src="/api/placeholder/600/400" 
+                    src={kilimanjaro}
                     alt="Safari Experience" 
                     className="w-full h-full object-cover"
                   />
@@ -546,7 +550,7 @@ const TanzaniaSafari = () => {
             {selectedPackage && (
               <>
                 {/* Package Header */}
-                <div className="relative h-96">
+                <div className="relative h-[100vh]">
                   <img 
                     src={selectedPackage.coverImage} 
                     alt={selectedPackage.name} 
@@ -721,9 +725,18 @@ const TanzaniaSafari = () => {
                 </ul>
               </div>
               
-              <button className="w-full bg-hunyadi-yellow hover:bg-princeton-orange text-cafe-noir font-bold py-3 px-4 rounded-lg transition duration-300 flex justify-center items-center mb-4">
-                <span>Book This Safari</span>
-              </button>
+              <Link 
+  to={`/safaris/tanzania/book/${selectedPackage.id}`}
+  state={{ 
+    selectedPackage: selectedPackage,
+    selectedSeason: selectedSeason
+  }}
+  className="w-full"
+>
+  <button className="w-full bg-hunyadi-yellow hover:bg-princeton-orange text-cafe-noir font-bold py-3 px-4 rounded-lg transition duration-300 flex justify-center items-center">
+    Book This Safari
+  </button>
+</Link>
               
               <button className="w-full bg-cafe-noir hover:bg-cafe-noir/80 text-white font-bold py-3 px-4 rounded-lg transition duration-300 flex justify-center items-center">
                 <span>Request Custom Quote</span>
@@ -780,7 +793,7 @@ const TanzaniaSafari = () => {
                 >
                   <div className="relative h-48">
                     <img 
-                      src={safari.coverImage || placeholderImages.tanz} 
+                      src={safari.coverImage || kilimanjaro} 
                       alt={safari.name} 
                       className="w-full h-full object-cover"
                     />

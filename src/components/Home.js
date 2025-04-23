@@ -266,95 +266,169 @@ const DestinationsSection = () => {
 
 
 const TestimonialsSection = () => {
-const [currentIndex, setCurrentIndex] = useState(0);
-const testimonials = [
-  {
-    quote: "Our safari with Wild Horizons was absolutely life-changing. The guides were incredibly knowledgeable, the accommodations were luxurious, and the wildlife encounters were beyond our wildest dreams.",
-    author: "Sarah & James Thompson",
-    location: "United Kingdom",
-    image: "https://images.unsplash.com/photo-1491349174775-aaafddd81942?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3"
-  },
-  {
-    quote: "As a wildlife photographer, I've been on many safaris, but none compare to the experience provided by Wild Horizons. They knew exactly where to take us for the perfect shots, and their commitment to conservation was evident throughout.",
-    author: "Michael Chen",
-    location: "Canada",
-    image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3"
-  },
-  {
-    quote: "Taking our children on a family safari was the best decision we ever made. The team at Wild Horizons made sure everyone was comfortable, safe, and engaged. Our kids still talk about it every day!",
-    author: "The Rodriguez Family",
-    location: "United States",
-    image: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3"
-  }
-];
+  const [currentIndex, setCurrentIndex] = useState(0);
+  
+  // Featured reviews from the full reviews collection
+  const testimonials = [
+    {
+      quote: "We are very pleased in all aspects with our trip. Jambo Travel took care of everything and made it easy for us to show up and be taken care of. They left nothing out, and we were pampered from beginning to end. Joseph, our tour guide was fabulous, too!",
+      author: "Jennifer and John",
+      location: "United States",
+      flag: "🇺🇸",
+      rating: 5,
+      title: "Trip of a Lifetime!",
+      experienceLevel: "first safari"
+    },
+    {
+      quote: "It has been such a pleasure to work with Mark Song and the Jambo Team. Mark showed professionalism at all times, even going above and beyond to make sure that our Annual Meeting was successful.",
+      author: "June Titus",
+      location: "South Africa",
+      flag: "🇿🇦",
+      rating: 5,
+      title: "Job well done!",
+      experienceLevel: "2-5 safaris"
+    },
+    {
+      quote: "We have used Jambo Travel for many years and we feel safe traveling with them. The drivers are experienced and have good knowledge about the country and wildlife. They are service minded.",
+      author: "Eli",
+      location: "Norway",
+      flag: "🇳🇴",
+      rating: 5,
+      title: "Excellent good drivers who drives safely",
+      experienceLevel: "over 5 safaris"
+    },
+    {
+      quote: "Great experience with Jambo Travel House holidays. We had a 3 days with Jambo Travel House holidays. Ngorongoro, Serengeti and Lake Manyara. I would like to appreciate the organization and the guides. Very well prepared.",
+      author: "Robert Chris",
+      location: "French Guiana",
+      flag: "🇬🇫",
+      rating: 5,
+      title: "A great company ever!!",
+      experienceLevel: "over 5 safaris"
+    },
+    {
+      quote: "We had an unforgettable tour with Jambo Travel House. Reliability is excellent and the service was very good.",
+      author: "Anne-Marie",
+      location: "Norway",
+      flag: "🇳🇴",
+      rating: 5,
+      title: "Excellent service and performance for the whole trip",
+      experienceLevel: "first safari"
+    }
+  ];
 
-const nextSlide = () => {
-  setCurrentIndex((prevIndex) => (prevIndex + 1) % testimonials.length);
-};
+  const nextSlide = () => {
+    setCurrentIndex((prevIndex) => (prevIndex + 1) % testimonials.length);
+  };
 
-const prevSlide = () => {
-  setCurrentIndex((prevIndex) => (prevIndex - 1 + testimonials.length) % testimonials.length);
-};
+  const prevSlide = () => {
+    setCurrentIndex((prevIndex) => (prevIndex - 1 + testimonials.length) % testimonials.length);
+  };
 
-return (
-  <section className="py-20 bg-cornsilk relative">
-    <div className="container mx-auto px-4">
-      <div className="max-w-xl mx-auto text-center mb-16">
-        <div className="flex items-center justify-center mb-4">
-          <div className="h-1 w-12 bg-princeton-orange mr-4"></div>
-          <p className="text-princeton-orange font-medium uppercase tracking-wider">Guest Experiences</p>
-          <div className="h-1 w-12 bg-princeton-orange ml-4"></div>
-        </div>
-        <h2 className="text-3xl md:text-4xl font-bold mb-6 text-cafe-noir">What Our Travelers Say</h2>
-        <p className="text-cafe-noir text-lg">Real stories from real adventurers who experienced the magic of Africa with us.</p>
+  const RatingStars = ({ rating }) => {
+    return (
+      <div className="flex mb-4">
+        {[...Array(5)].map((_, i) => (
+          <Star 
+            key={i} 
+            size={18} 
+            className={i < rating ? "fill-gold-metallic text-gold-metallic" : "text-french-gray"} 
+          />
+        ))}
       </div>
+    );
+  };
 
-      <div className="max-w-4xl mx-auto">
-        <div className="bg-white rounded-2xl shadow-xl p-8 md:p-12 relative">
-          <div className="text-6xl text-hunyadi-yellow opacity-30 absolute top-6 left-8">"</div>
-          <div className="flex flex-col md:flex-row items-center gap-8 relative z-10">
-            <div className="w-32 h-32 rounded-full overflow-hidden flex-shrink-0 border-4 border-cornsilk">
-              <img 
-                src={testimonials[currentIndex].image} 
-                alt={testimonials[currentIndex].author}
-                className="w-full h-full object-cover"
-              />
-            </div>
-            <div className="flex-1">
-              <p className="text-cafe-noir text-lg italic mb-6">
-                {testimonials[currentIndex].quote}
-              </p>
-              <h4 className="font-bold text-xl text-cafe-noir">{testimonials[currentIndex].author}</h4>
-              <p className="text-cafe-noir">{testimonials[currentIndex].location}</p>
+  return (
+    <section className="py-20 bg-cornsilk relative overflow-hidden">
+      {/* Background decorative elements */}
+      <div className="absolute -right-32 top-12 w-64 h-64 rounded-full bg-hunyadi-yellow opacity-10"></div>
+      <div className="absolute left-12 -bottom-40 w-80 h-80 rounded-full bg-moss-green opacity-10"></div>
+      
+      <div className="container mx-auto px-4 relative z-10">
+        <div className="max-w-xl mx-auto text-center mb-16">
+          <div className="flex items-center justify-center mb-4">
+            <div className="h-1 w-12 bg-princeton-orange mr-4"></div>
+            <p className="text-princeton-orange font-medium uppercase tracking-wider">Guest Experiences</p>
+            <div className="h-1 w-12 bg-princeton-orange ml-4"></div>
+          </div>
+          <h2 className="text-3xl md:text-4xl font-bold mb-6 text-cafe-noir">What Our Travelers Say</h2>
+          <p className="text-cafe-noir text-lg">Real stories from real adventurers who experienced the magic of Africa with us.</p>
+        </div>
+
+        <div className="max-w-4xl mx-auto">
+          <div className="bg-white rounded-2xl shadow-xl p-8 md:p-12 relative">
+            <div className="text-6xl text-hunyadi-yellow opacity-30 absolute top-6 left-8">"</div>
+            <div className="flex flex-col md:flex-row items-center gap-8 relative z-10">
+              <div className="w-32 h-32 rounded-full overflow-hidden flex-shrink-0 border-4 border-cornsilk bg-moss-green/20 flex items-center justify-center">
+                <span className="text-4xl font-bold text-moss-green">
+                  {testimonials[currentIndex].author.split(' ')[0][0]}
+                </span>
+              </div>
+              <div className="flex-1">
+                <div className="flex items-center gap-2 mb-2">
+                  <h4 className="font-bold text-xl text-cafe-noir">{testimonials[currentIndex].title}</h4>
+                  <span className="text-xl">{testimonials[currentIndex].flag}</span>
+                </div>
+                
+                <RatingStars rating={testimonials[currentIndex].rating} />
+                
+                <p className="text-cafe-noir text-lg italic mb-6">
+                  {testimonials[currentIndex].quote}
+                </p>
+                
+                <div className="flex flex-wrap items-center justify-between gap-4">
+                  <div>
+                    <h4 className="font-bold text-cafe-noir">{testimonials[currentIndex].author}</h4>
+                    <p className="text-cafe-noir/80">{testimonials[currentIndex].location}</p>
+                  </div>
+                  <div className="bg-eggshell py-1 px-3 rounded-full">
+                    <span className="text-sm text-cafe-noir/70">{testimonials[currentIndex].experienceLevel}</span>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
-        </div>
 
-        <div className="flex justify-center mt-8 gap-4">
-          <button 
-            onClick={prevSlide}
-            className="bg-white hover:bg-hunyadi-yellow text-cafe-noir w-12 h-12 rounded-full flex items-center justify-center shadow-lg transition-colors"
-          >
-            <ChevronLeft size={24} />
-          </button>
-          {testimonials.map((_, index) => (
+          <div className="flex justify-center mt-8 gap-4">
             <button 
-              key={index}
-              onClick={() => setCurrentIndex(index)}
-              className={`w-3 h-3 rounded-full ${currentIndex === index ? 'bg-hunyadi-yellow' : 'bg-cafe-noir opacity-30'} transition-all`}
-            ></button>
-          ))}
-          <button 
-            onClick={nextSlide}
-            className="bg-white hover:bg-hunyadi-yellow text-cafe-noir w-12 h-12 rounded-full flex items-center justify-center shadow-lg transition-colors"
-          >
-            <ChevronRight size={24} />
-          </button>
+              onClick={prevSlide}
+              className="bg-white hover:bg-hunyadi-yellow text-cafe-noir w-12 h-12 rounded-full flex items-center justify-center shadow-lg transition-colors"
+              aria-label="Previous review"
+            >
+              <ChevronLeft size={24} />
+            </button>
+            {testimonials.map((_, index) => (
+              <button 
+                key={index}
+                onClick={() => setCurrentIndex(index)}
+                className={`w-3 h-3 rounded-full ${currentIndex === index ? 'bg-hunyadi-yellow' : 'bg-cafe-noir opacity-30'} transition-all`}
+                aria-label={`Go to review ${index + 1}`}
+              ></button>
+            ))}
+            <button 
+              onClick={nextSlide}
+              className="bg-white hover:bg-hunyadi-yellow text-cafe-noir w-12 h-12 rounded-full flex items-center justify-center shadow-lg transition-colors"
+              aria-label="Next review"
+            >
+              <ChevronRight size={24} />
+            </button>
+          </div>
+          
+          {/* View all reviews button */}
+          <div className="flex justify-center mt-12">
+            <Link 
+              to="/reviews" 
+              className="bg-moss-green hover:bg-moss-green/90 text-white font-medium py-3 px-6 rounded-md transition-all shadow-md hover:shadow-lg flex items-center gap-2"
+            >
+              View All Reviews
+              <ChevronRight size={18} />
+            </Link>
+          </div>
         </div>
       </div>
-    </div>
-  </section>
-);
+    </section>
+  );
 };
 
 const CallToActionSection = () => (

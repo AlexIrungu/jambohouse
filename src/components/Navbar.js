@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
+import newlogo from '../assets/Untitled design (15).png'
 
 const Navbar = () => {
     const [isScrolled, setIsScrolled] = useState(false);
@@ -61,6 +62,7 @@ const Navbar = () => {
                             {/* Replace with your actual logo */}
                             <div className="absolute inset-0 bg-gradient-to-br from-hunyadi-yellow to-princeton-orange flex items-center justify-center">
                                 <span className="text-2xl font-bold text-eggshell">J</span>
+                                {/* <img src={newlogo} alt=''/> */}
                             </div>
                         </div>
                         <div className="flex flex-col">
