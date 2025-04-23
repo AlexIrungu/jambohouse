@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/jambohouse/static/css/main.abb17e1e.css",
-    "main.js": "/jambohouse/static/js/main.d1d70e89.js",
+    "main.css": "/jambohouse/static/css/main.7d4d209e.css",
+    "main.js": "/jambohouse/static/js/main.62e84fc3.js",
     "static/css/632.51e94746.chunk.css": "/jambohouse/static/css/632.51e94746.chunk.css",
     "static/js/632.add46806.chunk.js": "/jambohouse/static/js/632.add46806.chunk.js",
     "static/js/453.1325bb4c.chunk.js": "/jambohouse/static/js/453.1325bb4c.chunk.js",
@@ -20,17 +20,21 @@
     "static/media/marasunset.jpg": "/jambohouse/static/media/marasunset.70ed7e24fd7cee98c158.jpg",
     "static/media/mara.jpg": "/jambohouse/static/media/mara.f5ba37964a6782a69c24.jpg",
     "static/media/marasun.jpg": "/jambohouse/static/media/marasun.63d02d219196cc89a357.jpg",
+    "static/media/tanzania.jpg": "/jambohouse/static/media/tanzania.662f6d184c007c3837da.jpg",
+    "static/media/serengetinp.avif": "/jambohouse/static/media/serengetinp.d45ae3a5580d267b21d0.avif",
+    "static/media/kilimanjaro.avif": "/jambohouse/static/media/kilimanjaro.832db5dc305e29275789.avif",
     "static/media/ngorongoro.avif": "/jambohouse/static/media/ngorongoro.dd73497d241b509fb23f.avif",
+    "static/media/Lake Manyara.avif": "/jambohouse/static/media/Lake Manyara.b9f1193f8f98e1fc30cd.avif",
     "index.html": "/jambohouse/index.html",
-    "main.abb17e1e.css.map": "/jambohouse/static/css/main.abb17e1e.css.map",
-    "main.d1d70e89.js.map": "/jambohouse/static/js/main.d1d70e89.js.map",
+    "main.7d4d209e.css.map": "/jambohouse/static/css/main.7d4d209e.css.map",
+    "main.62e84fc3.js.map": "/jambohouse/static/js/main.62e84fc3.js.map",
     "632.51e94746.chunk.css.map": "/jambohouse/static/css/632.51e94746.chunk.css.map",
     "632.add46806.chunk.js.map": "/jambohouse/static/js/632.add46806.chunk.js.map",
     "453.1325bb4c.chunk.js.map": "/jambohouse/static/js/453.1325bb4c.chunk.js.map",
     "937.d771d3a1.chunk.js.map": "/jambohouse/static/js/937.d771d3a1.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.abb17e1e.css",
-    "static/js/main.d1d70e89.js"
+    "static/css/main.7d4d209e.css",
+    "static/js/main.62e84fc3.js"
   ]
 }
