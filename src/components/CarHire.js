@@ -20,6 +20,7 @@ import {
 import { Link } from 'react-router-dom'
 
 
+
 const CarHireCard = ({ id, image, name, type, seating, price, transferPrice, fullDayPrice, halfDayPrice, notes, safariPrice }) => {
   const [showDetails, setShowDetails] = useState(false);
   

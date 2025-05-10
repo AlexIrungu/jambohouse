@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, useLocation, useNavigate } from 'react-router-dom';
 import { Calendar, Clock, User, Users, Map, DollarSign, Phone, Mail, Info, Calendar as CalendarIcon, CreditCard, Check } from 'lucide-react';
-// import emailjs from 'emailjs-com';
+import emailjs from '@emailjs/browser';
 import { safariPackages } from './KenyaSafari';
 
 const KenyaBookingForm = () => {
@@ -150,36 +150,96 @@ const KenyaBookingForm = () => {
     
     setIsLoading(true);
     
+    // Generate a booking reference number
+    const bookingReference = Date.now().toString().slice(-6);
+    
+    // Calculate deposit amount (30% of total price)
+    const totalPrice = calculateTotalPrice();
+    const depositAmount = (totalPrice * 0.3).toFixed(2);
+    
+    // Format payment method for display
+    let formattedPaymentMethod;
+    switch(formData.paymentMethod) {
+      case 'creditCard':
+        formattedPaymentMethod = 'Credit Card';
+        break;
+      case 'bankTransfer':
+        formattedPaymentMethod = 'Bank Transfer';
+        break;
+      case 'paypal':
+        formattedPaymentMethod = 'PayPal';
+        break;
+      default:
+        formattedPaymentMethod = formData.paymentMethod;
+    }
+    
+    // Format room type for display
+    const formattedRoomType = roomType === "shared" ? "Shared (Double/Twin)" : "Single Room";
+    
+    // Get current date and time
+    const now = new Date();
+    const submissionDate = now.toLocaleDateString('en-US', {
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric'
+    });
+    const submissionTime = now.toLocaleTimeString('en-US', {
+      hour: '2-digit',
+      minute: '2-digit'
+    });
+    
     // Prepare data for emailjs
     const templateParams = {
+      // Customer details
+      full_name: formData.fullName || '',
+      email: formData.email || '',
+      phone: formData.phone || '',
+      nationality: formData.nationality || '',
+      
+      // Package details
       package_name: selectedPackage?.name || 'Unknown Package',
       package_id: selectedPackage?.id || 'Unknown ID',
-      travel_date: formData.travelDate,
-      season: selectedSeason,
-      adults: adults,
-      children: children,
-      room_type: roomType,
-      full_name: formData.fullName,
-      email: formData.email,
-      phone: formData.phone,
-      nationality: formData.nationality,
-      special_requests: formData.specialRequests,
-      payment_method: formData.paymentMethod,
-      total_price: calculateTotalPrice().toFixed(2)
+      travel_date: formData.travelDate || '',
+      season: selectedSeason || '',
+      adults: adults || 0,
+      children: children || 0,
+      room_type: formattedRoomType || '',
+      
+      // Special requests & payment
+      special_requests: formData.specialRequests || 'None',
+      payment_method: formattedPaymentMethod || '',
+      
+      // Financial details
+      total_price: totalPrice.toFixed(2) || '0.00',
+      deposit_amount: depositAmount || '0.00',
+      
+      // Booking reference and submission info
+      booking_reference: bookingReference || '',
+      submission_date: submissionDate || '',
+      submission_time: submissionTime || ''
     };
     
+    // Debug log to help identify issues
+    console.log('Email template parameters:', templateParams);
+    
     try {
-      // Replace with your actual EmailJS service ID, template ID and user ID
-      // await emailjs.send('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', templateParams, 'YOUR_USER_ID');
+      // Send the email with EmailJS
+      await emailjs.send(
+        'service_4as5y7f',      // Your EmailJS service ID
+        'template_8173vpm',     // Your EmailJS template ID
+        templateParams,
+        '5IQwYIV7WI6fI5vmO'     // Your EmailJS public key
+      );
       
-      // For demo purposes, we'll just simulate a delay
-      await new Promise(resolve => setTimeout(resolve, 1500));
+      // For demo purposes, we'll simulate a small delay
+      await new Promise(resolve => setTimeout(resolve, 1000));
       
       setFormSubmitted(true);
       window.scrollTo(0, 0);
     } catch (error) {
       console.error('Failed to send email:', error);
-      alert('Failed to submit booking. Please try again later.');
+      alert('Failed to submit booking: ' + (error.text || 'Please try again later.'));
+      console.error('EmailJS error details:', error);
     } finally {
       setIsLoading(false);
     }
@@ -203,27 +263,47 @@ const KenyaBookingForm = () => {
   }
 
   if (formSubmitted) {
+    // Generate a booking reference (you'd use the one returned from your API in a real app)
+    const bookingReference = Date.now().toString().slice(-6);
+    
     return (
       <div className="container mx-auto px-4 py-16 min-h-screen flex items-center justify-center">
         <div className="bg-white p-8 rounded-xl shadow-lg max-w-md mx-auto text-center">
           <div className="bg-green-100 text-green-700 p-4 rounded-full w-20 h-20 flex items-center justify-center mx-auto mb-6">
             <Check className="h-10 w-10" />
           </div>
-          <h2 className="text-2xl font-bold mb-4 text-gray-800">Booking Confirmed!</h2>
+          <h2 className="text-2xl font-bold mb-4 text-gray-800">Booking Request Submitted!</h2>
           <p className="text-gray-600 mb-6">
-            Thank you for booking the {selectedPackage.name} safari. We've sent a confirmation to your email at {formData.email}.
-            Our team will contact you shortly to finalize the details.
+            Thank you for booking the {selectedPackage.name} safari. Your booking request has been received and our team will contact you within 24 hours to confirm availability and process your deposit.
           </p>
           <div className="bg-gray-50 p-4 rounded-lg mb-6">
             <div className="flex justify-between mb-2">
               <span className="text-gray-600">Booking Reference:</span>
-              <span className="font-medium">{`KS-${Date.now().toString().slice(-6)}`}</span>
+              <span className="font-medium">{`KS-${bookingReference}`}</span>
             </div>
             <div className="flex justify-between mb-2">
               <span className="text-gray-600">Total Amount:</span>
               <span className="font-bold text-amber-600">${calculateTotalPrice().toFixed(2)}</span>
             </div>
+            <div className="flex justify-between">
+              <span className="text-gray-600">Required Deposit (30%):</span>
+              <span className="font-bold text-amber-600">${(calculateTotalPrice() * 0.3).toFixed(2)}</span>
+            </div>
           </div>
+          <div className="bg-amber-50 p-4 rounded-lg mb-6 text-left">
+            <h3 className="font-medium text-amber-800 mb-2">Next Steps:</h3>
+            <p className="text-amber-700 text-sm">
+              Our team will reach out to you via email or phone to:
+            </p>
+            <ul className="list-disc list-inside text-amber-700 text-sm mt-2">
+              <li>Confirm availability for your requested dates</li>
+              <li>Collect your deposit payment</li>
+              <li>Answer any questions you may have</li>
+            </ul>
+          </div>
+          <p className="text-gray-500 text-sm mb-6">
+            Please keep your booking reference for future communication.
+          </p>
           <button 
             onClick={() => navigate('/safaris/kenya')}
             className="bg-amber-500 hover:bg-amber-600 text-white font-medium py-3 px-6 rounded-lg transition-colors"

@@ -1,9 +1,27 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Calendar, CreditCard, Users, MapPin, Clock, ChevronDown, MessageSquare, Info, Check, AlertCircle } from 'lucide-react';
-import { useParams, useLocation } from 'react-router-dom';
+import { useParams, useLocation, } from 'react-router-dom';
 import { safariPackages } from './TanzaniaPackages';
+import emailjs from '@emailjs/browser';
 
 const TanzaniaBookingForm = ({ }) => {
+
+  const EMAILJS_SERVICE_ID = 'service_fzr2b56';
+  const EMAILJS_TEMPLATE_ID = 'template_djx736t';
+  const EMAILJS_PUBLIC_KEY = 'MlSlATzRbsw08c1XI';
+
+  const formRef = useRef();
+
+  // Initialize EmailJS
+  useEffect(() => {
+    emailjs.init(EMAILJS_PUBLIC_KEY);
+  }, []);
+
+   // Add these states for email sending
+   const [sending, setSending] = useState(false);
+   const [emailError, setEmailError] = useState(null);
+  
+
     // Then use them in your component:
 const location = useLocation();
       // Get package ID from URL params
@@ -262,14 +280,64 @@ const location = useLocation();
     return Object.keys(newErrors).length === 0;
   };
 
-  // Handle form submission
+  // 3. Replace your existing handleSubmit function with this:
   const handleSubmit = (e) => {
     e.preventDefault();
     
     if (validateForm(4)) {
-      console.log('Form submitted successfully:', formData);
-      setShowSuccess(true);
-      // In production, you would send this data to your server
+      setSending(true);
+      setEmailError(null);
+      
+      // Prepare template parameters for the email
+      const templateParams = {
+        // Contact details
+        name: `${formData.firstName} ${formData.lastName}`,
+        email: formData.email,
+        phone: formData.phone,
+        nationality: formData.nationality,
+        
+        // Package details
+        package_name: packageData.name,
+        package_id: packageData.id,
+        package_duration: packageData.duration,
+        package_destinations: packageData.destinations.join(', '),
+        
+        // Travel information
+        travel_dates: `${formData.travelDates.startDate ? new Date(formData.travelDates.startDate + '-01').toLocaleString('default', { month: 'long', year: 'numeric' }) : 'Not selected'} - ${formData.travelDates.endDate ? new Date(formData.travelDates.endDate + '-01').toLocaleString('default', { month: 'long', year: 'numeric' }) : 'Not selected'}`,
+        adults: formData.travelers.adults,
+        children: formData.travelers.children,
+        children_ages: formData.travelers.childrenAges.join(', '),
+        
+        // Accommodation and pricing
+        accommodation_type: formData.accommodationType === 'shared' ? 'Shared Room' : 'Private Room',
+        price_per_person: packageData.pricing[season][formData.accommodationType],
+        total_price: calculateTotalPrice(),
+        deposit_amount: calculateDeposit(),
+        payment_preference: formData.payment.deposit ? 'Deposit Only' : 'Full Payment',
+        payment_method: formData.payment.method === 'card' ? 'Credit/Debit Card' : 'Bank Transfer',
+        
+        // Special requests
+        dietary_restrictions: formData.specialRequests.dietary.join(', '),
+        medical_info: formData.specialRequests.medical,
+        additional_requests: formData.specialRequests.other,
+        
+        // Selected activities
+        selected_activities: formData.activities.join(', ')
+      };
+      
+      // Send the email
+      emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, templateParams)
+        .then((response) => {
+          console.log('Email sent successfully:', response);
+          setSending(false);
+          setShowSuccess(true);
+          // You might want to reset the form here or redirect the user
+        })
+        .catch((error) => {
+          console.error('Email sending failed:', error);
+          setSending(false);
+          setEmailError('Failed to send your booking. Please try again or contact us directly.');
+        });
     }
   };
 
@@ -968,11 +1036,12 @@ const location = useLocation();
                   </button>
                 ) : (
                   <button
-                    type="submit"
-                    className="px-8 py-3 bg-hunyadi-yellow text-cafe-noir font-bold rounded-lg hover:bg-hunyadi-yellow/90 focus:outline-none focus:ring-2 focus:ring-hunyadi-yellow"
-                  >
-                    Submit Booking Request
-                  </button>
+                  type="submit"
+                  disabled={sending}
+                  className="px-8 py-3 bg-hunyadi-yellow text-cafe-noir font-bold rounded-lg hover:bg-hunyadi-yellow/90 focus:outline-none focus:ring-2 focus:ring-hunyadi-yellow"
+                >
+                  {sending ? 'Sending...' : 'Submit Booking Request'}
+                </button>
                 )}
               </div>
             </form>

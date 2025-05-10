@@ -4,3 +4,130 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* High contrast mode styles */
+.high-contrast {
+    background-color: #000 !important;
+    color: #fff !important;
+  }
+  
+  .high-contrast * {
+    background-color: #000 !important;
+    color: #fff !important;
+    border-color: #fff !important;
+  }
+  
+  .high-contrast a,
+  .high-contrast button:not([disabled]),
+  .high-contrast .btn {
+    background-color: #000 !important;
+    color: #F5FF90 !important;
+    border: 1px solid #F5FF90 !important;
+  }
+  
+  .high-contrast img,
+  .high-contrast .img {
+    filter: grayscale(100%) contrast(150%);
+  }
+  
+  /* Dark mode styles */
+  .dark-mode {
+    background-color: #222 !important;
+    color: #eee !important;
+  }
+  
+  .dark-mode header,
+  .dark-mode footer,
+  .dark-mode nav,
+  .dark-mode .card,
+  .dark-mode .container {
+    background-color: #333 !important;
+    color: #eee !important;
+  }
+  
+  .dark-mode a:not(.btn) {
+    color: #BAD7F2 !important;
+  }
+  
+  .dark-mode button:not([disabled]),
+  .dark-mode .btn {
+    background-color: #77966D !important;
+    color: #fff !important;
+  }
+  
+  /* Big cursor */
+  .big-cursor,
+  .big-cursor * {
+    cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32' fill='none'%3E%3Cpath d='M5.33331 5.33334V22.6667L10.6666 17.3333H20L5.33331 5.33334Z' fill='black' stroke='white' stroke-width='2'/%3E%3C/svg%3E"), auto !important;
+  }
+  
+  /* Underline links */
+  .underline-links a {
+    text-decoration: underline !important;
+    text-decoration-thickness: 2px !important;
+  }
+  
+  /* Highlight links */
+  .highlight-links a {
+    background-color: #F5FF90 !important;
+    color: #563F1B !important;
+    padding: 0 4px !important;
+    border-radius: 2px !important;
+  }
+  
+  /* Focus styles for keyboard navigation */
+  :focus {
+    outline: 3px solid #E4A435 !important;
+    outline-offset: 2px !important;
+  }
+  
+  /* Reading guide */
+  .reading-guide {
+    position: fixed;
+    left: 0;
+    right: 0;
+    height: 48px;
+    background-color: rgba(245, 255, 144, 0.2);
+    pointer-events: none;
+    z-index: 9999;
+    transition: top 0.1s ease;
+  }
+  
+  /* Skip to content link - hidden until focused */
+  .skip-to-content {
+    position: absolute;
+    top: -40px;
+    left: 0;
+    padding: 8px 16px;
+    background-color: #E4A435;
+    color: #563F1B;
+    z-index: 9999;
+    transition: top 0.3s;
+  }
+  
+  .skip-to-content:focus {
+    top: 0;
+  }
+  
+  /* Visually hidden elements (for screen readers) */
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+  }
+  
+  /* For animation control */
+  @media (prefers-reduced-motion: reduce) {
+    * {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }

@@ -13,6 +13,7 @@ import {
   User
 } from 'lucide-react';
 import { Link, useNavigate, useLocation, useParams } from 'react-router-dom';
+import emailjs from '@emailjs/browser';
 
 const RwandaBookingForm = ({ tourData }) => {
   const { tourId } = useParams();
@@ -41,6 +42,11 @@ const RwandaBookingForm = ({ tourData }) => {
   const [errors, setErrors] = useState({});
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [showConfirmation, setShowConfirmation] = useState(false);
+  const [emailjsConfig] = useState({
+    serviceId: 'service_fzr2b56', // Replace with your Service ID
+    templateId: 'template_fhatkrh', // Replace with your Template ID
+    publicKey: 'MlSlATzRbsw08c1XI', // Replace with your Public Key
+  });
 
   // Season information
   const seasons = [
@@ -193,28 +199,65 @@ const RwandaBookingForm = ({ tourData }) => {
   };
 
   // Handle form submission
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    
-    const formErrors = validateForm(formStep);
-    setErrors(formErrors);
-    
-    if (Object.keys(formErrors).length === 0) {
-      if (formStep < 3) {
-        setFormStep(formStep + 1);
-        window.scrollTo(0, 0);
-      } else {
-        // Submit the form
-        setIsSubmitting(true);
-        
-        // Simulate API call
-        setTimeout(() => {
-          setIsSubmitting(false);
-          setShowConfirmation(true);
-        }, 1500);
-      }
+  // 4. Replace your handleSubmit function with this:
+const handleSubmit = (e) => {
+  e.preventDefault();
+  
+  const formErrors = validateForm(formStep);
+  setErrors(formErrors);
+  
+  if (Object.keys(formErrors).length === 0) {
+    if (formStep < 3) {
+      setFormStep(formStep + 1);
+      window.scrollTo(0, 0);
+    } else {
+      // Submit the form
+      setIsSubmitting(true);
+      
+      // Prepare data for EmailJS
+      const templateParams = {
+        fullName: formData.fullName,
+        email: formData.email,
+        phone: formData.phone,
+        nationality: formData.nationality,
+        travelDate: new Date(formData.travelDate).toLocaleDateString('en-US', 
+          { year: 'numeric', month: 'long', day: 'numeric' }),
+        adults: formData.adults,
+        children: formData.children,
+        accommodationType: formData.accommodationType === 'shared' ? 'Shared Room' : 'Single Room',
+        specialRequirements: formData.specialRequirements || 'None',
+        preferredContact: formData.preferredContact,
+        heardAboutUs: formData.heardAboutUs || 'Not specified',
+        packageName: selectedPackage.name,
+        packageCode: selectedPackage.code,
+        destinations: selectedPackage.destinations.join(', '),
+        duration: selectedPackage.duration,
+        season: selectedSeason === 'high' ? 'High Season (Jul-Oct)' : 'Low Season (Nov-Jun)',
+        totalPrice: formatPrice(calculateTotalPrice()),
+        paymentMethod: formData.paymentMethod === 'card' ? 'Credit Card' : 'Bank Transfer'
+      };
+      
+      // Send email using EmailJS
+      emailjs.send(
+        emailjsConfig.serviceId,
+        emailjsConfig.templateId,
+        templateParams,
+        emailjsConfig.publicKey
+      )
+      .then((response) => {
+        console.log('Email sent successfully!', response);
+        setIsSubmitting(false);
+        setShowConfirmation(true);
+      })
+      .catch((error) => {
+        console.error('Error sending email:', error);
+        setIsSubmitting(false);
+        // Handle error - you might want to show an error message to the user
+        alert('There was an error sending your booking. Please try again or contact us directly.');
+      });
     }
-  };
+  }
+};
 
   // Go back to previous step
   const goBack = () => {

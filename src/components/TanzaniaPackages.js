@@ -539,7 +539,7 @@ export const safariPackages = [
           "Game drives in Masai Mara",
           "Optional hot air balloon safari"
         ],
-        coverImage: "safari-jt031.jpg",
+        coverImage: "https://images.unsplash.com/photo-1714405411736-4a4c441cb809?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MzV8fHJpZnQlMjB2YWxsZXl8ZW58MHx8MHx8fDA%3D",
         itinerary: [
           {
             "day": 1,
@@ -610,7 +610,7 @@ export const safariPackages = [
           "Optional hot air balloon safari",
           "Visit to Lake Nakuru National Park"
         ],
-        coverImage: "safari-jt032.jpg",
+        coverImage: "https://images.unsplash.com/photo-1706394212115-b52f2d77ddee?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTJ8fExha2UlMjBuYWt1cnV8ZW58MHx8MHx8fDA%3D",
         itinerary: [
           {
             "day": 1,
@@ -678,7 +678,7 @@ export const safariPackages = [
           "Visit to Tsavo East National Park",
           "Game drives in Taita Hills"
         ],
-        coverImage: "safari-jt033.jpg",
+        coverImage: "https://images.unsplash.com/photo-1658769505583-0643403dbaef?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8dHNhdm8lMjBlYXN0fGVufDB8fDB8fHww",
         itinerary: [
           {
             "day": 1,
@@ -742,7 +742,7 @@ export const safariPackages = [
           "Visit to Tsavo East National Park",
           "Game drives in Taita Hills"
         ],
-        coverImage: "safari-jt034.jpg",
+        coverImage: "https://images.unsplash.com/photo-1628959831469-59c2b87b7c57?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjJ8fHRzYXZvJTIwd2VzdHxlbnwwfHwwfHx8MA%3D%3D",
         itinerary: [
           {
             "day": 1,

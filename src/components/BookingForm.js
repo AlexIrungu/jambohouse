@@ -16,8 +16,15 @@ import {
   Info,
   CalendarClock
 } from 'lucide-react';
+import emailjs from '@emailjs/browser';
 
 
+// Add these configuration variables at the top of your file
+const EMAILJS_SERVICE_ID = "service_4as5y7f"; // Replace with your actual Service ID
+const EMAILJS_TEMPLATE_ID = "template_ja7ewuo"; // Replace with your actual Template ID
+const EMAILJS_PUBLIC_KEY = "5IQwYIV7WI6fI5vmO"; // Replace with your actual Public Key
+
+emailjs.init(EMAILJS_PUBLIC_KEY);
 
 const BookingForm = () => {
     
@@ -191,26 +198,78 @@ const BookingForm = () => {
     setFormStep(formStep - 1);
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    const errors = validateForm();
+  const handleSubmit = async (e) => { e.preventDefault(); const errors = validateForm(); if (!formData.agreeToTerms) { setFormErrors(prev => ({ ...prev, agreeToTerms: 'You must agree to the terms and conditions' })); return; } if (Object.keys(errors).length === 0) { try { // Generate a booking reference
+    const bookingRef = `JTH-${Math.random().toString(36).substring(2, 7).toUpperCase()}`;
     
-    if (!formData.agreeToTerms) {
-      setFormErrors(prev => ({
-        ...prev,
-        agreeToTerms: 'You must agree to the terms and conditions'
-      }));
-      return;
-    }
+    // Prepare the email data for company
+    const emailData = {
+      // Company email address
+      to_email: "householidaysjambotrajvel@gmail.com",
+      
+      // Email subject with booking reference
+      subject: `New Booking Request: ${selectedCar.name} - ${bookingRef}`,
+      
+      // Customer information
+      customer_name: `${formData.firstName} ${formData.lastName}`,
+      customer_email: formData.email,
+      customer_phone: formData.phone,
+      
+      // Booking details
+      booking_reference: bookingRef,
+      car_name: selectedCar.name,
+      car_type: selectedCar.type,
+      service_type: formData.serviceType === 'transfer' ? 'Airport Transfer' : 
+                  formData.serviceType === 'halfDay' ? 'Half Day (5 hrs)' : 
+                  formData.serviceType === 'fullDay' ? 'Full Day (10 hrs)' : 
+                  'Safari Use (Per Day)',
+      price: typeof calculatePrice() === 'number' ? `KES ${calculatePrice().toLocaleString()}` : calculatePrice(),
+      
+      // Trip details
+      pickup_date: new Date(formData.pickupDate).toLocaleDateString('en-US', { 
+        weekday: 'short', day: 'numeric', month: 'long', year: 'numeric' 
+      }),
+      pickup_time: formData.pickupTime,
+      return_date: formData.returnDate ? new Date(formData.returnDate).toLocaleDateString('en-US', { 
+        weekday: 'short', day: 'numeric', month: 'long', year: 'numeric' 
+      }) : 'N/A',
+      return_time: formData.returnTime || 'N/A',
+      pickup_location: formData.pickupLocation,
+      
+      // Additional information
+      special_requests: formData.specialRequests || 'None',
+      seating_capacity: selectedCar.seating,
+      notes: selectedCar.notes
+    };
+
+    console.log("Preparing to send booking request to company:", emailData);
     
-    if (Object.keys(errors).length === 0) {
-      // Submit form logic would go here in a real application
-      console.log('Form submitted:', formData);
-      setFormStep(4); // Move to confirmation step
-    } else {
-      setFormErrors(errors);
+    try {
+      // Send email only to the company
+      const result = await emailjs.send(
+        EMAILJS_SERVICE_ID,
+        EMAILJS_TEMPLATE_ID,
+        emailData,
+        EMAILJS_PUBLIC_KEY
+      );
+      
+      console.log("Company notification email sent successfully:", result);
+      
+      // Move to confirmation step
+      setFormStep(4);
+    } catch (error) {
+      console.error("EmailJS Error:", error);
+      alert("There was an issue submitting your booking request. Please try again or contact us directly.");
+      // You can decide if you want to move to the confirmation step anyway
+      // setFormStep(4);
     }
-  };
+  } catch (error) {
+    console.error('Failed to process booking:', error);
+    alert("An error occurred while processing your booking. Please try again or contact us directly.");
+  }
+} else {
+  setFormErrors(errors);
+}
+};
 
   const calculatePrice = () => {
     if (!selectedCar) return 0;

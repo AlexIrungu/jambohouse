@@ -14,6 +14,7 @@ import { Link } from 'react-router-dom'
         "days": 3
       },
       "highlight": "Mountain Gorilla Tracking",
+      "coverImage": "https://plus.unsplash.com/premium_photo-1686232985330-40371058c024?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8bW91bnRhaW4lMjBnb3JpbGxhJTIwdHJhY2tpbmd8ZW58MHx8MHx8fDA%3D",
       "itinerary": [
         {
           "day": 1,
@@ -46,6 +47,7 @@ import { Link } from 'react-router-dom'
         "days": 4
       },
       "highlight": "Mountain Gorilla Tracking",
+      "coverImage": "https://plus.unsplash.com/premium_photo-1685785838718-77489a5fbf74?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OXx8bW91bnRhaW4lMjBnb3JpbGxhJTIwdHJhY2tpbmd8ZW58MHx8MHx8fDA%3D",
       "itinerary": [
         {
           "day": 1,
@@ -85,6 +87,7 @@ import { Link } from 'react-router-dom'
         "days": 6
       },
       "highlight": "Chimps and Gorilla Tracking",
+      "coverImage": "https://images.unsplash.com/photo-1639771496050-26aa74df339e?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTV8fHJ3YW5kYXxlbnwwfHwwfHx8MA%3D%3D",
       "itinerary": [
         {
           "day": 1,
@@ -138,6 +141,7 @@ import { Link } from 'react-router-dom'
         "days": 8
       },
       "highlight": "Kilimanjaro Climbing",
+      "coverImage": "https://images.unsplash.com/photo-1546422560-9a00391b9278?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjR8fHJ3YW5kYXxlbnwwfHwwfHx8MA%3D%3D",
       "itinerary": [
         {
           "day": 1,
@@ -205,6 +209,7 @@ import { Link } from 'react-router-dom'
         "days": 7
       },
       "highlight": "Kilimanjaro Climbing",
+      "coverImage": "https://images.unsplash.com/photo-1689996821865-587203fecd9a?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NTN8fGtpbGltYW5qYXJvfGVufDB8fDB8fHww",
       "itinerary": [
         {
           "day": 1,
@@ -265,6 +270,7 @@ import { Link } from 'react-router-dom'
         "days": 4
       },
       "highlight": "Mountain Gorilla Tracking",
+      "coverImage": "https://images.unsplash.com/photo-1658012756033-f7e3313341c2?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NDd8fG1vdW50YWluJTIwZ29yaWxsYSUyMHRyYWNraW5nfGVufDB8fDB8fHww",
       "description": "Specialized eco-friendly gorilla trekking safaris with professional guides in the Virunga Mountains, where gorillas share 97% of our DNA. Tracking may take up to 2-4 hours with viewing time limited to one hour per visit.",
       "itinerary": [
         {
@@ -304,6 +310,7 @@ import { Link } from 'react-router-dom'
         "days": 7
       },
       "highlight": "Kilimanjaro Climbing",
+      "coverImage": "https://images.unsplash.com/photo-1631646109206-4b5616964f84?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8ODJ8fGtpbGltYW5qYXJvJTIwdGFuemFuaWF8ZW58MHx8MHx8fDA%3D",
       "description": "Mount Kilimanjaro stands at 5,895 meters and features six routes: Marangu, Machame, Shira, Rongai, Lemosho, and the Northern Circuit. The mountain has three volcanic cones: Kibo (5,895m), Mawenzi (5,149m), and Shira (3,962m).",
       "itinerary": [
         {
@@ -394,15 +401,15 @@ const RwandaSafari = () => {
 
   // Enhanced data structure for UI display
   const destinationImages = {
-    "Kigali": "/api/placeholder/800/500",
-    "Volcanoes National Park": "/api/placeholder/800/500",
-    "Lake Kivu": "/api/placeholder/800/500",
-    "Nyungwe": "/api/placeholder/800/500",
-    "Nyungwe Forest": "/api/placeholder/800/500",
-    "Ruhengeri": "/api/placeholder/800/500",
-    "Tanzania": "/api/placeholder/800/500",
-    "Kilimanjaro": "/api/placeholder/800/500",
-    "Moshi": "/api/placeholder/800/500"
+    "Kigali": "https://images.unsplash.com/photo-1564574662336-a4bdb9ba283a?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8a2lnYWxpfGVufDB8fDB8fHww",
+    "Ruhengeri": "https://images.unsplash.com/photo-1605559911928-e03606ea0dc0?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8cnVoZW5nZXJpfGVufDB8fDB8fHww",
+    "Volcanoes National Park": "https://images.unsplash.com/photo-1605559911928-e03606ea0dc0?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8dnVsY2Fub2VzJTIwbmF0aW9uYWwlMjBwYXJrfGVufDB8fDB8fHww",
+    "Lake Kivu": "https://images.unsplash.com/photo-1633613286848-e6f43bbafb8d?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8bGFrZSUyMGtpdnV8ZW58MHx8MHx8fDA%3D",
+    "Nyungwe": "https://images.unsplash.com/photo-1605559911928-e03606ea0dc0?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8bnl1bmd3ZSUyMGZvcmVzdHxlbnwwfHwwfHx8MA%3D%3D",
+    "Nyungwe Forest": "https://images.unsplash.com/photo-1605559911928-e03606ea0dc0?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8bnl1bmd3ZSUyMGZvcmVzdHxlbnwwfHwwfHx8MA%3D%3D",
+    "Tanzania": "https://images.unsplash.com/photo-1605559911928-e03606ea0dc0?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8dGFuemFuaWF8ZW58MHx8MHx8fDA%3D",
+    "Kilimanjaro": "https://images.unsplash.com/photo-1605559911928-e03606ea0dc0?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8a2lsaW1hbmphcm98ZW58MHx8MHx8fDA%3D",
+    "Moshi": "https://images.unsplash.com/photo-1605559911928-e03606ea0dc0?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8bW9zaGl8ZW58MHx8MHx8fDA%3D"
   };
 
   // Convert the tour packages to the format expected by the UI
@@ -435,6 +442,7 @@ const RwandaSafari = () => {
            : tour.highlight.includes("Gorilla") && tour.duration?.days <= 4 ? "featured" 
            : "midrange",
       itinerary: tour.itinerary || [],
+      coverImage: tour.coverImage,
       highlights: [
         tour.highlight,
         ...(tour.itinerary 
@@ -656,11 +664,11 @@ const RwandaSafari = () => {
             >
               {/* Package Image/Header */}
               <div className="relative h-48 bg-amber-900">
-                <img 
-                  src={safari.destinations[0] ? destinationImages[safari.destinations[0]] || "/api/placeholder/400/300" : "/api/placeholder/400/300"}
-                  alt={safari.destinations[0] || "Safari destination"}
-                  className="w-full h-full object-cover"
-                />
+              <img 
+  src={safari.coverImage || (safari.destinations[0] ? destinationImages[safari.destinations[0]] : "/placeholder-image.jpg")}
+  alt={safari.name}
+  className="w-full h-full object-cover"
+/>
                 <div className="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-70"></div>
                 
                 {/* Package Type & Featured Badge */}
@@ -769,8 +777,14 @@ const RwandaSafari = () => {
             
             {/* Header Image */}
             <div className="relative h-64">
-              <img 
-                src={selectedPackage.destinations[0] ? destinationImages[selectedPackage.destinations[0]] || "/api/placeholder/1200/400" : "/api/placeholder/1200/400"}
+            <img 
+    src={
+      selectedPackage.coverImage || 
+      (selectedPackage.destinations[0] 
+        ? destinationImages[selectedPackage.destinations[0]] 
+        : "/placeholder-image.jpg"
+      )
+    }
                 alt={selectedPackage.name}
                 className="w-full h-full object-cover"
               />

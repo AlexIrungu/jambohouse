@@ -96,7 +96,7 @@ const HeroBanner = () => (
         </button>
         </Link>
         
-        <Link to='/safaris'>
+        <Link to='/directory'>
         <button className="bg-transparent border-2 border-white hover:bg-white/20 px-8 py-4 rounded-full text-lg font-medium transition-all hover:scale-105">
           Explore Destinations
         </button>

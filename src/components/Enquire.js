@@ -46,7 +46,7 @@ const Enquire = () => {
                     <div className="lg:col-span-1 bg-gradient-to-br from-cafe-noir to-asparagus text-white p-8 lg:p-12">
                         <div className="sticky top-12">
                             <div className="mb-12">
-                                <h1 className="text-3xl lg:text-4xl font-bold mb-2">African Adventures</h1>
+                                <h1 className="text-3xl lg:text-4xl font-bold mb-2">Jambo Travel</h1>
                                 <div className="w-16 h-1 bg-princeton-orange mb-6"></div>
                                 <p className="text-lg opacity-90 leading-relaxed">
                                     Discover the magic of Africa with personalized travel experiences crafted to create memories that last a lifetime.
@@ -60,7 +60,7 @@ const Enquire = () => {
                                     </div>
                                     <div>
                                         <p className="text-sm text-mindaro font-medium">Email Us</p>
-                                        <p className="text-white">tours@jambotravelhouse.co.ke</p>
+                                        <p className="text-white">mark@jambotravelhouse.co.ke</p>
                                     </div>
                                 </div>
                                 
@@ -320,16 +320,16 @@ const Enquire = () => {
                                                 <input
                                                     type="range"
                                                     min="1"
-                                                    max="21"
+                                                    max="45"
                                                     value={value}
                                                     onChange={(e) => onChange(Number(e.target.value))}
                                                     className="w-full mt-2 h-2 bg-french-gray rounded-lg appearance-none cursor-pointer accent-cafe-noir"
                                                 />
                                                 <div className="flex justify-between text-xs text-cafe-noir mt-2">
                                                     <span>1 day</span>
-                                                    <span>7 days</span>
-                                                    <span>14 days</span>
-                                                    <span>21 days</span>
+                                                    <span>15 days</span>
+                                                    <span>30 days</span>
+                                                    <span>45 days</span>
                                                 </div>
                                             </div>
                                         )}
@@ -402,6 +402,82 @@ const Enquire = () => {
                                         ))}
                                     </div>
                                 </div>
+
+                                {/* Kids Option */}
+                                <div className="mb-6">
+                                    <label className="block text-cafe-noir text-sm font-medium mb-3">
+                                        Travelling with Kids?
+                                    </label>
+                                    <div className="grid grid-cols-2 gap-3">
+                                        <label className="flex items-center p-3 border border-french-gray rounded-lg hover:border-brown-sugar hover:bg-alice-blue transition-all cursor-pointer">
+                                            <Controller
+                                                name="hasKids"
+                                                control={control}
+                                                defaultValue={false}
+                                                render={({ field: { value, onChange } }) => (
+                                                    <input
+                                                        type="radio"
+                                                        checked={value === true}
+                                                        onChange={() => onChange(true)}
+                                                        className="h-4 w-4 text-cafe-noir focus:ring-2 focus:ring-brown-sugar"
+                                                    />
+                                                )}
+                                            />
+                                            <span className="ml-3 text-cafe-noir">Yes</span>
+                                        </label>
+                                        <label className="flex items-center p-3 border border-french-gray rounded-lg hover:border-brown-sugar hover:bg-alice-blue transition-all cursor-pointer">
+                                            <Controller
+                                                name="hasKids"
+                                                control={control}
+                                                defaultValue={false}
+                                                render={({ field: { value, onChange } }) => (
+                                                    <input
+                                                        type="radio"
+                                                        checked={value === false}
+                                                        onChange={() => onChange(false)}
+                                                        className="h-4 w-4 text-cafe-noir focus:ring-2 focus:ring-brown-sugar"
+                                                    />
+                                                )}
+                                            />
+                                            <span className="ml-3 text-cafe-noir">No</span>
+                                        </label>
+                                    </div>
+                                </div>
+
+                                {/* Number of Kids - conditional render */}
+                                <Controller
+                                    name="hasKids"
+                                    control={control}
+                                    defaultValue={false}
+                                    render={({ field: { value } }) => (
+                                        value && (
+                                            <div className="mb-6">
+                                                <label className="block text-cafe-noir text-sm font-medium mb-3">
+                                                    How many kids?
+                                                </label>
+                                                <div className="relative">
+                                                    <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                                        <Users className="h-4 w-4 text-brown-sugar" />
+                                                    </div>
+                                                    <Controller
+                                                        name="kidsCount"
+                                                        control={control}
+                                                        defaultValue={1}
+                                                        render={({ field }) => (
+                                                            <input
+                                                                type="number"
+                                                                min="1"
+                                                                max="10"
+                                                                {...field}
+                                                                className="w-full pl-10 pr-4 py-3 border border-french-gray rounded-lg focus:ring-2 focus:ring-brown-sugar focus:border-transparent transition-all"
+                                                            />
+                                                        )}
+                                                    />
+                                                </div>
+                                            </div>
+                                        )
+                                    )}
+                                />
                             </div>
 
                             {/* Additional Details */}

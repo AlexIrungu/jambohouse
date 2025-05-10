@@ -1,21 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { 
-  Star, 
-  MapPin, 
-  Users, 
-  Car, 
-  Calendar, 
-  Filter, 
-  ChevronDown,
-  Search,
-  Coffee,
-  Wifi,
-  Utensils,
-  Waves,
-  Umbrella,
-  Sparkles,
-  Heart
-} from 'lucide-react';
+import { Star, MapPin, Users, Car, Calendar, Filter, ChevronDown, Search, Coffee, Wifi, Utensils, Waves, Umbrella, Sparkles, Heart } from 'lucide-react';
+import { hotelData } from './HotelData'
 
 // Amenity icon mapping
 const amenityIcons = {

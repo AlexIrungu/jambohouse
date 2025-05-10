@@ -35,6 +35,9 @@ import TawkChat from './components/TawkChat';
 import KenyaBookingForm from './components/KenyaBookingForm';
 import { safariPackages } from './components/KenyaSafari';
 import TanzaniaBookingForm from './components/TanzaniaBookingForm';
+import HotelDirectory from './components/HotelDirectory';
+import AccessibilityTools from './components/AccessibilityTools';
+import HotelBookingForm from './components/HotelBookingForm';
 
 function App() {
   return (
@@ -42,9 +45,10 @@ function App() {
       <div className="App">
         <Navbar />
         <NewsletterPopup />
+        <AccessibilityTools />
         {/* <AIChatbot /> */}
         {/* Add Tawk.to chat integration */}
-        {/* <TawkChat /> */}
+        <TawkChat />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
@@ -56,7 +60,7 @@ function App() {
           <Route path="/safaris/rwanda" element={<RwandaSafaris />} />
           <Route path="/pricelist" element={<Pricelist />} />
           <Route path="/car-hire" element={<CarHire />} />
-          <Route path="/hotel-booking" element={<HotelBooking />} />
+          <Route path="/hotel-booking" element={<HotelBookingForm />} />
           <Route path="/blog/*" element={<BlogContainer />} />
           <Route path="/booking-form/:carId" element={<BookingForm />} />
           <Route path="/destinations" element={<Destinations />} />
@@ -66,6 +70,7 @@ function App() {
           <Route path="/faq" element={<FAQ />} />
           <Route path='/rwandashow' element={<RwandaSafariShowcase />} />
           <Route path='/reviews' element={<CustomerReviews />} />
+          <Route path="/directory" element={<HotelDirectory />} />
           <Route path='/safaris/rwanda/book/:tourId' element={<RwandaBookingForm tourData={tourData} />} />
           <Route path='/safaris/kenya/book/:id' element={<KenyaBookingForm safariPackages={safariPackages} />} />
           <Route path="/safaris/tanzania/book/:packageId" element={<TanzaniaBookingForm safariPackages={safariPackages} />} />

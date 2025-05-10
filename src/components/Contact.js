@@ -30,10 +30,10 @@ const Contact = () => {
 
     // Replace with your EmailJS service ID, template ID, and public key
     emailjs.sendForm(
-      'YOUR_SERVICE_ID',
-      'YOUR_TEMPLATE_ID',
+      'service_xrdhvyd',
+      'template_t62eg2x',
       form.current,
-      'YOUR_PUBLIC_KEY'
+      'wGf7PIGhqNr-Qlghk'
     )
       .then((result) => {
         console.log(result.text);

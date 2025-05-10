@@ -702,6 +702,7 @@ export const safariPackages = [
         ],
         difficulty: "Easy",
         destinations: ["Mount Kenya", "Lake Nakuru", "Lake Naivasha", "Masai Mara"],
+        coverImage: "https://images.unsplash.com/photo-1519659528534-7fd733a832a0?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTV8fGhvdCUyMGFpciUyMGJhbGxvbnxlbnwwfHwwfHx8MA%3D%3D",
         itinerary: [
           {
             "day": "Day 01",
@@ -748,6 +749,7 @@ export const safariPackages = [
         ],
         difficulty: "Easy",
         destinations: ["Aberdare", "Lake Nakuru", "Masai Mara"],
+        coverImage: "https://plus.unsplash.com/premium_photo-1664302698754-14128c74d56d?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OXx8bGlvbnMlMjBrZW55YXxlbnwwfHwwfHx8MA%3D%3D",
         itinerary: [
           {
             "day": "Day 01",
@@ -794,6 +796,7 @@ export const safariPackages = [
         ],
         difficulty: "Easy",
         destinations: ["Lake Nakuru", "Masai Mara", "Amboseli"],
+        coverImage: "https://plus.unsplash.com/premium_photo-1730233719882-890f7043eb9e?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MzN8fHdpbGRsaWZlfGVufDB8fDB8fHww",
         itinerary: [
           {
             "day": "Day 01",
@@ -845,6 +848,7 @@ export const safariPackages = [
         ],
         difficulty: "Easy",
         destinations: ["Lake Naivasha", "Lake Nakuru", "Masai Mara", "Amboseli"],
+        coverImage: "https://images.unsplash.com/photo-1701665842332-0b912cbed339?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTV8fGVsZXBoYW50fGVufDB8fDB8fHww",
         itinerary: [
           {
             "day": "Day 01",
@@ -897,7 +901,7 @@ export const safariPackages = [
           "Lunch at the famous Carnivore Restaurant in Nairobi"
         ],
         destination: ["Nairobi", "Lake Nakuru", "Masai Mara", "Amboseli"],
-        coverImage: "kenya-frontiers-safari.jpg",
+        coverImage: "https://images.unsplash.com/photo-1542882346-4b19cc95a3f4?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8Z2FtZSUyMGRyaXZlfGVufDB8fDB8fHww",
         itinerary: [
           {
             "day": 1,
@@ -975,7 +979,7 @@ export const safariPackages = [
           "Comfortable accommodations at Serena properties"
         ],
         destination: ["Nairobi", "Lake Nakuru", "Masai Mara"],
-        coverImage: "migration-safari.jpg",
+        coverImage: "https://images.unsplash.com/photo-1673667618335-face21a8b1a8?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8bWlncmF0aW9uJTIwbWFzYWklMjBtYXJhfGVufDB8fDB8fHww",
         itinerary: [
           {
             "day": 1,
@@ -1035,7 +1039,7 @@ export const safariPackages = [
           "Lunch at the famous Carnivore Restaurant in Nairobi"
         ],
         destination: ["Nairobi", "Lake Nakuru", "Lake Naivasha", "Masai Mara"],
-        coverImage: "maasai-safari.jpg",
+        coverImage: "https://images.unsplash.com/photo-1543107484-b13a21b26e8c?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTJ8fG1hc2FpJTIwbWFyYXxlbnwwfHwwfHx8MA%3D%3D",
         itinerary: [
           {
             "day": 1,
@@ -1095,7 +1099,7 @@ export const safariPackages = [
           "Farewell lunch at the famous Carnivore Restaurant in Nairobi"
         ],
         destination: ["Nairobi", "Lake Nakuru", "Masai Mara"],
-        coverImage: "safari-royale.jpg",
+        coverImage: "https://images.unsplash.com/photo-1518709766631-a6a7f45921c3?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjB8fG1hc2FpJTIwbWFyYXxlbnwwfHwwfHx8MA%3D%3D",
         itinerary: [
           {
             "day": 1,
@@ -1155,7 +1159,7 @@ export const safariPackages = [
           "Farewell lunch at the famous Carnivore Restaurant in Nairobi"
         ],
         destination: ["Nairobi", "Masai Mara"],
-        coverImage: "mara-serenade.jpg",
+        coverImage: "https://images.unsplash.com/photo-1515205244153-fce4e5d8bc49?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjR8fG1hc2FpJTIwbWFyYXxlbnwwfHwwfHx8MA%3D%3D",
         itinerary: [
           {
             "day": 1,
@@ -1197,7 +1201,7 @@ export const safariPackages = [
           "Farewell lunch at the famous Carnivore Restaurant in Nairobi"
         ],
         destination: ["Nairobi", "Masai Mara"],
-        coverImage: "mara-classic.jpg",
+        coverImage: "https://images.unsplash.com/photo-1620693776767-e929c5724b49?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NDN8fG1hc2FpJTIwbWFyYXxlbnwwfHwwfHx8MA%3D%3D",
         itinerary: [
           {
             "day": 1,
@@ -1239,7 +1243,7 @@ export const safariPackages = [
           "Farewell lunch at the famous Carnivore Restaurant in Nairobi"
         ],
         destination: ["Nairobi", "Masai Mara"],
-        coverImage: "mara-premium.jpg",
+        coverImage: "https://images.unsplash.com/photo-1532199286643-4b8e3f4a2fd9?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NTF8fG1hc2FpJTIwbWFyYXxlbnwwfHwwfHx8MA%3D%3D",
         itinerary: [
           {
             "day": 1,

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import newlogo from '../assets/Untitled design (15).png'
+// Import your full logo - you'll need to update this path to where you store the full logo
+import fullLogo from '../assets/logotwo.png'; // Update this path to your full logo
 
 const Navbar = () => {
     const [isScrolled, setIsScrolled] = useState(false);
@@ -52,30 +53,19 @@ const Navbar = () => {
         >
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="flex justify-between h-20 items-center">
-                    {/* Logo Section */}
+                    {/* Logo Section - Updated to show the full logo */}
                     <Link 
                         to="/" 
                         className="flex items-center group transition-all duration-300"
                         aria-label="Jambo Travel House - Home"
                     >
-                        <div className="relative h-12 w-12 mr-3 overflow-hidden rounded-lg shadow-md group-hover:shadow-lg transition-all duration-300">
-                            {/* Replace with your actual logo */}
-                            <div className="absolute inset-0 bg-gradient-to-br from-hunyadi-yellow to-princeton-orange flex items-center justify-center">
-                                <span className="text-2xl font-bold text-eggshell">J</span>
-                                {/* <img src={newlogo} alt=''/> */}
-                            </div>
-                        </div>
-                        <div className="flex flex-col">
-                            <span className={`text-xl font-bold tracking-tight transition-all duration-300 ${
-                                isScrolled || !isHomePage ? 'text-cafe-noir' : 'text-eggshell'
-                            } group-hover:text-hunyadi-yellow`}>
-                                Jambo Travel
-                            </span>
-                            <span className={`text-xs font-medium tracking-wider uppercase transition-all duration-300 ${
-                                isScrolled || !isHomePage ? 'text-moss-green' : 'text-cornsilk/90'
-                            }`}>
-                                Adventure Awaits
-                            </span>
+                        <div className="h-12 mr-2">
+                            {/* Using the full logo image */}
+                            <img 
+                                src={fullLogo} 
+                                alt="Jambo Travel House Logo" 
+                                className="h-full object-contain"
+                            />
                         </div>
                     </Link>
 
@@ -190,7 +180,7 @@ const Navbar = () => {
                         <div className="relative group">
                             <button 
                                 className={`px-3 py-2 rounded-md transition-all duration-300 font-medium flex items-center ${
-                                    (isActive('/car-hire') || isActive('/hotel-booking') || isActive('/pricelist'))
+                                    (isActive('/car-hire') || isActive('/directory') || isActive('/pricelist'))
                                     ? `text-hunyadi-yellow font-semibold ${isHomePage && !isScrolled ? 'bg-cafe-noir/30' : 'bg-mindaro/20'}`
                                     : isHomePage && !isScrolled
                                         ? 'text-eggshell hover:text-hunyadi-yellow hover:bg-cafe-noir/30'
@@ -217,7 +207,7 @@ const Navbar = () => {
                             <div className="absolute hidden group-hover:block opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-10 bg-eggshell shadow-xl rounded-md mt-1 py-2 w-56 border-t-2 border-t-hunyadi-yellow">
                                 {[
                                     { name: 'Car Hire', path: '/car-hire' },
-                                    { name: 'Hotel Booking', path: '/hotel-booking' },
+                                    { name: 'Hotel Booking', path: '/directory' },
                                     { name: 'Pricelist', path: '/pricelist' }
                                 ].map((item) => (
                                     <Link 
@@ -352,7 +342,7 @@ const Navbar = () => {
                         </div>
                         <div className="pl-6 space-y-1">
                             <MobileNavLink to="/car-hire" isActive={isActive}>Car Hire</MobileNavLink>
-                            <MobileNavLink to="/hotel-booking" isActive={isActive}>Hotel Booking</MobileNavLink>
+                            <MobileNavLink to="/directory" isActive={isActive}>Hotel Booking</MobileNavLink>
                             <MobileNavLink to="/pricelist" isActive={isActive}>Pricelist</MobileNavLink>
                         </div>
                     </div>
